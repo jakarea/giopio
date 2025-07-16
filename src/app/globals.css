@@ -1,0 +1,491 @@
+/* *******************************************
+Project Name: GIOPIO WEBSITE
+Project Version: 1.0.0
+CEO-FOUNDER: Jakarea Parvez
+Agency: GIOPIO
+URL: https://www.giopio.com
+Theme First color: #FF9040; 
+Theme Second color: #26404C;  
+Theme Primary Font Family: 'Plus Jakarta Sans', sans-serif;
+Theme Secondary Font Family: 'Poppins', sans-serif;
+******************************************** */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    html {
+        overflow-x: hidden;
+    }
+
+    body { 
+        font-family: var(--font-plus-jakarta);
+        overflow-x: hidden;
+    }
+
+    button,
+    a,
+    input {
+        @apply focus-visible:outline-none;
+    }
+
+    .main-line-left {
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        left: 14.28%;
+        top: 0;
+        z-index: -999;
+        background-color: #26404C;
+        opacity: 5%;
+    }
+
+    .main-line-right,
+    .main-line-05,
+    .main-line-04,
+    .main-line-03,
+    .main-line-02 {
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        z-index: -999;
+        background-color: #26404C;
+        opacity: 5%;
+    }
+
+    .dark .main-line-right,
+    .dark .main-line-05,
+    .dark .main-line-04,
+    .dark .main-line-03,
+    .dark .main-line-02,
+    .dark .main-line-left{
+        background-color: rgba(255, 255, 255, 0.3)!important;
+    }
+
+    .main-line-02 {
+        left: 28.56%;
+    }
+
+    .main-line-03 {
+        left: 42.84%;
+    }
+
+    .main-line-04 {
+        left: 57.12%;
+    }
+
+    .main-line-05 {
+        left: 71.4%;
+    }
+
+    .main-line-right {
+        left: 85.68%;
+    }
+
+    p {
+        font-family: var(--font-poppins);
+    }
+
+    .btn-first {
+        @apply inline-flex border-b-2 border-second text-2xl bg-transparent font-medium leading-8 text-second pr-6 anim hover:!border-first xl:text-3xl xl:pb-3 xl:pr-12 hover:!text-first dark:text-white dark:border-white;
+    }
+
+    .btn-second {
+        @apply inline-flex mt-6 border-b border-first text-base font-semibold text-first pr-4 pb-2 anim
+    }
+
+    .menu-link {
+        @apply text-sm font-semibold text-white flex anim sm:justify-end md:justify-center lg:text-third xl:text-base lg:hover:m-0 hover:lg:text-second anim relative dark:!text-white xl:pb-[2px];
+    }
+
+    .menu-link:before {
+        position: absolute;
+        content: '';
+        left: 0%;
+        bottom: -2px;
+        width: 0%;
+        height: 0.5px;
+        background-color: #FF9040;
+        background: linear-gradient(to right, #FF9040, #fff)!important;
+        transition: all linear .3s;
+    } 
+
+    .common-para {
+        @apply text-sm font-normal leading-[21px] text-third mr-3 xl:text-lg xl:leading-7;
+    }
+
+    .bg-title {
+        @apply text-[80px] font-extrabold leading-[100px] text-stroke-2 uppercase sm:text-[100px] md:text-[120px] lg:text-[150px] xl:text-[360px];
+    }
+
+    .bg-title-2 {
+        @apply text-[80px] font-extrabold leading-[100px] text-stroke-4 uppercase sm:text-[100px] md:text-[120px] lg:text-[150px] xl:text-[360px];
+    }
+
+    .border-half {
+        border-color: rgba(255, 255, 255, 0.5)
+    }
+
+    .dark-mode-bttn-d{
+        @apply anim;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .dark .bg-main-body{
+        background-image: none!important;
+    }
+
+    /* light to dark */
+    .ltd{
+        @apply anim flex dark:hidden;
+    }
+    .dtl{
+        @apply anim hidden dark:flex;
+    }
+
+    .dark .text-font-blue{
+        color: white!important;
+    }
+
+    .common-title-2 {
+        @apply text-[#434445] font-semibold text-xl lg:text-3xl xl:text-[48px] leading-6;
+    }
+
+    .common-para-2 {
+        @apply text-[#555759] font-medium text-base lg:text-3xl xl:text-[36px] lg:leading-[130%] leading-[22px];
+    }
+}
+
+#mySVG {
+    position: fixed;
+    transition: transform 0.5s linear;
+}
+
+.bounceCursor {
+    position: relative;
+    animation: mymove 4s infinite;
+}
+ 
+/* common title anim */
+.animated-text.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* bounce cursor */
+@keyframes mymove {
+    0% {
+        top: 0;
+    }
+
+    50% {
+        top: 50px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+/* shaking small elements */
+@keyframes flyingElem {
+    0% { transform: translate(-2px, -2px); }
+    25% { transform: translate(2px, 2px); }
+    50% { transform: translate(-2px, -2px); }
+    75% { transform: translate(2px, 2px); }
+    100% { transform: translate(-2px, -2px); }
+  }
+
+.flying-elem-1 {
+    animation: flyingElem 6s infinite alternate;
+}
+.flying-elem-2 {
+    animation: flyingElem 4s infinite alternate;
+}
+.flying-elem-3 {
+    animation: flyingElem 8s infinite alternate;
+}
+.flying-elem-4 {
+    animation: flyingElem 10s infinite alternate;
+}
+
+/* custom scrollbar css */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+background: #1B1C31; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #f1f1f1; 
+border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #f1f1f1; 
+}
+/* custom scrollbar css */
+.whatsapp-bttn {
+    background: linear-gradient(90deg, #25d366, #075e54, #25d366);
+    background-size: 300% 100%;
+    border: none;
+    transition: all 0.3s ease-in-out;
+    animation: GradientMove 5s infinite ease-in-out;
+    box-shadow: inset 0 0 10px rgba(37, 211, 102, 0.8);
+}
+
+@keyframes GradientMove {
+    0% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: 0% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.anim {
+    @apply transition duration-500 ease-in-out;
+}
+
+.custom-anim{
+    @apply transition-all duration-[2000ms] ease-in-out;
+}
+
+.common-stroke {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    text-stroke-width: 1px;
+}
+
+.text-stroke {
+    @apply common-stroke;
+    -webkit-text-stroke-color: #26404C4D;
+    text-stroke-color: #26404C4D;
+    /* -webkit-text-fill-color: #fff; */
+}
+
+.dark .text-stroke{
+    @apply anim;
+    -webkit-text-stroke-color: #FFFFFF4D;
+    text-stroke-color: #FFFFFF4D; 
+     -webkit-text-fill-color: #1B1C31;
+}
+
+.active {
+    -webkit-text-stroke-color: rgba(38, 64, 76, 0.14) !important;
+    text-stroke-color: rgba(38, 64, 76, 0.14) !important;
+}
+
+.text-stroke-2 {
+    @apply common-stroke;
+    -webkit-text-stroke-color: rgba(38, 64, 76, 0.08);
+    text-stroke-color: rgba(38, 64, 76, 0.05);
+    -webkit-text-fill-color: #F8F7F8
+}
+
+.text-stroke-4 {
+    @apply common-stroke;
+    -webkit-text-stroke-color: rgba(38, 64, 76, 0.08);
+    text-stroke-color: rgba(38, 64, 76, 0.08);
+    -webkit-text-fill-color: #f6f6f8;
+    transition: -webkit-text-stroke-color 0.6s, text-stroke-color 0.6s;
+}
+
+.dark .text-stroke-2,
+.dark .text-stroke-4 { 
+    @apply anim;
+    -webkit-text-stroke-color: #FFFFFF0D;
+    text-stroke-color: #FFFFFF0D;
+    -webkit-text-fill-color: #1B1C31;
+    transition: -webkit-text-stroke-color 0.6s, text-stroke-color 0.6s; 
+}
+
+.border-20t{
+    border-color: rgba(255, 255, 255, 0.2)!important;
+}
+
+.text-stroke-3 {
+    @apply common-stroke;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.08);
+    text-stroke-color: rgba(255, 255, 255, 0.05);
+    /* -webkit-text-fill-color: #F8F7F8 */
+}
+
+/* custom responsive css */
+@media (min-width: 320px) and (max-width: 640px) {
+    .animated-text {
+        opacity: 0;
+        transition: opacity 1s, transform 1s;
+        transform: translateX(-300px);
+    }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+    .animated-text {
+        opacity: 0;
+        transition: opacity 1s, transform 1s;
+        transform: translateX(-500px);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .animated-text {
+        opacity: 0;
+        transition: opacity 1s, transform 1s;
+        transform: translateX(-600px);
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1290px) {
+
+    .menu-link.active:before,
+    .menu-link:hover:before {
+        width: 100%;
+    }
+
+    .dark .menu-link.active:before,
+    .dark .menu-link:hover:before {
+        background-color: #FF9040;
+    }
+
+    .animated-text {
+        opacity: 0;
+        transition: opacity 1s, transform 1s;
+        transform: translateX(-800px);
+    }
+}
+
+@media (min-width: 1291px) {
+
+    .menu-link.active:before,
+    .menu-link:hover:before {
+        width: 100%;
+    }
+
+    .dark .menu-link.active:before,
+    .dark .menu-link:hover:before {
+        background-color: #FF9040;
+    }
+
+    .animated-text {
+        opacity: 0;
+        transition: opacity 1s, transform 1s;
+        transform: translateX(-1000px);
+    }
+
+    .title-profile{ 
+        -webkit-text-fill-color: #f5f5f8!important; 
+    }
+    .dark .title-profile{ 
+        -webkit-text-fill-color: #1B1C31!important; 
+    }
+}
+
+/* custom css */
+
+.btnz{
+	position: relative; 
+    overflow: hidden;
+}
+
+.btnz span:nth-child(1){
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: linear-gradient(to right, #fff, #26404C);
+	animation: animate1 2s linear infinite;
+}
+
+@keyframes animate1{
+	0%{
+		transform: translateX(-100%);
+	}
+
+	100%{
+		transform: translateX(100%);
+	}
+}
+
+.btnz span:nth-child(2){
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 1px;
+	height: 100%;
+	background: linear-gradient(to bottom, #fff, #26404C);
+	animation: animate2 2s linear infinite;
+	animation-delay: 1s;
+}
+
+@keyframes animate2{
+	0%{
+		transform: translateY(-100%);
+	}
+
+	100%{
+		transform: translateY(100%);
+	}
+}
+
+.btnz span:nth-child(3){
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: linear-gradient(to left, #fff, #26404C);
+	animation: animate3 2s linear infinite;
+}
+
+@keyframes animate3{
+	0%{
+		transform: translateX(100%);
+	}
+
+	100%{
+		transform: translateX(-100%);
+	}
+}
+
+.btnz span:nth-child(4){
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1px;
+	height: 100%;
+	background: linear-gradient(to top, #fff, #26404C);
+	animation: animate4 2s linear infinite;
+	animation-delay: 1s;
+}
+
+@keyframes animate4{
+	0%{
+		transform: translateY(100%);
+	}
+
+	100%{
+		transform: translateY(-100%);
+	}
+}
+
+.btnz-2 span:nth-child(1),
+.btnz-2 span:nth-child(3){
+    background: linear-gradient(to right, #FF9040, #fff)!important;
+}
+.btnz-2 span:nth-child(2),
+.btnz-2 span:nth-child(4){
+    background: linear-gradient(to right, #fff, #FF9040)!important;
+}

@@ -1,0 +1,39 @@
+{
+    "title": "Giopio - Your Partner in Web Development",
+    "description": "Giopio is a leading web design and development agency, offering tailored solutions and white-label services for businesses looking to excel in the digital space.",
+    "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
+    "author": "Giopio",
+    "canonical": "https://www.giopio.com/",
+    "openGraph": {
+        "title": "Giopio - Your Partner in Web Development",
+        "locale": "en_US",
+        "localeAlternate": [
+            "nl_NL"
+        ],
+        "type": "website",
+        "description": "Giopio is a leading web design and development agency, offering tailored solutions and white-label services for businesses looking to excel in the digital space.",
+        "url": "https://www.giopio.com",
+        "site_name": "Giopio",
+        "images": [
+            {
+                "url": "/assets/images/meta/home-image.webp",
+                "width": 1200,
+                "height": 630,
+                "alt": "Giopio Homepage",
+                "type": "image/webp"
+            }
+        ],
+        "website": {
+            "published_time": "2024-12-01T09:30:00+00:00",
+            "modified_time": "2025-01-27T11:50:30+00:00"
+        }
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Giopio - Your Partner in Web Development",
+        "description": "Giopio is a leading web design and development agency, offering tailored solutions and white-label services for businesses looking to excel in the digital space.",
+        "image": "/assets/images/meta/home-image.webp",
+        "site": "@Giopio",
+        "creator": "@Giopio"
+    }
+}

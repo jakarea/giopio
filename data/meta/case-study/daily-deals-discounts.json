@@ -1,0 +1,39 @@
+{
+    "title": "Daily Deals & Discounts Case Study | Giopio Web Development",
+    "description": "Discover how Giopio enhanced the Daily Deals & Discounts platform with custom web development, improving user experience and boosting conversions with tailored solutions.",
+    "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
+    "author": "Giopio",
+    "canonical": "https://www.giopio.com/case-studies/daily-deals-discounts",
+    "openGraph": {
+        "title": "Daily Deals & Discounts Case Study | Giopio Web Development",
+        "locale": "en_US",
+        "localeAlternate": [
+            "nl_NL"
+        ],
+        "type": "article",
+        "description": "Discover how Giopio enhanced the Daily Deals & Discounts platform with custom web development, improving user experience and boosting conversions with tailored solutions.",
+        "url": "https://www.giopio.com/case-studies/daily-deals-discounts",
+        "site_name": "Giopio",
+        "images": [
+            {
+                "url": "/assets/images/meta/daily-deals-discounts-image.webp",
+                "width": 1200,
+                "height": 630,
+                "alt": "Giopio Case Studies",
+                "type": "image/webp"
+            }
+        ],
+        "article": {
+            "published_time": "2024-12-01T09:30:00+00:00",
+            "modified_time": "2025-01-27T11:50:30+00:00"
+        }
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Daily Deals & Discounts Case Study | Giopio Web Development",
+        "description": "Discover how Giopio enhanced the Daily Deals & Discounts platform with custom web development, improving user experience and boosting conversions with tailored solutions.",
+        "image": "/assets/images/meta/daily-deals-discounts-image.webp",
+        "site": "@Giopio",
+        "creator": "@Giopio"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "title": "[Blog Title] | Giopio Insights & Updates",
+    "description": "Read our latest blog on [Blog Title] at Giopio. Stay informed with expert insights, tips, and industry updates to help you stay ahead. Explore now!.",
+    "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
+    "author": "Giopio",
+    "canonical": "https://www.giopio.com/blogs",
+    "openGraph": {
+        "title": "[Blog Title] | Giopio Insights & Updates",
+        "locale": "en_US",
+        "type": "article",
+        "description": "Read our latest blog on [Blog Title] at Giopio. Stay informed with expert insights, tips, and industry updates to help you stay ahead. Explore now!.",
+        "url": "https://www.giopio.com/blogs",
+        "site_name": "Giopio",
+        "images": [
+            {
+                "url": "/assets/images/meta/blog-details-image.webp",
+                "width": 1200,
+                "height": 630,
+                "alt": "Giopio",
+                "type": "image/webp"
+            }
+        ]
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "[Blog Title] | Giopio Insights & Updates",
+        "description": "Read our latest blog on [Blog Title] at Giopio. Stay informed with expert insights, tips, and industry updates to help you stay ahead. Explore now!",
+        "image": "/assets/images/meta/blog-details-image.webp",
+        "site": "@Giopio",
+        "creator": "@Giopio"
+    }
+}

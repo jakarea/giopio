@@ -1,0 +1,39 @@
+{
+    "title": "Join Our Team | Exciting Career Opportunities at Giopio",
+    "description": "Explore rewarding career opportunities at Giopio. Join our dynamic team and grow your career with exciting roles in a thriving and innovative environment.",
+    "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
+    "author": "Giopio",
+    "canonical": "https://www.giopio.com/career",
+    "openGraph": {
+        "title": "Giopio - Career page",
+        "locale": "en_US",
+        "localeAlternate": [
+            "nl_NL"
+        ],
+        "type": "website",
+        "description": "Explore rewarding career opportunities at Giopio. Join our dynamic team and grow your career with exciting roles in a thriving and innovative environment.",
+        "url": "https://www.giopio.com/career",
+        "site_name": "Giopio",
+        "images": [
+            {
+                "url": "/assets/images/meta/career-image.webp",
+                "width": 1200,
+                "height": 630,
+                "alt": "Giopio",
+                "type": "image/webp"
+            }
+        ],
+        "website": {
+            "published_time": "2024-12-01T09:30:00+00:00",
+            "modified_time": "2025-01-27T11:50:30+00:00"
+        }
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Giopio - Career page",
+        "description": "Explore rewarding career opportunities at Giopio. Join our dynamic team and grow your career with exciting roles in a thriving and innovative environment.",
+        "image": "/assets/images/meta/career-image.webp",
+        "site": "@Giopio",
+        "creator": "@Giopio"
+    }
+}

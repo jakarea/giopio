@@ -1,0 +1,54 @@
+[
+    {
+        "id": 1,
+        "title": "Discover Deals Discounts On The Go",
+        "slug": "discover-deals-discounts-on-the-go",
+        "technology": "Laravel, Flutter",
+        "subtitle": "Daily Deals & Discount",
+        "thumbnail": "/assets/images/case-status/hi-fi-phone-img.webp",
+        "logo": "/assets/images/small-logo/dnd-logo.svg",
+        "category": "Mobile App",
+        "description": "DailyDealsDiscounts is a powerful mobile app available on both Android and iOS platforms, designed to help users find the best deals in their vicinity.",
+        "liveLink": "https://dailydealsdiscounts.com/",
+        "previewLink": "/case-studies/daily-deals-discounts"
+    },
+    {
+        "id": 2,
+        "title": "A Revolutionary SaaS Platform for Market Insights",
+        "slug": "a-revolutionary-saas-platform-for-market-insights",
+        "technology": "Laravel, React",
+        "subtitle": "Interest Navigator",
+        "thumbnail": "/assets/images/case-status/interest-nevi-img/herosection-image.jpg",
+        "logo": "/assets/images/small-logo/int-nav-logo.svg",
+        "category": "Web App",
+        "description": "We partnered with Interest Navigator to create a powerful SaaS application that helps advertisers discover hidden opportunities across social media and search engines.",
+        "liveLink": "https://interestnavigator.io/",
+        "previewLink": "/case-studies/interest-navigator"
+    },
+    {
+        "id": 3,
+        "title": "Transforming Marketing Vision into Reality",
+        "slug": "transforming-marketing-vision-into-reality",
+        "technology": "WordPress",
+        "subtitle": "Go Next Level Agency",
+        "thumbnail": "/assets/images/case-status/gonextlavel-img/go-laptop-img.webp",
+        "logo": "/assets/images/small-logo/gnl-logo.svg",
+        "category": "CRM",
+        "description": "We collaborated with Dorian Olam, a forward-thinking marketing agency, to create a dynamic and visually engaging website.",
+        "liveLink": "https://gonextlevelagency.nl/",
+        "previewLink": "/case-studies/go-next-level-agency"
+    },
+    {
+        "id": 4,
+        "title": "A Comprehensive Premium E-Commerce Platform",
+        "slug": "a-comprehensive-premium-e-commerce-platform",
+        "technology": "WordPress, Shopify",
+        "subtitle": "Oak Food",
+        "thumbnail": "/assets/images/case-status/oak-food/1st-section-image.webp",
+        "logo": "/assets/images/small-logo/oakfood-logo.svg",
+        "category": "E-Commerce",
+        "description": "We collaborated with OakFood to develop a custom e-commerce website that showcases their premium food products.",
+        "liveLink": "https://oakfood.nl/",
+        "previewLink": "/case-studies/oak-food"
+    }
+]

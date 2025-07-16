@@ -1,0 +1,79 @@
+[
+    {
+        "id": 1,
+        "name": "Jakarea Parvez",
+        "designation": "Founder & CEO",
+        "image": "/assets/images/team/jakarea-parvez.webp",
+        "social": [
+            { "platform": "facebook", "url": "https://www.facebook.com/jakarea.io/"}, 
+            { "platform": "linkedin", "url": "https://www.linkedin.com/in/jakarea/"}, 
+            { "platform": "github", "url": "https://github.com/jakarea"}
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Akram Hossain",
+        "designation": "Full Stack Developer",
+        "image": "/assets/images/team/akram-hossain.webp",
+        "social": [
+            { "platform": "facebook", "url": "https://www.facebook.com/nynakram"}, 
+            { "platform": "linkedin", "url": "https://www.linkedin.com/in/nynakram/"}, 
+            { "platform": "github", "url": "https://github.com/Akram-hossain"}
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Sajib Prodhan",
+        "designation": "Backend Developer",
+        "image": "/assets/images/team/sajib-paradhan.webp",
+        "social": [
+            { "platform": "facebook", "url": "https://www.facebook.com/sajibprodhaan?mibextid=ZbWKwL"}, 
+            { "platform": "linkedin", "url": "https://www.linkedin.com/in/sajibprodhan/"}, 
+            { "platform": "github", "url": "https://github.com/sajibprodhan"}
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Fahriar Ahmed",
+        "designation": "App Developer",
+        "image": "/assets/images/team/fahriar-ahmed.webp",
+        "social": [ 
+            { "platform": "linkedin", "url": "https://www.linkedin.com/in/fahriar-ahammed/"}, 
+            { "platform": "github", "url": "https://github.com/Fahriar-Ahammed"}
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Abu Sayed",
+        "designation": "Sr Visual Designer",
+        "image": "/assets/images/team/abu-sayed.webp",
+        "social": [ 
+            { "platform": "linkedin", "url": "https://www.linkedin.com/in/abu-sayed-016992198/"}
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Towfiq hasan",
+        "designation": "UI / UX Designer",
+        "image": "/assets/images/team/towfiq-hasan.webp",
+        "social": [
+            { "platform": "facebook", "url": "https://www.facebook.com/towfiq.hasan11"}
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Sakib Raihan",
+        "designation": "Frontend Designer",
+        "image": "/assets/images/team/sakib-raihan.webp",
+        "social": [
+            { "platform": "facebook", "url": "https://www.facebook.com/mdsakib.raihan.79/"},
+            { "platform": "github", "url": "https://github.com/sakibgiopio"}
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Rimon Babu",
+        "designation": "WordPress Developer",
+        "image": "/assets/images/team/rimon-babu.webp"
+    }
+]

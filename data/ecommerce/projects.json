@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "title": "Oak Food",
+        "slug": "oak-food",
+        "category": "E-commerce",
+        "url": "https://www.oakfood.nl",
+        "image": "/assets/images/ecommerce/work-sample-01.webp"
+    },
+    {
+        "id": 2,
+        "title": "Daily Deals Discounts",
+        "slug": "daily-deals-discounts",
+        "category": "Mobile App",
+        "url": "#flutter #kotlin #firebase #ios",
+        "image": "/assets/images/ecommerce/work-sample-02.webp"
+    },
+    {
+        "id": 3,
+        "title": "Hook & Hunt",
+        "slug": "hook-hunt",
+        "category": "E-commerce",
+        "url": "https://www.hooknhunt.xyz",
+        "image": "/assets/images/ecommerce/work-sample-03.webp"
+    },
+    {
+        "id": 4,
+        "title": "My Re-seller Hub",
+        "slug": "hook-hunt",
+        "category": "E-commerce",
+        "url": "https://www.myresellhub.com",
+        "image": "/assets/images/ecommerce/work-sample-04.webp"
+    }
+]

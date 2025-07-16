@@ -1,0 +1,32 @@
+{
+    "title": "Book a Call | Schedule a Consultation with Giopio",
+    "description": "Schedule a call with Giopio to discuss your needs and explore our solutions. Book a free consultation with our experts today and take the next step forward.",
+    "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
+    "author": "Giopio",
+    "canonical": "https://www.giopio.com/",
+    "openGraph": {
+        "title": "Book a Call | Schedule a Consultation with Giopio",
+        "locale": "en_US",
+        "type": "article",
+        "description": "Schedule a call with Giopio to discuss your needs and explore our solutions. Book a free consultation with our experts today and take the next step forward.",
+        "url": "https://www.giopio.com/",
+        "site_name": "Giopio",
+        "images": [
+            {
+                "url": "/assets/images/meta/image.webp",
+                "width": 1200,
+                "height": 630,
+                "alt": "Giopio",
+                "type": "image/webp"
+            }
+        ]
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Book a Call | Schedule a Consultation with Giopio",
+        "description": "Schedule a call with Giopio to discuss your needs and explore our solutions. Book a free consultation with our experts today and take the next step forward.",
+        "image": "/assets/images/meta/image.webp",
+        "site": "@Giopio",
+        "creator": "@Giopio"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "title": "Custom eCommerce Website Development | Build Your Online Store",
+    "description": "We create fast, secure, and user-friendly eCommerce websites with payment integration, mobile optimization, and a seamless shopping experience.",
+    "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
+    "author": "Giopio",
+    "canonical": "https://www.giopio.com/ecommerce",
+    "openGraph": {
+        "title": "Custom eCommerce Website Development | Build Your Online Store",
+        "locale": "en_US",
+        "type": "article",
+        "description": "We create fast, secure, and user-friendly eCommerce websites with payment integration, mobile optimization, and a seamless shopping experience.",
+        "url": "https://www.giopio.com/ecommerce",
+        "site_name": "Giopio",
+        "images": [
+            {
+                "url": "/assets/images/meta/ecommerce-image.webp",
+                "width": 1200,
+                "height": 630,
+                "alt": "Giopio",
+                "type": "image/webp"
+            }
+        ]
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Custom eCommerce Website Development | Build Your Online Store",
+        "description": "We create fast, secure, and user-friendly eCommerce websites with payment integration, mobile optimization, and a seamless shopping experience.",
+        "image": "/assets/images/meta/ecommerce-image.webp",
+        "site": "@Giopio",
+        "creator": "@Giopio"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "title": "Contact Us | Get in Touch with Giopio",
+    "description": "Have questions or need assistance? Contact Giopio today via phone, email, or our contact form. We're here to help you with all your inquiries.",
+    "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
+    "author": "Giopio",
+    "canonical": "https://www.giopio.com/contact",
+    "openGraph": {
+        "title": "Contact Us | Get in Touch with Giopio",
+        "locale": "en_US",
+        "type": "article",
+        "description": "Have questions or need assistance? Contact Giopio today via phone, email, or our contact form. We're here to help you with all your inquiries.",
+        "url": "https://www.giopio.com/contact",
+        "site_name": "Giopio",
+        "images": [
+            {
+                "url": "/assets/images/meta/contact-image.webp",
+                "width": 1200,
+                "height": 630,
+                "alt": "Giopio",
+                "type": "image/webp"
+            }
+        ]
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Contact Us | Get in Touch with Giopio",
+        "description": "Have questions or need assistance? Contact Giopio today via phone, email, or our contact form. We're here to help you with all your inquiries.",
+        "image": "/assets/images/meta/contact-image.webp",
+        "site": "@Giopio",
+        "creator": "@Giopio"
+    }
+}

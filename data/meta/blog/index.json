@@ -1,0 +1,35 @@
+{
+    "title": "Giopio Blogs - Latest News, Insights, and Industry Trends",
+    "description": "Explore the latest blogs on Giopio. Get expert insights, industry news, and valuable tips on various topics. Stay updated with fresh content and trends to help you succeed.",
+    "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
+    "author": "Giopio",
+    "canonical": "https://www.giopio.com/blogs",
+    "openGraph": {
+        "title": "Giopio - Blog page",
+        "locale": "en_US",
+        "localeAlternate": [
+            "nl_NL"
+        ],
+        "type": "website",
+        "description": "Explore the latest blogs on Giopio. Get expert insights, industry news, and valuable tips on various topics. Stay updated with fresh content and trends to help you succeed.",
+        "url": "https://www.giopio.com/blogs",
+        "site_name": "Giopio",
+        "images": [
+            {
+                "url": "/assets/images/meta/blog-image.webp",
+                "width": 1200,
+                "height": 630,
+                "alt": "Giopio",
+                "type": "image/webp"
+            }
+        ]
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Giopio - Blog page",
+        "description": "Explore the latest blogs on Giopio. Get expert insights, industry news, and valuable tips on various topics. Stay updated with fresh content and trends to help you succeed.",
+        "image": "/assets/images/meta/blog-image.webp",
+        "site": "@Giopio",
+        "creator": "@Giopio"
+    }
+}

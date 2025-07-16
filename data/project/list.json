@@ -1,0 +1,34 @@
+[
+    {
+      "id": 1,
+      "title": "Go Next Level Agency",
+      "slug": "go-next-level-agency",
+      "category": "Theme Development",
+      "description": "Developed a fully custom WordPress website for Go Next Level Agency, a leading digital marketing firm. Using Tailwind CSS and GSAP for dynamic design and animations, the site offers a seamless, multilingual experience with minimal plugin usage. This project highlights my expertise in creating high-performance, bespoke websites that elevate brand presence and user engagement.",
+      "url": "#"
+    },
+    {
+      "id": 2,
+      "title": "BEXS Detachering",
+      "slug": "bexs-detachering",
+      "category": "Recruitment and Staffing",
+      "description": "Developed a custom WordPress website for BEXS Detachering, a leading recruitment and staffing firm. The site features a fully responsive design, minimal plugin usage for optimal performance, and seamless integration of core services. This project showcases my expertise in creating bespoke, high-impact websites that align with a client’s unique brand and business needs.",
+      "url": "#"
+    },
+    {
+      "id": 3,
+      "title": "Oak Food",
+      "slug": "oak-food",
+      "category": "Woocommerce",
+      "description": "We recently delivered the Oak Food eCommerce website, a custom WordPress solution designed to highlight the brand's culinary offerings. Our team handled the complete UI/UX design, ensuring a clean and user-friendly interface. Additionally, we implemented basic on-page and technical SEO to enhance visibility and search engine performance, providing a seamless shopping experience across all devices.",
+      "url": "#"
+    },
+    {
+      "id": 4,
+      "title": "World Bridge VPN",
+      "slug": "world-bridge-vpn",
+      "category": "UI/UX",
+      "description": "Introducing you to our latest project—World Bridge VPN. We’ve meticulously crafted an iOS mobile app UI in Figma, paired with a sleek and functional website. Our design was inspired by an in-depth analysis of popular VPNs in the market, and we’re confident it stands out as the best among them.",
+      "url": "#"
+    }
+  ]

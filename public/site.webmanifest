@@ -1,0 +1,30 @@
+{
+  "name": "Giopio",
+  "short_name": "Giopio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ff9040",
+  "theme_color": "#ff9040",
+  "icons": [
+    {
+      "src": "/assets/images/favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/favicon-32.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/images/favicon-16.svg",
+      "sizes": "16x16",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

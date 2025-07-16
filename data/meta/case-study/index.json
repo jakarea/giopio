@@ -1,0 +1,39 @@
+{
+    "title": "Giopio Case Studies - Our Web Development Success Stories",
+    "description": "Explore Giopio's successful web development projects, showcasing our expertise in PHP, Laravel, e-commerce, and custom solutions for diverse clients.",
+    "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
+    "author": "Giopio",
+    "canonical": "https://www.giopio.com/case-studies",
+    "openGraph": {
+        "title": "Giopio Case Studies - Our Web Development Success Stories",
+        "locale": "en_US",
+        "localeAlternate": [
+            "nl_NL"
+        ],
+        "type": "article",
+        "description": "Explore Giopio's successful web development projects, showcasing our expertise in PHP, Laravel, e-commerce, and custom solutions for diverse clients.",
+        "url": "https://www.giopio.com/case-studies",
+        "site_name": "Giopio",
+        "images": [
+            {
+                "url": "/assets/images/meta/case-studies-image.webp",
+                "width": 1200,
+                "height": 630,
+                "alt": "Giopio Case Studies",
+                "type": "image/webp"
+            }
+        ],
+        "article": {
+            "published_time": "2024-12-01T09:30:00+00:00",
+            "modified_time": "2025-01-27T11:50:30+00:00"
+        }
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Giopio Case Studies - Our Web Development Success Stories",
+        "description": "Explore Giopio's successful web development projects, showcasing our expertise in PHP, Laravel, e-commerce, and custom solutions for diverse clients.",
+        "image": "/assets/images/meta/case-studies-image.webp",
+        "site": "@Giopio",
+        "creator": "@Giopio"
+    }
+}

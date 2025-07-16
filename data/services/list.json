@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "slug": "custom-web-design-development",
+      "title": "Custom Web Design & Development",
+      "description": "We offer comprehensive web design and development services. Our team creates websites that match your branding, target audience, and marketing goals. From concept to completion, we ensure your site is both beautiful and functional, delivering a seamless user experience that drives results."
+    },
+    {
+      "id": 2,
+      "slug": "wordpress-theme-plugin-development",
+      "title": "WordPress Theme & Plugin Development",
+      "description": "We develop custom WordPress themes and plugins to enhance your website's functionality and look. Our user-friendly solutions ensure a professional, secure site that meets your needs. Start promoting your business with a website tailored to your exact specifications, designed for ease of use and reliability."
+    },
+    {
+      "id": 3,
+      "slug": "laravel-react-application-development",
+      "title": "Laravel &amp; React Application Development",
+      "description": "Our team of seasoned developers specializes in Laravel and React applications. Whether you're launching a new venture or enhancing an existing project, we deliver robust, scalable solutions. Let us elevate your business with high-performance applications that meet your needs and exceed your expectations."
+    },
+    {
+      "id": 4,
+      "slug": "facebook-application-development",
+      "title": "Facebook Application Development",
+      "description": "We develop custom Facebook applications to help you engage with a massive user base. Showcase your products and services to billions of daily users with a user-friendly, effective app. Our solutions increase your reach, connect with potential customers, and drive engagement on the world's largest social network."
+    },
+    {
+      "id": 5,
+      "slug": "figma-to-html-conversion",
+      "title": "Figma to HTML Conversion",
+      "description": "We convert your Figma designs into fully responsive HTML websites. Our team brings your vision to life with pixel-perfect, W3C-validated, SEO-optimized code. We ensure your design looks stunning across all devices and provide ongoing support to keep your site performing at its best."
+    },
+    {
+      "id": 6,
+      "slug": "digital-marketing-solutions",
+      "title": "Digital Marketing Solutions",
+      "description": "We craft tailored digital marketing strategies to help you stay ahead of the competition. By understanding your unique goals, we simplify the process and create effective campaigns. Our expertise in digital marketing ensures your brand reaches its target audience and achieves its objectives efficiently."
+    }
+  ]

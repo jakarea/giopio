@@ -1,0 +1,32 @@
+{
+    "title": "Career Opportunity: [Job Title] at Giopio | Apply Now",
+    "description": "Discover exciting career opportunities at Giopio for the role of [Job Title]. Join our team and advance your career with a leading company. Apply today.",
+    "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
+    "author": "Giopio",
+    "canonical": "https://www.giopio.com/career",
+    "openGraph": {
+        "title": "Career Opportunity: [Job Title] at Giopio | Apply Now",
+        "locale": "en_US",
+        "type": "article",
+        "description": "Discover exciting career opportunities at Giopio for the role of [Job Title]. Join our team and advance your career with a leading company. Apply today.",
+        "url": "https://www.giopio.com/career",
+        "site_name": "Giopio",
+        "images": [
+            {
+                "url": "/assets/images/meta/career-details-image.webp",
+                "width": 1200,
+                "height": 630,
+                "alt": "Giopio",
+                "type": "image/webp"
+            }
+        ]
+    },
+    "twitter": {
+        "card": "summary_large_image",
+        "title": "Career Opportunity: [Job Title] at Giopio | Apply Now",
+        "description": "Discover exciting career opportunities at Giopio for the role of [Job Title]. Join our team and advance your career with a leading company. Apply today.",
+        "image": "/assets/images/meta/career-details-image.webp",
+        "site": "@Giopio",
+        "creator": "@Giopio"
+    }
+}
