@@ -85,7 +85,7 @@ const MainForm = () => {
     };
 
     return (
-        <form className="flex flex-col gap-y-8 lg:w-[80%] lg:mx-auto xl:gap-y-16 xl:mx-0 xl:ml-auto xl:w-[782px]" onSubmit={handleSubmit}>
+        <form className="flex flex-col gap-y-8 lg:w-[80%] lg:mx-auto xl:gap-y-16 xl:mx-0 xl:ml-auto xl:w-[782px]" onSubmit={handleSubmit} id="contact_form" name="contact_form">
             <div className="block xl:grid xl:grid-cols-2 xl:gap-x-[50px]">
                 <div className="group mb-8 xl:mb-0">
                     <input
