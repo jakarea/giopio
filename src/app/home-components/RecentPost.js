@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link';
 import React from 'react';
+import Image from 'next/image';
 
 const RecentPost = ({ blogData }) => {
   // Slice the blogData array to get the last 3 items
@@ -85,6 +86,7 @@ const RecentPost = ({ blogData }) => {
                   <span className="inline-flex py-3 px-4 bg-first font-medium text-new text-sm h-[34px] items-center justify-center lg:h-[41px] lg:text-lg lg:px-[26px]">
                     {blog.category}
                   </span> 
+                  <Image src={blog.feature_thumbnail} alt="blog" width="600" height="400" className="w-full mt-6 anim" loading='lazy' />
                     <Link href={`/blogs/${blog.slug}`} className="block group-hover:text-first my-6 text-xl xl:text-2xl font-semibold text-second xl:text-[32px] xl:font-semibold xl:leading-10 xl:mt-12 xl:mb-10 anim dark:text-white">
                       {blog.title}
                     </Link> 

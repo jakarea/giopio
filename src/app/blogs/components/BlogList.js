@@ -53,6 +53,7 @@ const BlogList = () => {
               
               <ul className="flex xl:flex-col gap-x-8 items-center lg:gap-y-[50px] xl:gap-y-[66px]">
                 <li>
+                  
                   <Link href="#" className="block">
                     <Image src="/assets/images/heart-icon.svg" alt="heart" className="w-[14px] lg:w-6 h-5 ltd anim" width="24" height="20" />
                     <Image src="/assets/images/heart-icon-w.svg" alt="heart" className="w-[14px] lg:w-6 anim dtl h-5" width="24" height="20" />
