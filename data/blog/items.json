@@ -43,7 +43,7 @@
     "readTime": "7 min read",
     "excerpt": "When you choose Giopio, you’re choosing excellence...",
     "content": "When y​ou ch​oose Giopio, yo​u’re cho​osing e​xcellence. a dec​ade of exp​erience we’ve established oursel ves as a trus​ted we​bsite develo​pment agency in the US​A O​ur t​eam has been recognized for deliverin​g exce​ptional results and un​matched service.",
-    "feature_thumbnail": "https://cdn.pixabay.com/photo/2020/03/06/08/00/laptop-4906312_1280.jpg",
+    "feature_thumbnail": "/assets/images/blogs/laptop-4906312_1280.webp",
     "author": "jakarea Parvez",
     "date": "May 01, 2024",
     "sections": [
@@ -79,7 +79,7 @@
     "readTime": "7 min read",
     "excerpt": "When you choose Giopio, you’re choosing excellence...",
     "content": "When y​ou ch​oose Giopio, yo​u’re cho​osing e​xcellence. a dec​ade of exp​erience we’ve established oursel ves as a trus​ted we​bsite develo​pment agency in the US​A O​ur t​eam has been recognized for deliverin​g exce​ptional results and un​matched service.",
-    "feature_thumbnail": "https://cdn.pixabay.com/photo/2016/06/25/12/52/laptop-1478822_1280.jpg",
+    "feature_thumbnail": "/assets/images/blogs/laptop-4906312_1280.webp",
     "author": "jakarea Parvez",
     "date": "May 01, 2024",
     "sections": [
@@ -311,7 +311,7 @@
         "title": "Using Redux with React",
         "content": "Connect your React components to the Redux store using the connect function from React-Redux. This allows you to access the state and dispatch actions from your components.",
         "content-2": "Use the useSelector and useDispatch hooks for a more modern approach to integrating Redux with functional components.",
-        "image": "https://cdn.pixabay.com/photo/2024/03/12/16/43/coding-8629055_1280.jpg"
+        "image": "/assets/images/blogs/laptop-4906312_1280.webp"
       },
       {
         "title": "Best Practices",
@@ -381,7 +381,7 @@
         "title": "Examples of Closures",
         "content": "We'll explore various examples of closures, including how they are used in event handlers, timers, and higher-order functions.",
         "content-2": "Understand how closures can help manage state in JavaScript applications.",
-        "image": "https://cdn.pixabay.com/photo/2024/03/12/16/45/code-8629057_1280.jpg"
+        "image": "/assets/images/blogs/laptop-4906312_1280.webp"
       },
       {
         "title": "Best Practices",
@@ -416,7 +416,7 @@
         "title": "Creating a Responsive Layout",
         "content": "Use Flexbox to create responsive layouts that adapt to different screen sizes. We'll cover techniques for building flexible grids and aligning content dynamically.",
         "content-2": "Explore practical examples of Flexbox in action.",
-        "image": "https://cdn.pixabay.com/photo/2024/03/12/16/46/layout-8629058_1280.jpg"
+        "image": "/assets/images/blogs/laptop-4906312_1280.webp"
       },
       {
         "title": "Common Pitfalls and Solutions",
@@ -486,7 +486,7 @@
         "title": "Building a JAMstack Site",
         "content": "Learn how to build a JAMstack site using tools like Next.js, Gatsby, and Netlify. We'll cover the basics of setting up a project, fetching data from APIs, and deploying your site.",
         "content-2": "Explore how to integrate headless CMS solutions and serverless functions into your JAMstack workflow.",
-        "image": "https://cdn.pixabay.com/photo/2024/03/12/16/48/jamstack-8629060_1280.jpg"
+        "image": "/assets/images/blogs/laptop-4906312_1280.webp"
       },
       {
         "title": "Best Practices",
@@ -521,7 +521,7 @@
         "title": "Creating Your First Visualization",
         "content": "Learn how to create a simple bar chart using D3.js. Bind data to DOM elements, create scales, and apply styles to your visualization.",
         "content-2": "Explore how to add interactivity to your visualizations using D3.js transitions and events.",
-        "image": "https://cdn.pixabay.com/photo/2024/03/12/16/49/data-visualization-8629061_1280.jpg"
+        "image": "/assets/images/blogs/laptop-4906312_1280.webp"
       },
       {
         "title": "Advanced Techniques",
@@ -556,7 +556,7 @@
         "title": "Orchestrating Containers with Kubernetes",
         "content": "Kubernetes is a container orchestration platform that automates the deployment, scaling, and management of containerized applications. Learn how to deploy and manage your microservices with Kubernetes.",
         "content-2": "Explore Kubernetes features like deployments, services, and secrets.",
-        "image": "https://cdn.pixabay.com/photo/2024/03/12/16/50/microservices-8629062_1280.jpg"
+        "image": "/assets/images/blogs/laptop-4906312_1280.webp"
       },
       {
         "title": "Best Practices for Microservices",
@@ -591,7 +591,7 @@
         "title": "Improving Performance",
         "content": "Optimize your web pages based on Lighthouse recommendations. Learn how to improve metrics like First Contentful Paint, Speed Index, and Time to Interactive.",
         "content-2": "Explore techniques for optimizing images, reducing JavaScript payloads, and improving server response times.",
-        "image": "https://cdn.pixabay.com/photo/2024/03/12/16/51/performance-8629063_1280.jpg"
+        "image": "/assets/images/blogs/laptop-4906312_1280.webp"
       },
       {
         "title": "Automating Lighthouse Audits",
@@ -626,7 +626,7 @@
         "title": "Integrating WebAssembly with JavaScript",
         "content": "Understand how to call WebAssembly functions from JavaScript and vice versa. Learn how to pass data between WebAssembly and JavaScript.",
         "content-2": "Explore how to use WebAssembly in a real-world application.",
-        "image": "https://cdn.pixabay.com/photo/2024/03/12/16/52/webassembly-8629064_1280.jpg"
+        "image": "/assets/images/blogs/laptop-4906312_1280.webp"
       },
       {
         "title": "Performance Considerations",
