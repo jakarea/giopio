@@ -50,6 +50,7 @@ const BlogList = () => {
         {currentBlogs.map((blog) => (
           <div className="w-full grid grid-cols-1 xl:grid-cols-12 gap-y-6 xl:gap-y-0" key={blog.id}>
             <div className="w-full xl:col-span-2 sm:justify-center flex">
+              
               <ul className="flex xl:flex-col gap-x-8 items-center lg:gap-y-[50px] xl:gap-y-[66px]">
                 <li>
                   <Link href="#" className="block">
@@ -58,6 +59,7 @@ const BlogList = () => {
                   </Link>
                   <span className="font-poppins text-[12px] font-normal text-third lg:text-base block lg:mt-4 anim dark:text-d-sixth">{blog.likes}</span>
                 </li>
+               
                 <li>
                   <Link href="#" className="block">
                     <Image src="/assets/images/comment-icon.svg" alt="comment" className="w-[14px] lg:w-[21px] anim ltd" width="21" height="20" />
@@ -87,9 +89,11 @@ const BlogList = () => {
             </div>
             <div className="w-full xl:col-span-10 group">
               <span className="inline-flex py-3 px-4 bg-first font-medium text-second text-sm h-[34px] items-center justify-center lg:h-[41px] lg:text-lg lg:px-[26px]">{blog.category}</span>
+              <Image src={blog.feature_thumbnail} alt="blog" width="600" height="400" className="w-full mt-6 anim" loading='lazy' />
               <h3>
                 <Link href={`/blogs/${blog.slug}`} className="block group-hover:text-first my-6 text-2xl font-semibold text-second xl:text-[32px] xl:font-semibold xl:leading-10 xl:mt-12 xl:mb-10 anim dark:text-white">{blog.title}</Link>
               </h3>
+               
               <p className="common-para anim dark:text-d-fifth">{blog.excerpt}</p>
               <p className="common-para mt-6 flex items-center anim dark:text-d-fifth">
                 <Image src="/assets/images/clock-icon.svg" alt="icon" className="mr-3 anim ltd w-4 h-4" width="16" height="16" />
