@@ -1,6 +1,6 @@
 import Header from "@/app/components/Header";
 import Script from 'next/script';
-import { Poppins, Plus_Jakarta_Sans, Aclonica, Tiro_Bangla } from 'next/font/google'
+import { Poppins, Plus_Jakarta_Sans, Aclonica, Tiro_Bangla, Onest } from 'next/font/google'
 import "./globals.css";
 import Cta from "@/app/components/Cta";
 import Footer from "@/app/components/Footer";
@@ -34,10 +34,16 @@ const trio = Tiro_Bangla({
   display: 'swap',
   weight: '400',
 });
+const onest = Onest({
+  subsets: ['latin'],
+  variable: '--font-onest',
+  display: 'swap',
+  weight: '400',
+});
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -83,7 +89,7 @@ export default function RootLayout({ children }) {
           fbq('track', 'PageView');
         `}
       </Script>
-      <body className={`bg-main-body relative dark:bg-[#1B1C31] anim ${poppins.variable} ${plus_jakarta.variable} ${aclonica.variable} ${trio.variable}`}>
+      <body className={`bg-main-body relative dark:bg-[#1B1C31] anim ${poppins.variable} ${plus_jakarta.variable} ${aclonica.variable} ${trio.variable} ${onest.variable}`}>
         {/* Google Tag Manager (noscript) */}
             <noscript
               dangerouslySetInnerHTML={{

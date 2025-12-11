@@ -3,7 +3,7 @@ const nextConfig = {
   // output: 'export',
   // trailingSlash: true
   images: {
-    domains: ["cdn.pixabay.com"],
+    domains: ["cdn.pixabay.com"], 
   },
 };
 
