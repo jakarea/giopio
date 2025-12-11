@@ -5,54 +5,49 @@ import React from 'react'
 const Hero = () => {
     return (
         <>
-            <section className="w-full pt-16 relative md:pt-20 xl:pt-12 2xl:pt-36">
+            <section className="w-full pt-16 relative md:pt-20 xl:pt-32 2xl:pt-48 ">
                 <div className="container">
                     <div className="text-start">
                         <div className="block xl:relative">
+                            <div className='text-start flex flex-col lg:flex-row gap-y-4 lg:gap-y-0 items-center gap-x-3 lg:gap-x-4 mb-2 lg:mb-2.5'>
+                                <img src="/assets/images/trusted-badge.svg" alt="tusted badge" className="w-16 lg:w-[90px]" />
+                                <p className='bg-white/5 border-white/10 border rounded-full py-2.5 px-4 text-white font-normal text-xs md:text-sm lg:text-base text-center'>★★★★★ Rated 5/5 Dutch Founders</p>
+                            </div>
                             <h1
-                                className="text-stroke text-[44px] font-extrabold leading-[60px] sm:text-[53px] md:text-[65px] lg:text-[100px] lg:leading-[110px] xl:text-[140px] xl:leading-[150px] xl:inline-block uppercase xl:font-black">
-                                YOUR PARTNER <br className="hidden xl:inline-block" />
-                                IN WEB</h1>
-
-                            <p
-                                className="mt-8 text-sm font-light leading-[21px] text-third sm:text-base xl:text-lg xl:leading-7 hidden xl:inline-block xl:absolute xl:left-[33rem] xl:bottom-4 xl:mt-0 dark:text-d-fifth anim">
-                                Are you looking for top-tier web design services and a reliable website development agency? Look no
-                                further. Giopio is your dedicated partner in the digital realm, offering cutting-edge solutions tailored
-                                to your specific needs, including extensive <strong>white-label services.</strong></p>
+                                className="text-stroke text-[44px] font-extrabold leading-[50px] sm:text-[53px] md:text-[65px] lg:text-[100px] lg:leading-[110px] xl:text-[130px] xl:leading-[150px] xl:inline-block uppercase xl:font-black">SHOPIFY SCALING ENGINEERED</h1>
                         </div>
 
                         <h2
-                            className="text-[44px] xl:min-h-[140px] font-extrabold leading-[60px] text-first sm:text-[60px] md:text-[70px] md:mt-3 lg:text-[100px] lg:leading-[110px] xl:text-[140px] xl:leading-[140px]">
-                            DEVELOPMENT</h2>
+                            className="text-[40px] xl:min-h-[140px] font-extrabold leading-[60px] text-first sm:text-[60px] md:text-[70px] md:mt-3 lg:text-[100px] lg:leading-[110px] xl:text-[120px] xl:leading-[140px]">
+                            &amp; COMPLIANT</h2>
 
-                        {/* <p className="mt-8 text-sm font-light leading-[21px] text-third sm:text-base xl:hidden dark:text-d-fifth anim min-h-[105px]">
-                            Are you looking for top-tier web design services and a reliable website development agency? Look no further.
-                            Giopio is your dedicated partner in the digital realm, offering cutting-edge solutions tailored to your
-                            specific needs, including extensive <strong>white-label services.</strong></p> */}
+                        <p className="mt-6 lg:mt-8 text-xs text-center lg:text-start font-light leading-[21px] text-third sm:text-base dark:text-d-fifth anim lg:text-xl">
+                            Stop losing sales to slow mobile loading times and GDPR risks. We are the technical growth {" "} <br /> partner for Health & Wellness brands in the Netherlands.</p>
 
-                        <ul
-                            className="flex items-center mt-8 gap-x-4 mb-[52px] md:gap-x-8 lg:gap-x-10 xl:gap-x-[60px] md:mb-20 lg:mb-24 xl:mb-[120px] flex-wrap xl:flex-nowrap gap-y-3 xl:gap-y-0">
-                            <li>
-                                <p className="text-base font-light text-fourth dark:text-d-sixth anim leading-5 xl:text-[22px]"><span
-                                    className="font-bold">01. </span>
-                                    Design</p>
-                            </li>
-                            <li>
-                                <p className="text-base font-light text-fourth dark:text-d-sixth anim leading-5 xl:text-[22px]"><span
-                                    className="font-bold">02. </span>
-                                    Development</p>
-                            </li>
-                            <li>
-                                <p className="text-base font-light text-fourth dark:text-d-sixth anim leading-5 xl:text-[22px]"><span
-                                    className="font-bold"> 03. </span>
-                                    Maintenance</p>
-                            </li>
-                        </ul>
+                        <div className='flex items-center mt-10 lg:mt-14 lg:justify-between flex-col lg:flex-row gap-y-10 lg:gap-y-0'>
 
-                        <Link href="/contact" className="btn-first relative group anim overflow-hidden anim">Get Started
-                            <Image src="/assets/images/angle-right.svg" alt="angle right" width={55} height={55}
-                                className="absolute w-[55px] -bottom-[28px] -left-12 group-hover:left-[82.5%] transition-all duration-300 ease-linear" />
-                        </Link>
+                            <div className='flex flex-col gap-y-4 lg:flex-row lg:gap-y-0 items-center gap-x-3'>
+                                <Link href="/contact" className="relative group anim overflow-hidden anim bg-white rounded-[4px] py-2.5 px-3 lg:py-3.5 lg:px-5 font-medium text-black text-sm lg:text-lg inline-flex items-center gap-x-4">Get Free Speed Audit
+                                    <Image src="/assets/images/arrow-right-ash.svg" alt="angle right" className="w-3 lg:w-5 text-black" width={20} height="20" />
+                                </Link>
+                                <Link href="/contact" className="relative group anim overflow-hidden anim bg-[#101828] rounded-[4px] py-2.5 px-3 lg:py-3.5 lg:px-5 font-medium text-white text-sm lg:text-lg inline-flex items-center gap-x-4 border border-[#414651]">Watch Client Results
+                                    <Image src="/assets/images/arrow-right-w.svg" alt="angle right" className="w-3 lg:w-4 text-black" width={20} height="20" />
+                                </Link>
+                            </div>
+
+                            <ul
+                                className="flex items-center gap-x-3 md:gap-x-8 lg:gap-x-10 xl:gap-x-[42px] flex-wrap xl:flex-nowrap gap-y-3 xl:gap-y-0 font-onest feat-line py-2 lg:py-4 border-t border-white/20 border-b px-4 lg:px-11 justify-center">
+                                <li>
+                                    <p className="text-xs font-light text-fourth dark:text-seconday anim leading-5 xl:text-base">01. MOBILE SPEED</p>
+                                </li>
+                                <li>
+                                    <p className="text-xs font-light text-fourth dark:text-seconday anim leading-5 xl:text-base">02. GDPR SHIELD</p>
+                                </li>
+                                <li>
+                                    <p className="text-xs font-light text-fourth dark:text-seconday anim leading-5 xl:text-base">03. REVENUE UX</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>

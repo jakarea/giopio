@@ -57,12 +57,14 @@ module.exports = {
         'tiro': ['var(--font-tiro)'],     
         'jakarta': ['var(--font-plus-jakarta)'],
         'aclonica': ['var(--font-aclonica)'],  
+        'onest': ['var(--font-onest)'],  
       },
       backgroundColor: {
         'first': '#FF9040',
         'second': '#26404C',
         'main': '#FEF9F5', 
         'deep': '#26404C', 
+        'black': '#101828'
       }, 
       borderColor: {
         'first' : '#FF9040',
@@ -78,7 +80,9 @@ module.exports = {
         'new': '#272020',
         'orange': '#FF9040',
         'sonali': '#F8AE4B',
-        'deep': '#26404C'
+        'deep': '#26404C',
+        'menu': '#D5D7DA',
+        'seconday': '#D5D7DA'
       },
     },
   },

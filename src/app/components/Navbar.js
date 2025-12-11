@@ -99,9 +99,9 @@ const Navbar = () => {
                 ref={menuRef}
                 id="menu"
                 className={`bg-second absolute -z-50 left-5 right-5 top-[60px] sm:top-[68px] ${isMenuOpen ? 'translate-x-[0%]' : 'translate-x-[120%]'
-                    } bg-nav-drop bg-contain bg-left-top bg-no-repeat anim lg:relative lg:translate-x-0 lg:bg-transparent lg:bg-none lg:col-span-5 lg:top-auto lg:right-auto lg:left-auto lg:flex lg:justify-center lg:z-50`}
+                    } bg-nav-drop bg-contain bg-left-top bg-no-repeat anim lg:relative lg:translate-x-0 lg:bg-transparent lg:bg-none lg:col-span-5 lg:top-auto lg:right-auto lg:left-auto lg:flex lg:justify-end lg:z-50`}
             >
-                <ul className="p-[30px] flex flex-col gap-y-6 sm:text-end md:text-center lg:flex-row lg:p-0 lg:items-center lg:gap-y-0 lg:gap-x-8 lg:z-[999] xl:z-[9999] xl:gap-x-9">
+                <ul className="p-[30px] flex flex-col gap-y-6 sm:text-end md:text-center lg:flex-row lg:p-0 lg:items-center lg:gap-y-0 lg:gap-x-8 lg:z-[999] xl:z-[9999] xl:gap-x-9 lg:ml-auto">
                     {menus.map((menu, index) => (
                         <li
                             key={index}
@@ -133,17 +133,17 @@ const Navbar = () => {
                         </li>
                     ))}
                 </ul>
-                <ul className="sm:ml-auto sm:justify-end md:justify-center sm:pr-[15px] flex items-center gap-x-4 relative lg:z-[999] xl:z-[999] px-[30px] pt-0 pb-[20px] xl:p-0 lg:p-0 xl:pb-4">
+                <ul className="sm:ml-10 lg:ml-[62px] sm:justify-end md:justify-center sm:pr-[15px] flex items-center gap-x-4 relative lg:z-[999] xl:z-[999] px-[30px] pt-0 pb-[20px] xl:p-0 lg:p-0 xl:pb-4">
                     <li>
                         <Link
                             href="/book-a-call"
-                            className="btnz btnz-2 inline-flex py-2 px-5  text-sm font-semibold text-first anim xl:text-base hover:text-second dark:hover:!text-white"
+                            className="inline-flex py-2 px-5 xl:py-3.5 xl:px-6 text-sm font-semibold  bg-first text-black anim xl:text-base hover:text-second dark:hover:!text-white rounded-[4px]"
                         >
                             <span></span>
                             <span></span>
                             <span></span>
                             <span></span>
-                            Book a Call
+                            Get Free Audit
                         </Link>
                     </li>
                     <li className='hidden lg:block'>

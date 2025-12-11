@@ -97,7 +97,7 @@ Theme Secondary Font Family: 'Poppins', sans-serif;
     }
 
     .menu-link {
-        @apply text-sm font-semibold text-white flex anim sm:justify-end md:justify-center lg:text-third xl:text-base lg:hover:m-0 hover:lg:text-second anim relative dark:!text-white xl:pb-[2px];
+        @apply text-sm font-semibold text-white flex anim sm:justify-end md:justify-center lg:text-third xl:text-base lg:hover:m-0 hover:lg:!text-white anim relative dark:!text-menu xl:pb-[2px];
     }
 
     .menu-link:before {
@@ -270,15 +270,15 @@ background: #f1f1f1;
 
 .text-stroke {
     @apply common-stroke;
-    -webkit-text-stroke-color: #26404C4D;
-    text-stroke-color: #26404C4D;
+    -webkit-text-stroke-color: #717680;
+    text-stroke-color: #717680;
     /* -webkit-text-fill-color: #fff; */
 }
 
 .dark .text-stroke{
     @apply anim;
     -webkit-text-stroke-color: #FFFFFF4D;
-    text-stroke-color: #FFFFFF4D; 
+    text-stroke-color: #717680; 
      -webkit-text-fill-color: #1B1C31;
 }
 
@@ -321,6 +321,18 @@ background: #f1f1f1;
     text-stroke-color: rgba(255, 255, 255, 0.05);
     /* -webkit-text-fill-color: #F8F7F8 */
 }
+
+/* shopify new css */
+.feat-line {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+    
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+
+    border-image-source: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+    border-image-slice: 1; /* REQUIRED */
+}
+
 
 /* custom responsive css */
 @media (min-width: 320px) and (max-width: 640px) {
