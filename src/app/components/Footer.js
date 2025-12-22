@@ -7,10 +7,9 @@ import NewslaterEmail from './SubscribeEmail';
 
 const Footer = () => {
     return (
-        <> 
-        {/* dark:bg-[#222338] */}
+        <>  
             <footer
-                className="w-full relative bg-second -mt-[150px] pt-[195px] pb-8 xl:mb-[50px] xl:max-w-[95%] xl:mx-auto xl:pt-[220px] anim">
+                className="w-full relative bg-[#222338] anim pt-7 lg:pt-[62px]">
                 <div className="container">
                     <div className="w-full md:grid md:grid-cols-2 xl:grid-cols-4 relative z-30">
 

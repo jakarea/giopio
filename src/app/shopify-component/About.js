@@ -17,7 +17,7 @@ const About = () => {
                         </div>
                         <div className='w-full lg:col-span-7 text-start font-onest'>
                             <h2 className='font-semibold text-2xl md:text-[34px] lg:text-[42px] text-white leading-[140%]'>
-                                Trusted in the {" "} <br/> netherlands
+                                Trusted in the {" "} <br/> Netherlands
                             </h2>
                             <p className='text-sm lg:text-lg text-[#D5D7DA] font-normal mt-3 lg:mt-5'>
                                 <span className='text-white font-semibold'>Dutch Quote:</span> Ik gaf hen een opdracht om iets in Shopify te ontwikkelen en zij hebben dit heel snel en professioneel opgepakt. Ik ben erg tevreden over hun service.
