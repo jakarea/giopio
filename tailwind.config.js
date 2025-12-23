@@ -58,6 +58,7 @@ module.exports = {
         'jakarta': ['var(--font-plus-jakarta)'],
         'aclonica': ['var(--font-aclonica)'],  
         'onest': ['var(--font-onest)'],  
+        'manrope': ['var(--font-manrope)'],  
       },
       backgroundColor: {
         'first': '#FF9040',

@@ -1,6 +1,6 @@
 import Header from "@/app/components/Header";
 import Script from 'next/script';
-import { Poppins, Plus_Jakarta_Sans, Aclonica, Tiro_Bangla, Onest } from 'next/font/google'
+import { Poppins, Plus_Jakarta_Sans, Aclonica, Tiro_Bangla, Onest, Manrope } from 'next/font/google'
 import "./globals.css";
 import Cta from "@/app/components/Cta";
 import Footer from "@/app/components/Footer";
@@ -13,6 +13,12 @@ const poppins = Poppins({
   variable: '--font-poppins',
   display: 'swap',
   weight: ['300', '400', '500', '600', '700', '800', '900'],
+});
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-manrope',
+  display: 'swap',
+  weight: ['300', '400', '500', '600', '700', '800'],
 });
 
 const plus_jakarta = Plus_Jakarta_Sans({
@@ -89,7 +95,7 @@ export default function RootLayout({ children }) {
           fbq('track', 'PageView');
         `}
       </Script>
-      <body className={`bg-main-body relative dark:bg-[#1B1C31] anim ${poppins.variable} ${plus_jakarta.variable} ${aclonica.variable} ${trio.variable} ${onest.variable}`}>
+      <body className={`bg-main-body relative dark:bg-[#1B1C31] anim ${poppins.variable} ${plus_jakarta.variable} ${aclonica.variable} ${trio.variable} ${onest.variable} ${manrope.variable}`}>
         {/* Google Tag Manager (noscript) */}
             <noscript
               dangerouslySetInnerHTML={{
