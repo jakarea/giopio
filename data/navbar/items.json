@@ -2,13 +2,13 @@
     {
         "id": 1,
         "name": "The Method",
-        "url": "/case-studies",
+        "url": "/shopify/revenue",
         "has_dropdown": 0
     },
     {
         "id": 2,
         "name": "Results",
-        "url": "/about",
+        "url": "/shopify/result",
         "has_dropdown": 0
     }, 
     {
