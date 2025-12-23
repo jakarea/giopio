@@ -4,7 +4,7 @@ export const metadata = {
   ...meta
 };
 
-export default function Shopify() {
+export default function Revenue() {
   return (
     <>
       {/* hero */}
