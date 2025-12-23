@@ -33,12 +33,7 @@ export default function Shopify() {
        <DataDontLie />
 
        <ClientReview />
-       <Faq />
-
-
-      <br />
-      <br />
-      <br />
+       <Faq /> 
 
     </>
   );
