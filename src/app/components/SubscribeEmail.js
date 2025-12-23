@@ -59,14 +59,14 @@ const SubscribeEmail = () => {
             <input
                 type="email"
                 placeholder="Your Email"
-                className="h-[58px] rounded-full py-[10px] pl-[30px] pr-14 bg-[#334B57] block w-full text-white font-normal text-sm focus-visible:outline-none border border-transparent focus-within:border-first xl:h-[60px] xl:pl-[25px] anim dark:bg-[#ffffff0f]"
+                className="h-[58px] rounded-sm py-[10px] pl-[30px] pr-14 bg-[#101828] block w-full text-white font-normal text-sm focus-visible:outline-none border border-transparent focus-within:border-first xl:h-[60px] xl:pl-[25px] anim dark:bg-[#101828]"
                 value={email}
                 onChange={handleInputChange}
             />
             {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
             <button
                 type="submit"
-                className="absolute right-[10px] top-[7px] py-3 focus-visible:outline-none h-[44px] rounded-full inline-flex justify-center items-center text-new font-medium px-4 leading-5 bg-first anim hover:bg-white hover:text-second"
+                className="absolute right-[10px] top-[7px] py-3 focus-visible:outline-none h-[44px] rounded-sm inline-flex justify-center items-center text-white font-normal px-4 leading-5 bg-first anim hover:bg-white hover:text-second"
                 disabled={loading}
             >
                 {loading ? 'Subscribing...' : 'Subscribe'}

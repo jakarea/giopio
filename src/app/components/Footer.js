@@ -9,11 +9,11 @@ const Footer = () => {
     return (
         <>  
             <footer
-                className="w-full relative bg-[#222338] anim pt-7 lg:pt-[62px]">
+                className="w-full relative bg-[#222338] anim pt-7 lg:pt-[62px] pb-5">
                 <div className="container">
                     <div className="w-full md:grid md:grid-cols-2 xl:grid-cols-4 relative z-30">
 
-                        <div className="text-center md:col-span-2 xl:text-start">
+                        <div className="lg:text-center md:col-span-2 xl:text-start">
                             <Link href="#" className="block">
                                 <Image
                                     src="/assets/images/logo-white.svg"
@@ -24,7 +24,7 @@ const Footer = () => {
                                     className="mx-auto object-fill xl:w-[200px] xl:ml-0 max-w-[200px]" />
                             </Link>
 
-                            <p className="my-8 text-white font-jakarta text-sm font-light leading-[25px] mx-6 xl:mx-0 xl:w-[68%]">
+                            <p className="my-8 text-white font-jakarta text-sm font-light leading-[25px] xl:mx-0 xl:w-[68%]">
                                 {info?.footer_description}
                             </p>
                             <p
@@ -57,10 +57,10 @@ const Footer = () => {
                                 </ul>
                             </div>
                         </div>
-                        <div className="w-full text-center mt-[50px] xl:mt-0">
+                        <div className="w-full lg:text-center mt-[50px] xl:mt-0">
                             <p className="text-xl font-jakarta font-semibold text-white leading-6">Contact</p>
 
-                            <ul className="mt-10 flex justify-center items-center gap-x-5 xl:pb-2">
+                            <ul className="mt-10 flex lg:justify-center items-center gap-x-5 xl:pb-2">
                                 {info?.social_media?.map((media, index) => (
                                     <li key={index}>
                                         <Link href={media.url} target='_blank'>
@@ -69,7 +69,7 @@ const Footer = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <ul className="flex justify-center items-center gap-x-5 mt-[18px] xl:flex-col xl:gap-y-6 xl:ml-[64px] ">
+                            <ul className="flex lg:justify-center lg:items-center gap-x-5 mt-[18px] flex-col xl:gap-y-6 xl:ml-[64px] ">
                                 <li>
                                     <Link href="#" className="flex items-center text-white font-normal text-sm gap-x-3 xl:font-light"><img
                                         src="/assets/images/call-icon.svg" alt="call symbol" width="14" height="15" />
@@ -78,7 +78,7 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <Link href="mailto:info@giopio.com" className="flex items-center text-white font-normal text-sm gap-x-3 xl:font-light"><img
-                                        src="/assets/images/mail-icon.svg" alt="a" width={"100%"} height={"100%"} />
+                                        src="/assets/images/mail-icon.svg" alt="a" width={"14"} height={"15"} />
                                         {info?.email}
                                     </Link>
                                 </li>
@@ -91,7 +91,7 @@ const Footer = () => {
                     </div>
                     <div
                         className="text-center mt-10 pt-8 xl:pt-[50px] lg:mt-[60px] xl:mt-[100px] border-t border-white border-opacity-10 xl:pb-6">
-                        <p className="text-xs font-normal text-white leading-5 xl:text-sm">&copy; 2025 . <span className="font-semibold">Giopio. All rights reserved</span></p>
+                        <p className="text-xs font-normal text-white leading-5 xl:text-sm">&copy; 2025 . <span className="font-medium">Giopio. All rights reserved</span></p>
                     </div>
                 </div>
             </footer >

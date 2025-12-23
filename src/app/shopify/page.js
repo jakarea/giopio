@@ -6,6 +6,7 @@ import StoreRevenueLeak from "../shopify-component/StoreRevenueLeak";
 import Protocol from "../shopify-component/Protocol";
 import DataDontLie from "../shopify-component/DataDontLie";
 import ClientReview from "../shopify-component/ClientReview";
+import Faq from "../shopify-component/Faq";
 
 export const metadata = {
   ...meta
@@ -32,6 +33,7 @@ export default function Shopify() {
        <DataDontLie />
 
        <ClientReview />
+       <Faq />
 
 
       <br />
