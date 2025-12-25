@@ -31,9 +31,9 @@ export default function Revenue() {
 
                 {/* svg */}
                 <svg className="w-16 lg:w-[120px] lg:h-[120px]" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M69.624 105H50.376C27.2238 105 15.6477 105 11.3818 97.4695C7.11584 89.9395 13.0368 79.957 24.8787 59.9925L34.5028 43.7667C45.8779 24.5889 51.5655 15 60 15C68.4345 15 74.122 24.5888 85.497 43.7666L95.1215 59.9925C106.963 79.957 112.884 89.9395 108.618 97.4695C104.352 105 92.776 105 69.624 105Z" stroke="#FF9040" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M60 85V62.5" stroke="#FF9040" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M60 44.9914V44.9414" stroke="#FF9040" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M69.624 105H50.376C27.2238 105 15.6477 105 11.3818 97.4695C7.11584 89.9395 13.0368 79.957 24.8787 59.9925L34.5028 43.7667C45.8779 24.5889 51.5655 15 60 15C68.4345 15 74.122 24.5888 85.497 43.7666L95.1215 59.9925C106.963 79.957 112.884 89.9395 108.618 97.4695C104.352 105 92.776 105 69.624 105Z" stroke="#FF9040" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M60 85V62.5" stroke="#FF9040" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M60 44.9914V44.9414" stroke="#FF9040" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 {/* svg */}
 

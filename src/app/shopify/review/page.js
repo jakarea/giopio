@@ -44,7 +44,7 @@ export default function Review() {
                                     <div>
                                         <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#F04438" />
-                                            <g clip-path="url(#clip0_40000352_959)">
+                                            <g clipPath="url(#clip0_40000352_959)">
                                                 <path d="M14.167 29.1475L17.7063 26.4453C19.5867 28.8912 21.5846 30.0186 23.8083 30.0186C26.0202 30.0186 27.9616 28.9046 29.7573 26.4779L33.3471 29.1149C30.7562 32.6142 27.5365 34.4631 23.8083 34.4631C20.0921 34.4631 16.8412 32.6261 14.167 29.1475Z" fill="white" />
                                                 <path d="M23.3788 17.402L17.079 22.8123L14.167 19.4464L23.3921 11.5234L32.5444 19.4523L29.619 22.8064L23.3788 17.402Z" fill="white" />
                                             </g>
@@ -86,13 +86,13 @@ export default function Review() {
                                     <div className="order-2">
                                         <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#365563" />
-                                            <path d="M20.5 14.5V32.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.5 18.5V28.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M23.5 17.5V29.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M26.5 20.5V26.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M29.5 18.5V28.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M32.5 22.5V24.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M14.5 22.5V24.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M20.5 14.5V32.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M17.5 18.5V28.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M23.5 17.5V29.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M26.5 20.5V26.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M29.5 18.5V28.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M32.5 22.5V24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M14.5 22.5V24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </div>
                                     <div>
@@ -131,13 +131,13 @@ export default function Review() {
                                     <div className="order-2">
                                         <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#365563" />
-                                            <path d="M20.5 14.5V32.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M17.5 18.5V28.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M23.5 17.5V29.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M26.5 20.5V26.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M29.5 18.5V28.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M32.5 22.5V24.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            <path d="M14.5 22.5V24.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M20.5 14.5V32.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M17.5 18.5V28.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M23.5 17.5V29.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M26.5 20.5V26.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M29.5 18.5V28.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M32.5 22.5V24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                            <path d="M14.5 22.5V24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
                                     </div>
                                     <div>
@@ -177,7 +177,7 @@ export default function Review() {
                                     <div>
                                         <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#F04438" />
-                                            <g clip-path="url(#clip0_40000352_959)">
+                                            <g clipPath="url(#clip0_40000352_959)">
                                                 <path d="M14.167 29.1475L17.7063 26.4453C19.5867 28.8912 21.5846 30.0186 23.8083 30.0186C26.0202 30.0186 27.9616 28.9046 29.7573 26.4779L33.3471 29.1149C30.7562 32.6142 27.5365 34.4631 23.8083 34.4631C20.0921 34.4631 16.8412 32.6261 14.167 29.1475Z" fill="white" />
                                                 <path d="M23.3788 17.402L17.079 22.8123L14.167 19.4464L23.3921 11.5234L32.5444 19.4523L29.619 22.8064L23.3788 17.402Z" fill="white" />
                                             </g>
@@ -245,7 +245,7 @@ export default function Review() {
 
                                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0 22C0 9.84974 9.84974 0 22 0C34.1503 0 44 9.84974 44 22C44 34.1503 34.1503 44 22 44C9.84974 44 0 34.1503 0 22Z" fill="white" />
-                                    <g clip-path="url(#clip0_40000360_329)">
+                                    <g clipPath="url(#clip0_40000360_329)">
                                         <path d="M33.7138 22.2242C33.7138 21.2409 33.634 20.5234 33.4614 19.7793H22.2334V24.2173H28.824C28.6911 25.3202 27.9736 26.9811 26.3791 28.0972L26.3567 28.2458L29.9068 30.996L30.1528 31.0205C32.4116 28.9344 33.7138 25.8649 33.7138 22.2242Z" fill="#4285F4" />
                                         <path d="M22.2335 33.9178C25.4623 33.9178 28.173 32.8548 30.1529 31.0211L26.3792 28.0978C25.3693 28.8021 24.014 29.2937 22.2335 29.2937C19.0711 29.2937 16.387 27.2076 15.4302 24.3242L15.29 24.3361L11.5986 27.193L11.5503 27.3271C13.5168 31.2337 17.5562 33.9178 22.2335 33.9178Z" fill="#34A853" />
                                         <path d="M15.4304 24.3248C15.178 23.5807 15.0318 22.7834 15.0318 21.9596C15.0318 21.1357 15.178 20.3385 15.4171 19.5944L15.4104 19.4359L11.6728 16.5332L11.5505 16.5914C10.74 18.2125 10.2749 20.0329 10.2749 21.9596C10.2749 23.8863 10.74 25.7066 11.5505 27.3277L15.4304 24.3248Z" fill="#FBBC05" />
@@ -286,7 +286,7 @@ export default function Review() {
 
                                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0 22C0 9.84974 9.84974 0 22 0C34.1503 0 44 9.84974 44 22C44 34.1503 34.1503 44 22 44C9.84974 44 0 34.1503 0 22Z" fill="#12B76A" />
-                                    <g clip-path="url(#clip0_40000360_348)">
+                                    <g clipPath="url(#clip0_40000360_348)">
                                         <path d="M28.5625 23.1559C27.4608 23.1559 26.4257 22.6909 25.4882 21.9297L25.7147 20.8557L25.7222 20.8129C25.9292 19.6722 26.5697 17.7544 28.5618 17.7544C30.0543 17.7544 31.2648 18.9657 31.2648 20.4574C31.2648 21.9454 30.0535 23.1567 28.5618 23.1567L28.5625 23.1559ZM28.5625 15.0192C26.0238 15.0192 24.0505 16.6677 23.2502 19.3827C22.0315 17.5504 21.1015 15.3477 20.563 13.4922H17.8285V20.6052C17.8247 22.0114 16.6877 23.1484 15.2815 23.1522C13.8752 23.1484 12.7383 22.0077 12.7345 20.6052V13.4922H10V20.6052C10 23.5189 12.3707 25.9062 15.2815 25.9062C18.1952 25.9062 20.563 23.5197 20.563 20.6052V19.4134C21.094 20.5189 21.7465 21.6439 22.5392 22.6362L20.8637 30.5074H23.6605L24.8755 24.7962C25.9382 25.4757 27.1607 25.9054 28.5632 25.9054C31.5632 25.9054 34.0007 23.4522 34.0007 20.4559C34.0007 17.4559 31.5632 15.0184 28.5632 15.0184L28.5625 15.0192Z" fill="white" />
                                     </g>
                                     <defs>

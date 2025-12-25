@@ -25,7 +25,6 @@ const ContactForm = () => {
                                 alt="gps-orange"
                                 width={30}
                                 height={36}
-                                layout='responsive'
                                 className="xl:mb-6 xl:block object-contain max-w-8" />
                             <p className="font-medium text-second text-sm xl:font-semibold xl:text-2xl dark:text-d-fifth">
                                 {companyProfile.location}</p>

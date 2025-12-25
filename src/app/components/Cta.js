@@ -18,7 +18,7 @@ const Cta = () => {
 
                             <Link href="/contact" className="relative xl:col-span-3 w-fit ml-auto group anim overflow-hidden anim bg-white rounded-[4px] py-2.5 px-3 lg:py-3.5 lg:px-5 font-medium text-black text-sm lg:text-lg inline-flex items-center gap-x-4">Get my free audit
                                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M6 0.53125L12 6.53125M12 6.53125L6 12.5312M12 6.53125L0 6.53125" stroke="#101828" stroke-width="1.5"/>
+<path d="M6 0.53125L12 6.53125M12 6.53125L6 12.5312M12 6.53125L0 6.53125" stroke="#101828" strokeWidth="1.5"/>
 </svg>
 
                                 </Link>
