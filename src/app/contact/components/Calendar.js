@@ -42,7 +42,6 @@ const Calendar = () => {
                                 alt="jakarea-parvez"
                                 width={300}
                                 height={300}
-                                layout='responsive'
                                 className="rounded-full object-contain mx-auto w-full h-full"
                             />
                         </div>

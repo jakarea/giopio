@@ -135,7 +135,6 @@ const BlogDetails = ({ params }) => {
                                 alt="blog-details"
                                 width={100}
                                 height={100}
-                                layout="responsive"
                                 className="w-full object-fill max-h-[440px]"
                             />
                         </div>
@@ -200,7 +199,6 @@ const BlogDetails = ({ params }) => {
                                             width={1200}
                                             height={300}
                                             quality={100}
-                                            layout="responsive"
                                             className="w-full block object-cover" />
                                     </div>
                                 )}

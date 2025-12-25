@@ -9,10 +9,9 @@ const CareerHero = () => {
                     <div className="grid xl:grid-cols-2 xl:-ml-32">
                         <div className="img order-2 xl:order-1 xl:text-start">
                             <Image
-                             src="/assets/images/chair.webp" 
+                             src="/assets/images/chair.webp"
                              width={600}
                              height={672}
-                             layout='responsive'
                              loading="eager"
                              alt="chair image" />
                         </div>
@@ -23,7 +22,6 @@ const CareerHero = () => {
                                     alt="career-title-icons"
                                     width={20}
                                     height={30}
-                                    layout='responsive'
                                     className="absolute left-0 -top-[55px] z-30 rotate-[-3deg]" />
                                 We Are Growing
                             </h1>

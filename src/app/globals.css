@@ -264,8 +264,8 @@ background: #f1f1f1;
 
 .common-stroke {
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px;
-    text-stroke-width: 1px;
+    -webkit-text-strokeWidth: 1px;
+    text-strokeWidth: 1px;
 }
 
 .text-stroke {

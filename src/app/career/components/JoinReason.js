@@ -26,7 +26,6 @@ const JoinReason = () => {
                                 width={550}
                                 height={350}
                                 quality={100}
-                                layout='responsive'
                                 className="w-full object-cover"
                             />
                         </div>

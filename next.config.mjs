@@ -3,7 +3,13 @@ const nextConfig = {
   // output: 'export',
   // trailingSlash: true
   images: {
-    domains: ["cdn.pixabay.com"], 
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.pixabay.com',
+        pathname: '/**',
+      },
+    ],
   },
 };
 

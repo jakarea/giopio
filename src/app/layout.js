@@ -47,6 +47,10 @@ const onest = Onest({
   weight: '400',
 });
 
+export const metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.giopio.com'),
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
@@ -108,14 +112,12 @@ export default function RootLayout({ children }) {
           <Image
             src="/assets/images/header-bg.svg"
             alt="header top"
-            layout="responsive"
             width={100}
             height={100}
             className="w-full ltd anim" />
           <Image
             src="/assets/images/header-bg-dark.svg"
             alt="header top"
-            layout="responsive"
             width={100}
             height={100}
             className="w-full dtl anim" />
