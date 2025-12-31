@@ -264,51 +264,43 @@ background: #f1f1f1;
 
 .common-stroke {
     -webkit-text-fill-color: transparent;
-    -webkit-text-strokeWidth: 1px;
-    text-strokeWidth: 1px;
 }
 
 .text-stroke {
     @apply common-stroke;
-    -webkit-text-stroke-color: #717680;
-    text-stroke-color: #717680;
+    -webkit-text-stroke: 1px #717680;
     /* -webkit-text-fill-color: #fff; */
 }
 
 .dark .text-stroke{
     @apply anim;
-    -webkit-text-stroke-color: #FFFFFF4D;
-    text-stroke-color: #717680; 
-     -webkit-text-fill-color: #1B1C31;
+    -webkit-text-stroke: 1px #FFFFFF4D;
+    -webkit-text-fill-color: #1B1C31;
 }
 
 .active {
-    -webkit-text-stroke-color: rgba(38, 64, 76, 0.14) !important;
-    text-stroke-color: rgba(38, 64, 76, 0.14) !important;
+    -webkit-text-stroke: 1px rgba(38, 64, 76, 0.14) !important;
 }
 
 .text-stroke-2 {
     @apply common-stroke;
-    -webkit-text-stroke-color: rgba(38, 64, 76, 0.08);
-    text-stroke-color: rgba(38, 64, 76, 0.05);
+    -webkit-text-stroke: 1px rgba(38, 64, 76, 0.08);
     -webkit-text-fill-color: #F8F7F8
 }
 
 .text-stroke-4 {
     @apply common-stroke;
-    -webkit-text-stroke-color: rgba(38, 64, 76, 0.08);
-    text-stroke-color: rgba(38, 64, 76, 0.08);
+    -webkit-text-stroke: 1px rgba(38, 64, 76, 0.08);
     -webkit-text-fill-color: #f6f6f8;
-    transition: -webkit-text-stroke-color 0.6s, text-stroke-color 0.6s;
+    transition: -webkit-text-stroke 0.6s;
 }
 
 .dark .text-stroke-2,
-.dark .text-stroke-4 { 
+.dark .text-stroke-4 {
     @apply anim;
-    -webkit-text-stroke-color: #FFFFFF0D;
-    text-stroke-color: #FFFFFF0D;
+    -webkit-text-stroke: 1px #FFFFFF0D;
     -webkit-text-fill-color: #1B1C31;
-    transition: -webkit-text-stroke-color 0.6s, text-stroke-color 0.6s; 
+    transition: -webkit-text-stroke 0.6s;
 }
 
 .border-20t{
@@ -317,9 +309,7 @@ background: #f1f1f1;
 
 .text-stroke-3 {
     @apply common-stroke;
-    -webkit-text-stroke-color: rgba(255, 255, 255, 0.08);
-    text-stroke-color: rgba(255, 255, 255, 0.05);
-    /* -webkit-text-fill-color: #F8F7F8 */
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
 }
 
 /* shopify new css */
