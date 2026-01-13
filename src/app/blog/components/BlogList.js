@@ -46,24 +46,53 @@ const BlogList = () => {
 
   return (
     <>
-      <div className="w-full grid gap-y-[42px] md:gap-y-[60px] lg:gap-y-[80px] xl:gap-y-[100px] lg:grid-cols-2 xl:pt-20 xl:gap-x-[100px]">
+      <div className="w-full grid gap-x-8 gap-y-10 md:gap-y-12 lg:grid-cols-2 xl:pt-16 xl:gap-x-12">
         {currentBlogs.map((blog) => (
-          <div className="w-full grid grid-cols-1 xl:grid-cols-12 gap-y-6 xl:gap-y-0" key={blog.id}>
-            <div className="w-full xl:col-span-10 group">
-              <span className="inline-flex py-2 px-4 bg-first font-medium text-second text-xs h-[28px] items-center justify-center lg:h-[32px] lg:text-sm lg:px-[20px]">{blog.category}</span>
-              <Image src={blog.feature_thumbnail} alt="blog" width="600" height="400" className="w-full mt-4 anim" loading='lazy' />
-              <h3>
-                <Link href={`/blog/${blog.slug}`} className="block group-hover:text-first my-3 text-lg font-semibold text-second lg:text-xl xl:text-[22px] xl:font-semibold xl:leading-7 xl:mt-6 xl:mb-4 anim dark:text-white">{blog.title}</Link>
+          <article className="w-full group bg-white dark:bg-transparent rounded-2xl border border-third/10 dark:border-d-fifth/30 overflow-hidden transition-all duration-300 hover:border-first/30 dark:hover:border-first/30" key={blog.id}>
+            <Link href={`/blog/${blog.slug}`} className="block">
+              <div className="relative overflow-hidden">
+                <Image
+                  src={blog.feature_thumbnail}
+                  alt={blog.title}
+                  width="600"
+                  height="400"
+                  className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading='lazy'
+                />
+                <span className="absolute top-3 left-3 inline-block py-1.5 px-3 bg-first text-white text-xs font-semibold rounded-md">
+                  {blog.category}
+                </span>
+              </div>
+            </Link>
+
+            <div className="p-5 space-y-3">
+              <div className="flex items-center gap-4 text-sm text-third dark:text-d-fifth">
+                <span>{blog.date}</span>
+                <span className="w-1 h-1 rounded-full bg-third/50 dark:bg-d-fifth/50"></span>
+                <span>{blog.readTime}</span>
+              </div>
+
+              <h3 className="leading-snug relative z-10">
+                <Link
+                  href={`/blog/${blog.slug}`}
+                  className="block text-xl font-bold text-second group-hover:text-first transition-colors cursor-pointer anim dark:text-white"
+                >
+                  {blog.title}
+                </Link>
               </h3>
 
-              <p className="common-para anim dark:text-d-fifth line-clamp-4">{blog.excerpt} {blog.content}</p>
-              <p className="common-para mt-4 flex items-center anim dark:text-d-fifth text-sm">
-                <Image src="/assets/images/clock-icon.svg" alt="icon" className="mr-2 anim ltd w-3 h-3" width="12" height="12" />
-                <Image src="/assets/images/clock-icon-w.svg" alt="icon" className="mr-2 anim dtl w-3 h-3" width="12" height="12" />
-                {blog.readTime}
+              <p className="text-third leading-relaxed line-clamp-4 dark:text-d-fifth">
+                {blog.excerpt} {blog.content}
               </p>
+
+              <div className="flex items-center gap-3 pt-2">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-first to-first/70 flex items-center justify-center text-white text-xs font-bold">
+                  {blog.author?.charAt(0) || 'A'}
+                </div>
+                <span className="text-sm font-medium text-second dark:text-white">{blog.author}</span>
+              </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
 

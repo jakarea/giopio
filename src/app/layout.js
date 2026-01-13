@@ -7,6 +7,7 @@ import Footer from "@/app/components/Footer";
 import { Suspense } from "react";
 import Image from "next/image";
 import WhatsAppButton from "./components/WhatsAppButton";
+import CookieConsent from "./components/CookieConsent";
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -129,6 +130,9 @@ export default function RootLayout({ children }) {
 
         {/* whatsapp icon */}
         <WhatsAppButton />
+
+        {/* Cookie Consent */}
+        <CookieConsent />
 
         <Suspense>
           {children}
