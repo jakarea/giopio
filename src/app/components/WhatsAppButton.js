@@ -22,7 +22,7 @@ const WhatsAppButton = () => {
 
     const whatsappButton = (
         <div className="fixed bottom-6 right-2 z-[9999]"> 
-            <Link aria-label='whatsapp' href="https://api.whatsapp.com/send?phone=8801728247398" 
+            <Link aria-label='whatsapp' href="https://api.whatsapp.com/send?phone=8801728247398&text=Hi%20Giopio,%20I%20have%20a%20technical%20question%20about%20my%20Shopify%20store..." 
                 className="group flex xl:inline-flex items-center justify-center whatsapp-bttn h-9 xl:h-[48px] w-[110px] xl:w-[165px] rounded-full">
                 <Image
                     src="/assets/images/whatsapp-w.svg"

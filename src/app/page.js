@@ -1,15 +1,12 @@
 import Hero from "./home-components/Hero";
-import About from "./about/components/About";
-import Stats from "./home-components/Stats";
-import Services from "./home-components/Services";
-import RecentProject from "./home-components/RecentProject";
-import RecentPost from "./home-components/RecentPost";
-import Faq from "./home-components/Faq";
-import Contact from "./home-components/Contact";
-import homePageFaq from "../../data/faq/homePage";
-import blogListData from "../../data/blog/items";
+import About from "./shopify-component/About";
 import ScrollDown from "./home-components/ScrollDown";
 import meta from "../../data/meta/home.json"
+import StoreRevenueLeak from "./shopify-component/StoreRevenueLeak";
+import Protocol from "./shopify-component/Protocol";
+import DataDontLie from "./shopify-component/DataDontLie";
+import ClientReview from "./shopify-component/ClientReview";
+import Faq from "./shopify-component/Faq";
 
 export const metadata = {
   ...meta
@@ -27,23 +24,16 @@ export default function Home() {
       {/* about */}
       <About />
 
-      {/* stats */}
-      <Stats />
+      {/* stoe evenue leak */}
+      <StoreRevenueLeak />
 
       {/* services */}
-      <Services />
+       <Protocol />
 
-      {/* recent project */}
-      <RecentProject />
+       <DataDontLie />
 
-      {/* recent post */}
-      <RecentPost blogData={blogListData} />
-
-      {/* faq start */}
-      <Faq faqData={homePageFaq} />
-
-      {/* contact */}
-      <Contact />
+       <ClientReview />
+       <Faq />
 
     </>
   );

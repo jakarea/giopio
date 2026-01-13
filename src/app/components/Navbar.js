@@ -143,7 +143,7 @@ const Navbar = () => {
                             <span></span>
                             <span></span>
                             <span></span>
-                            Get Free Audit
+                            Find My Revenue Leaks
                         </Link>
                     </li>
                     <li className='hidden lg:block'>

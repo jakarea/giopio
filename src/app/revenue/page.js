@@ -1,5 +1,5 @@
-import DataDontLie from "../../shopify-component/DataDontLie";
-import meta from "../../../../data/meta/home.json" 
+import DataDontLie from "../shopify-component/DataDontLie";
+import meta from "../../../data/meta/home.json" 
 export const metadata = {
   ...meta
 };

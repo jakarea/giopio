@@ -1,4 +1,4 @@
-import meta from "../../../../data/meta/home.json"
+import meta from "../../../data/meta/home.json"
 import Image from "next/image"
 
 export const metadata = {
