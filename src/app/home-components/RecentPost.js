@@ -83,26 +83,26 @@ const RecentPost = ({ blogData }) => {
                   </ul>
                 </div>
                 <div className="w-full xl:col-span-10 group">
-                  <span className="inline-flex py-3 px-4 bg-first font-medium text-new text-sm h-[34px] items-center justify-center lg:h-[41px] lg:text-lg lg:px-[26px]">
+                  <span className="inline-flex py-2 px-4 bg-first font-medium text-second text-xs h-[28px] items-center justify-center lg:h-[32px] lg:text-sm lg:px-[20px]">
                     {blog.category}
-                  </span> 
-                  <Image src={blog.feature_thumbnail} alt="blog" width="600" height="400" className="w-full mt-6 anim" loading='lazy' />
-                    <Link href={`/blogs/${blog.slug}`} className="block group-hover:text-first my-6 text-xl xl:text-2xl font-semibold text-second xl:text-[32px] xl:font-semibold xl:leading-10 xl:mt-12 xl:mb-10 anim dark:text-white">
+                  </span>
+                  <Image src={blog.feature_thumbnail} alt="blog" width="600" height="400" className="w-full mt-4 anim" loading='lazy' />
+                    <Link href={`/blog/${blog.slug}`} className="block group-hover:text-first my-3 text-lg font-semibold text-second lg:text-xl xl:text-[22px] xl:font-semibold xl:leading-7 xl:mt-6 xl:mb-4 anim dark:text-white">
                       {blog.title}
-                    </Link> 
-                  <p className="common-para anim dark:text-d-fifth">
-                    {blog.excerpt}
+                    </Link>
+                  <p className="common-para anim dark:text-d-fifth line-clamp-4">
+                    {blog.excerpt} {blog.content}
                   </p>
-                  <p className="common-para mt-6 flex items-center anim dark:text-d-fifth">
+                  <p className="common-para mt-4 flex items-center anim dark:text-d-fifth text-sm">
                     <img
                       src="/assets/images/clock-icon.svg"
                       alt="clock"
-                      className="mr-3 anim ltd  w-4 h-4"
+                      className="mr-2 anim ltd  w-3 h-3"
                     />
                     <img
                       src="/assets/images/clock-icon-w.svg"
-                      alt="clock" 
-                      className="mr-3 anim dtl w-4 h-4"
+                      alt="clock"
+                      className="mr-2 anim dtl w-3 h-3"
                     />
                     {blog.readTime}
                   </p>

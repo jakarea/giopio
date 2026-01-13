@@ -3,7 +3,7 @@
     "description": "Explore the latest blogs on Giopio. Get expert insights, industry news, and valuable tips on various topics. Stay updated with fresh content and trends to help you succeed.",
     "keywords": "Responsive Web Design, Professional Web Development, Mobile-Friendly Websites, Custom Web Solutions, User-Centered Design, Mobile Optimization",
     "author": "Giopio",
-    "canonical": "https://www.giopio.com/blogs",
+    "canonical": "https://www.giopio.com/blog",
     "openGraph": {
         "title": "Giopio - Blog page",
         "locale": "en_US",
@@ -12,7 +12,7 @@
         ],
         "type": "website",
         "description": "Explore the latest blogs on Giopio. Get expert insights, industry news, and valuable tips on various topics. Stay updated with fresh content and trends to help you succeed.",
-        "url": "https://www.giopio.com/blogs",
+        "url": "https://www.giopio.com/blog",
         "site_name": "Giopio",
         "images": [
             {

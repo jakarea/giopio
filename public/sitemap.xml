@@ -130,119 +130,119 @@
 
   <!-- Blog Posts -->
   <url>
-    <loc>https://giopio.com/blogs/how-to-integrate-payment-gateway-checkout-with-your-elementor-site</loc>
+    <loc>https://giopio.com/blog/how-to-integrate-payment-gateway-checkout-with-your-elementor-site</loc>
     <lastmod>2024-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/the-obligations-of-business-it-will-frequently-occur-that-pleasures-have</loc>
+    <loc>https://giopio.com/blog/the-obligations-of-business-it-will-frequently-occur-that-pleasures-have</loc>
     <lastmod>2024-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/will-frequently-occur-that-pleasures-have</loc>
+    <loc>https://giopio.com/blog/will-frequently-occur-that-pleasures-have</loc>
     <lastmod>2024-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/some-form-by-injected-humour-or-randomised</loc>
+    <loc>https://giopio.com/blog/some-form-by-injected-humour-or-randomised</loc>
     <lastmod>2024-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/don-t-look-even-slightly-believable-if-you-are-going-to-use-a-passage-of-lorem</loc>
+    <loc>https://giopio.com/blog/don-t-look-even-slightly-believable-if-you-are-going-to-use-a-passage-of-lorem</loc>
     <lastmod>2024-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/embarrassing-hidden-in-the-middle-of-text-all-the-lorem-ipsum</loc>
+    <loc>https://giopio.com/blog/embarrassing-hidden-in-the-middle-of-text-all-the-lorem-ipsum</loc>
     <lastmod>2024-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/that-pleasures-frequently-occur-that-pleasures</loc>
+    <loc>https://giopio.com/blog/that-pleasures-frequently-occur-that-pleasures</loc>
     <lastmod>2024-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/mastering-react-state-management-with-redux</loc>
+    <loc>https://giopio.com/blog/mastering-react-state-management-with-redux</loc>
     <lastmod>2024-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/building-a-restful-api-with-nodejs-and-express</loc>
+    <loc>https://giopio.com/blog/building-a-restful-api-with-nodejs-and-express</loc>
     <lastmod>2024-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/understanding-javascript-closures</loc>
+    <loc>https://giopio.com/blog/understanding-javascript-closures</loc>
     <lastmod>2024-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/a-guide-to-css-flexbox</loc>
+    <loc>https://giopio.com/blog/a-guide-to-css-flexbox</loc>
     <lastmod>2024-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/introduction-to-typescript-for-javascript-developers</loc>
+    <loc>https://giopio.com/blog/introduction-to-typescript-for-javascript-developers</loc>
     <lastmod>2024-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/modern-web-development-with-jamstack</loc>
+    <loc>https://giopio.com/blog/modern-web-development-with-jamstack</loc>
     <lastmod>2024-07-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/creating-interactive-data-visualizations-with-d3js</loc>
+    <loc>https://giopio.com/blog/creating-interactive-data-visualizations-with-d3js</loc>
     <lastmod>2024-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/building-scalable-microservices-with-docker-and-kubernetes</loc>
+    <loc>https://giopio.com/blog/building-scalable-microservices-with-docker-and-kubernetes</loc>
     <lastmod>2024-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/optimizing-web-performance-with-lighthouse</loc>
+    <loc>https://giopio.com/blog/optimizing-web-performance-with-lighthouse</loc>
     <lastmod>2024-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://giopio.com/blogs/a-beginners-guide-to-webassembly</loc>
+    <loc>https://giopio.com/blog/a-beginners-guide-to-webassembly</loc>
     <lastmod>2024-07-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
