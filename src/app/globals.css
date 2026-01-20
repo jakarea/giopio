@@ -137,12 +137,12 @@ Theme Secondary Font Family: 'Poppins', sans-serif;
         background-image: none!important;
     }
 
-    /* light to dark */
+    /* light to dark - ALWAYS DARK MODE */
     .ltd{
-        @apply anim flex dark:hidden;
+        @apply anim hidden;
     }
     .dtl{
-        @apply anim hidden dark:flex;
+        @apply anim flex;
     }
 
     .dark .text-font-blue{

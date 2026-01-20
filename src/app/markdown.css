@@ -1,0 +1,105 @@
+.prose {
+  --tw-prose-body: theme('colors.third');
+  --tw-prose-headings: theme('colors.second');
+  --tw-prose-links: theme('colors.first');
+  --tw-prose-bold: theme('colors.second');
+  --tw-prose-code: theme('colors.first');
+  --tw-prose-pre: theme('colors.third');
+  --tw-prose-quotes: theme('colors.third');
+  --tw-prose-quote-borders: theme('colors.first');
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: theme('colors.second');
+}
+
+.prose a {
+  color: theme('colors.first');
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: theme('colors.first');
+  opacity: 0.8;
+}
+
+.prose strong {
+  color: theme('colors.second');
+  font-weight: 700;
+}
+
+.prose code {
+  color: theme('colors.first');
+  background-color: rgba(255, 144, 64, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+  font-weight: 600;
+}
+
+.prose pre {
+  background-color: theme('colors.gray.800');
+  color: theme('colors.gray.100');
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+.prose ul,
+.prose ol {
+  list-style-type: disc;
+  padding-left: 1.5em;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose blockquote {
+  border-left-color: theme('colors.first');
+  background-color: rgba(255, 144, 64, 0.05);
+  padding: 1em 1.5em;
+  font-style: italic;
+}
+
+.prose img {
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.prose img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark .prose {
+  --tw-prose-invert-body: theme('colors.d-fifth');
+  --tw-prose-invert-headings: theme('colors.white');
+  --tw-prose-invert-links: theme('colors.first');
+  --tw-prose-invert-bold: theme('colors.white');
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  color: theme('colors.white');
+}
+
+.dark .prose strong {
+  color: theme('colors.white');
+}
+
+.dark .prose blockquote {
+  background-color: rgba(255, 144, 64, 0.1);
+}

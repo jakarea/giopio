@@ -1,15 +1,157 @@
-import Link from "next/link";
-import RecentPost from "@/app/home-components/RecentPost";
-import blosgPosts from '../../../../data/blog/items.json';
-import Image from "next/image";
-import meta from "../../../../data/meta/blog/details.json"
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import BlogContentRenderer from "../components/BlogContentRenderer";
+import RecentPost from "../../home-components/RecentPost";
 
-export const metadata = {
-    ...meta
-};
+// Function to read markdown file
+async function getMarkdownBlog(slug) {
+    try {
+        const markdownPath = path.join(process.cwd(), 'content', 'blog', `${slug}.md`);
 
-const BlogDetails = ({ params }) => {
-    const blog = blosgPosts.find(blog => blog.slug == params.slug);
+        if (!fs.existsSync(markdownPath)) {
+            return null;
+        }
+
+        const fileContents = fs.readFileSync(markdownPath, 'utf8');
+        const { data, content } = matter(fileContents);
+
+        // Parse markdown content to extract sections
+        const sections = [];
+        const lines = content.split('\n');
+        let currentSection = null;
+        let currentContent = [];
+        let contentIndex = 0;
+
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+
+            // Check for H2 (##) or H3 (###) headings
+            if (line.startsWith('## ')) {
+                // Save previous section
+                if (currentSection) {
+                    currentSection.content = currentContent.join('\n').trim();
+                    sections.push(currentSection);
+                }
+                // Start new section
+                currentSection = {
+                    title: line.replace(/^##\s*/, '').replace(/^\d+\.\s*/, '').trim(),
+                    content: '',
+                    content2: '',
+                    content3: ''
+                };
+                currentContent = [];
+            } else if (line.startsWith('### ')) {
+                // Subheading - add to content
+                currentContent.push(line);
+            } else if (line.trim().startsWith('![')) {
+                // Image - save to current section
+                if (currentSection) {
+                    const imageMatch = line.match(/\(([^)]+)\)/);
+                    if (imageMatch) {
+                        currentSection.image = imageMatch[1];
+                    }
+                }
+            } else if (line.trim().startsWith('>')) {
+                // Blockquote - add to content
+                currentContent.push(line);
+            } else if (line.trim().startsWith('-') || line.trim().startsWith('*')) {
+                // List items - add to content
+                currentContent.push(line);
+            } else if (line.trim() !== '') {
+                // Regular content
+                currentContent.push(line);
+            }
+        }
+
+        // Save last section
+        if (currentSection) {
+            currentSection.content = currentContent.join('\n').trim();
+            sections.push(currentSection);
+        }
+
+        // Split content into content, content2, content3 based on length or paragraphs
+        sections.forEach(section => {
+            if (section.content) {
+                const paragraphs = section.content.split('\n\n');
+                if (paragraphs.length > 0) section.content = paragraphs[0];
+                if (paragraphs.length > 1) section.content2 = paragraphs.slice(1).join('\n\n');
+            }
+        });
+
+        return {
+            title: data.title || '',
+            slug: data.slug || slug,
+            category: data.category || '',
+            readTime: data.readTime || '',
+            excerpt: data.excerpt || '',
+            description: data.description || '',
+            keywords: data.keywords || [],
+            content: content.split('\n\n')[0] || '',
+            feature_thumbnail: data.feature_thumbnail || '/assets/images/blog-details-2.webp',
+            author: data.author || 'Giopio Team',
+            date: data.date ? new Date(data.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '',
+            sections: sections,
+            intro: content.split('\n\n').slice(0, 2).join('\n\n') || ''
+        };
+    } catch (error) {
+        console.error('Error reading markdown:', error);
+        return null;
+    }
+}
+
+// Generate dynamic metadata for each blog post
+export async function generateMetadata({ params }) {
+    const blog = await getMarkdownBlog(params.slug);
+
+    if (!blog) {
+        return {
+            title: 'Blog Not Found | Giopio',
+        };
+    }
+
+    // Read the markdown file to get frontmatter data
+    const markdownPath = path.join(process.cwd(), 'content', 'blog', `${params.slug}.md`);
+    const fileContents = fs.readFileSync(markdownPath, 'utf8');
+    const { data } = matter(fileContents);
+
+    const description = data.description || blog.excerpt || blog.content?.substring(0, 160) || 'Read the latest insights from Giopio experts';
+    const keywords = data.keywords || [blog.category, 'Giopio', 'Web Development', 'Shopify'].filter(Boolean);
+
+    return {
+        title: `${blog.title} | Giopio Blog`,
+        description: description,
+        keywords: keywords,
+        openGraph: {
+            title: blog.title,
+            description: description,
+            type: 'article',
+            publishedTime: blog.date,
+            authors: [blog.author || 'Giopio Team'],
+            images: [
+                {
+                    url: blog.feature_thumbnail || '/assets/images/blog-details.webp',
+                    width: 1200,
+                    height: 630,
+                    alt: blog.title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: blog.title,
+            description: description,
+            images: [blog.feature_thumbnail || '/assets/images/blog-details.webp'],
+        },
+        alternates: {
+            canonical: `https://giopio.com/blog/${params.slug}`,
+        },
+    };
+}
+
+const BlogDetails = async ({ params }) => {
+    // Get blog from markdown
+    const blog = await getMarkdownBlog(params.slug);
 
     if (!blog) {
         return (
@@ -30,186 +172,9 @@ const BlogDetails = ({ params }) => {
 
     return (
         <>
-            {/* Blog details */}
-            <div className="w-full py-10 md:py-14 xl:py-20 xl:pb-[140px] relative z-40">
-                <div className="container">
-                    <div className="grid gap-y-6 xl:gap-y-0 xl:grid-cols-2 xl:gap-x-[70px]">
-                        <div className="txt order-2 xl:order-1">
-                            <div className="flex gap-x-5 xl:gap-x-10">
-                                <p className="text-sm xl:text-base font-medium text-first">
-                                    {blog.category}
-                                </p>
-                                <p className="text-sm xl:text-base font-medium text-third anim dark:text-d-fifth">
-                                    {blog.readTime}
-                                </p>
-                            </div>
-
-                            <h1 className="text-second font-bold text-2xl leading-9 md:text-3xl lg:text-[36px] md:leading-[50px] xl:text-[42px] xl:leading-[56px] my-5 md:my-8 xl:my-[32px] xl:mt-5 anim dark:text-white">
-                                {blog.title}
-                            </h1>
-                            <p className="text-sm leading-[21px] font-normal text-third anim dark:text-d-fifth font-poppins">
-                                {blog.content}
-                            </p>
-
-                            <div className="w-full h-[1px] bg-[#26404C33] my-5 md:my-8 xl:my-[32px] anim dark:bg-[#FFFFFF33]"></div>
-                            <div className="grid items-center gap-x-8 grid-cols-2 md:grid-cols-3">
-                                <h2 className="flex items-center text-base font-semibold tracking-[3%] gap-x-3 text-second anim dark:text-white">
-                                    <Image
-                                        src="/assets/images/author.webp"
-                                        alt="avatar"
-                                        width={30}
-                                        height={30}
-                                        className="w-[30px] h-[30px] rounded-full object-fill"
-                                    />
-                                    {blog.author}
-                                </h2>
-                                <h3 className="flex items-center text-base font-semibold tracking-[3%] gap-x-3 text-second anim dark:text-white">
-                                    <Image
-                                        src="/assets/images/calendar.svg"
-                                        alt="calendar"
-                                        width={20}
-                                        height={20}
-                                        className="ltd anim"
-                                    />
-                                    <Image
-                                        src="/assets/images/calendar-w.svg"
-                                        alt="calendar"
-                                        width={20}
-                                        height={20}
-                                        className="dtl anim"
-                                    />
-                                    {blog.date}
-                                </h3>
-
-                                <ul className="col-span-2 flex items-center gap-x-6 my-6 justify-center md:col-span-1 xl:my-0">
-                                    <li>
-                                        <Link href="#">
-                                            <Image
-                                                src="/assets/images/social/facebook-c.svg"
-                                                width={18}
-                                                height={18}
-                                                className="object-fill"
-                                                alt="facebook"
-                                            />
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">
-                                            <Image
-                                                src="/assets/images/social/twitter-c.svg"
-                                                width={18}
-                                                height={18}
-                                                className="object-fill"
-                                                alt="x"
-                                            />
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">
-                                            <Image
-                                                src="/assets/images/social/linkedin-c.svg"
-                                                width={18}
-                                                height={18}
-                                                className="object-fill"
-                                                alt="linkedin"
-                                            />
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="#">
-                                            <Image
-                                                src="/assets/images/social/dribble-c.svg"
-                                                width={18}
-                                                height={18}
-                                                className="object-fill"
-                                                alt="dribble"
-                                            />
-                                        </Link>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="img order-1 xl:order-2">
-                            <Image
-                                src={blog.feature_thumbnail ? blog.feature_thumbnail : '/assets/images/blog-details.webp'}
-                                alt="blog-details"
-                                width={100}
-                                height={100}
-                                className="w-full object-fill max-h-[440px]"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Table of contents */}
-                    <div className="w-full md:mt-[22px] lg:mt-12 xl:mt-[62px]">
-                        <h4 className="font-bold text-second text-lg md:text-2xl lg:text-[28px] anim dark:text-white">
-                            Table of <span className="inline-block text-first">Contents</span>
-                        </h4>
-                        <ul className="mt-6 md:mt-8 xl:mt-[42px] font-poppins gap-y-1 flex flex-col mb-10 md:mb-12 xl:mb-[62px] sm:gap-y-2 md:gap-y-3 xl:gap-y-4">
-                            {blog.sections?.map((item, index) => (
-                                <li key={index + 1}>
-                                    <Link
-                                        href={`#section-${index}`}
-                                        className="text-sm md:text-base xl:text-[20px] font-semibold leading-[30px] text-second anim dark:text-white"
-                                    >
-                                        {index + 1}. {item.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-
-                        <p className="text-sm leading-6 xl:leading-[30px] xl:text-lg font-normal text-second anim dark:text-white">
-                            {blog.intro}
-                        </p>
-
-                        {/* Render more sections dynamically */}
-                        {blog.sections?.map((section, index) => (
-                            <div key={index} id={`section-${index}`} className="mt-10">
-                                <h5 className="mt-10 sm:mt-12 md:mt-14 lg:mt-16 xl:mt-[72px] text-2xl md:text-3xl lg:text-[36px] xl:text-[42px] font-bold text-second mb-4 sm:mb-5 md:mb-7 lg:mb-8 xl:mb-9 anim dark:text-white xl:leading-[55px]">
-                                    {index + 1}. {section.title}
-                                </h5>
-                                <p className="text-sm leading-6 xl:leading-[30px] xl:text-lg font-normal text-second anim dark:text-white">
-                                    {section.content}
-                                </p>
-                                {section.content2 && (
-                                    <p className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 text-sm leading-6 xl:leading-[30px] xl:text-lg font-normal text-second anim dark:text-white">
-                                        {section.content2}
-                                    </p>
-                                )}
-                                {section.content3 && (
-                                    <p className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 text-sm leading-6 xl:leading-[30px] xl:text-lg font-normal text-second anim dark:text-white">
-                                        {section.content3}
-                                    </p>
-                                )}
-                                {section.content4 && (
-                                    <p className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 text-sm leading-6 xl:leading-[30px] xl:text-lg font-normal text-second anim dark:text-white">
-                                        {section.content4}
-                                    </p>
-                                )}
-                                {section.content5 && (
-                                    <p className="mt-3 sm:mt-4 md:mt-5 lg:mt-6 text-sm leading-6 xl:leading-[30px] xl:text-lg font-normal text-second anim dark:text-white">
-                                        {section.content5}
-                                    </p>
-                                )}
-                                {section.image && (
-                                    <div className="mt-8">
-                                        <Image
-                                            src={section.image}
-                                            alt={section.image}
-                                            width={1200}
-                                            height={300}
-                                            quality={100}
-                                            className="w-full block object-cover" />
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
+            <BlogContentRenderer blog={blog} />
             {/* Related post */}
-            <RecentPost blogData={blosgPosts} />
+            <RecentPost />
         </>
     );
 }

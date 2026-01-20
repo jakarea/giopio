@@ -1,11 +1,33 @@
 'use client'
 import Link from 'next/link';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const RecentPost = ({ blogData }) => {
-  // Slice the blogData array to get the last 3 items
-  const recentBlogData = blogData.slice(-3);
+const RecentPost = () => {
+  const [recentBlogData, setRecentBlogData] = useState([]);
+
+  useEffect(() => {
+    // Fetch recent posts from API
+    const fetchRecentPosts = async () => {
+      try {
+        const response = await fetch('/api/blogs');
+        const data = await response.json();
+
+        // Get first 3 posts (newest, since API sorts by date descending)
+        const recentPosts = data.slice(0, 3);
+        setRecentBlogData(recentPosts);
+      } catch (error) {
+        console.error('Error fetching recent posts:', error);
+      }
+    };
+
+    fetchRecentPosts();
+  }, []);
+
+  // Don't render if data hasn't loaded yet
+  if (recentBlogData.length === 0) {
+    return null;
+  }
 
   return (
     <>
@@ -23,7 +45,7 @@ const RecentPost = ({ blogData }) => {
 
           <div className="w-full grid gap-x-8 gap-y-10 md:gap-y-12 md:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {recentBlogData.map((blog) => (
-              <article className="w-full group bg-white dark:bg-transparent rounded-2xl border border-third/10 dark:border-d-fifth/30 overflow-hidden transition-all duration-300 hover:border-first/30 dark:hover:border-first/30" key={blog.id}>
+              <article className="w-full group bg-white dark:bg-transparent rounded-2xl border border-third/10 dark:border-d-fifth/30 overflow-hidden transition-all duration-300 hover:border-first/30 dark:hover:border-first/30" key={blog.slug}>
                 <Link href={`/blog/${blog.slug}`} className="block">
                   <div className="relative overflow-hidden">
                     <Image
@@ -57,7 +79,7 @@ const RecentPost = ({ blogData }) => {
                   </h3>
 
                   <p className="text-third leading-relaxed line-clamp-4 dark:text-d-fifth">
-                    {blog.excerpt} {blog.content}
+                    {blog.excerpt}
                   </p>
 
                   <div className="flex items-center gap-3 pt-2">

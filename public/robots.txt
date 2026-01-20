@@ -1,0 +1,40 @@
+# robots.txt for Giopio - Web Design & Development Agency
+# SEO, GEO, AEO Optimized
+
+User-agent: *
+Allow: /
+
+# Disallow sensitive areas
+Disallow: /_next/
+Disallow: /old/
+Disallow: /.well-known/
+
+# Sitemap locations
+Sitemap: https://giopio.com/api/sitemap
+Sitemap: https://giopio.com/rss.xml
+
+# Crawl delay (optional, prevents server overload)
+Crawl-delay: 1
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Block common bots that don't follow rules
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
