@@ -3,6 +3,62 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 
+
+// Video reviews data
+const videoReviews = [
+    {
+        id: 1,
+        youtubeVideoId: "6C4iSyu4Emk",
+        thumbnail: "/assets/images/jeff.webp",
+        clientLogo: "https://www.kitchennmbrs.app/logohor.png",
+        reviewTextNL: `Hoi, ik ben Jeffrey, ik ben eigenaar van Kitchen Numbers. Wij werken momenteel al een jaar samen met eh Jakarea van Giopio.<br />Jakarea is momenteel ehm... volledig commit, los van al zijn side jobs en andere jobs die die heeft, tot Kitchen Numbers. Begrijpt onze visie volledig.<br />Ehm, wij zijn een startup. Ehm, doen dat vanuit ons eigen centen naast onze vaste job. Dus je kan begrijpen dat financiën wellicht soms wel even een struggle kunnen zijn. Ehm, iets waar je geen zorgen om hoeft te maken bij eh Jakarea.<br />Ehm, volledig commit. Ehm, begrijpt snel, begrijpt de visie snel. Wat wonderbaarlijk is, want wat wij eh... wij spreken de horeca aan. Nou ja, Giopio is een eh... Giopio is een bedrijf wat gewoon hè, developed in in websites en apps.<br />Ehm, wat mij dus heel erg aanspreekt is zijn commitment op iets waarvan je zou zeggen van nou ja, eh hier moet je verstand van hebben. Eh hij leert dus snel. <br />Ehm, prijs-kwaliteitverhouding... Geweldig. Ik raad iedereen aan om met Jakarea samen te werken. Kan niet anders dan goedkomen. Succes.`,
+        reviewTextEN: `Hi, I'm Jeffrey, I am the owner of Kitchen Numbers. We have currently been working together with uh Jakarea from Giopio for a year.<br />Jakarea is currently uhm... fully committed, apart from all his side jobs and other jobs he has, to Kitchen Numbers. Understands our vision entirely.<br />Uhm, we are a startup. Uh, doing this from our own pockets next to our regular job. So you can understand that finances might well sometimes be a bit of a struggle. Uhm, something you don't have to worry about with uh Jakarea.<br />Uhm, fully committed. Uh, understands fast, grasps the vision fast. Which is amazing, because what we uh... we target the hospitality industry. Well yes, Giopio is a uh... Giopio is a company that just, right, develops in in websites and apps.<br />Uhm, so what really appeals to me is his commitment to something where you would say like well yeah, uh you need to have understanding of this. Uh so he learns fast.<br />Uhm, price-quality ratio... Amazing. I advise everyone to work together with Jakarea. It's bound to turn out well. Good luck.`,
+        reviewerName: "Jeffrey",
+        reviewerRole: "Kitchen Numbers"
+    },
+        {
+        id: 2,
+        youtubeVideoId: "tkPF4pFiryM",
+        thumbnail: "/assets/images/sem.webp",
+        clientLogo: "https://exclusivecardetailing.nl/storage/logos/f9juM1paHalpsAR5gCgggGqWxm5P6QQVj62xffmo.png",
+        reviewTextNL: `Dames en heren, mijn naam is Sem, eigenaar van Exclusive Car Detailing. Ik heb mijn website laten gemaakt door Zakaria van Giopio. Ik ben er erg tevreden mee. Hij heeft binnen een korte termijn een zeer mooie website opgezet. Prijs-kwaliteitverhouding is het een hele goede aankoop geweest. Hij heeft mooie plugins ingemaakt, mooie animaties. Ik ben zeer tevreden. De communicatie met Zakaria was goed. Hij was eigenlijk altijd online. En als ik dingen wou weten, hoe het proces liep, of hij moest dingen weten, plannen we gewoon een call in en toen konden we gewoon alles goed bespreken. Ik ben zeer tevreden en ik wil Zakaria nogmaals bedanken. Ik eh ben bij hem gekomen via een klant. Een klant heeft hem aangeraden. En het was eh zeker een goede aankoop.`,
+        reviewTextEN: `Ladies and gentlemen, my name is Sem, owner of Exclusive Car Detailing. I had my website built by Zakaria from the agency Giopio. I am very satisfied with it. Within a short time frame, he has set up a very beautiful website. Price-quality ratio wise it has been a really very good purchase. He built in nice plugins, nice animations. I am highly satisfied. The communication with Zakaria was good. He was actually always online. And if I wanted to know things, how the process went, or he had to know things, we just scheduled a call and then we could just discuss everything well. I am very satisfied and I want to thank Zakaria once again. I uh came to him via a client. A client recommended him to me. And it was uh certainly a good purchase.`,
+        reviewerName: "Sem Segers",
+        reviewerRole: " Exclusive Car Detailing"
+    },
+    {
+        id: 3,
+        youtubeVideoId: "ttQ-pMXMC9Y",
+        thumbnail: "/assets/images/renzo.webp",
+        clientLogo: "/assets/images/shopify/renzo-logo.png",
+        reviewTextNL: `Hoi, mijn naam is Renzo, ik ben 21 jaar oud en eh ja ik had een probleem op Shopify met mijn webshop met eh een bundel een bundel sectie. En eh ja het best wel een complex probleem, ik kwam er zelf niet uit. En eh ben via een connectie van mij bij eh Jakarea terechtgekomen. Eh de samenwerking die vond ik erg fijn want hij nam goed de tijd voor je om ehm om bijvoorbeeld te bellen, niet alles over eh de app te doen, want zo kan je veel beter communiceren, dus de communicatie was erg goed. Ook ehm was was de prijs die we af hadden gesproken eh qua wat die moest doen ook erg erg eh erg erg goed, ben ik zeker tevreden mee. Dus eh ja, als je een probleem hebt op Shopify of ergens anders dan kan Jakarea en zijn team denk ik zeker wel helpen. Dus bij deze bedankt voor al jullie hulp en eh nou de samenwerking geef ik wel een eh een acht. Dus eh ja, als je een probleem hebt, je weet ze te vinden.`,
+        reviewTextEN: `Hi, my name is Renzo, I am 21 years old and uh yeah I had a problem on Shopify with my webshop involving uh a bundle... a bundle section. And uh yeah it was quite a complex problem, I couldn't figure it out myself. And uh via a connection of mine I actually ended up with uh Jakarea. Uh the collaboration, I found it really nice because he took good time for you to uhm to for example call, not just do everything via uh the app, because that way you can communicate much better, so the communication was very good. Also uhm was... was the price that we had agreed on uh regarding what he had to do also very very uh very very good, I am certainly satisfied with that. So uh yes, if you have a problem on Shopify or anywhere else really, then Jakarea and his team can I think certainly help you out. So hereby thanks for all your help and uh well the collaboration I give a uh an eight. So uh yeah, if you have a problem, you know where to find them.`,
+        reviewerName: "Renzo",
+        reviewerRole: "Shopify Merchant", 
+    },
+    {
+        id: 4,
+        youtubeVideoId: "581f1uxsIXk",
+        thumbnail: "/assets/images/roy-dolan.webp",
+        clientLogo: "https://bouwspecialist.nl/wp-content/uploads/2024/01/New-Project-min-1024x574.png",
+        reviewTextNL: `Ja goedendag, ik ben Roy Doelen, de eigenaar van Bouwspecialist. Eh wij bouwen door heel Nederland, wij voeren complete woningrenovaties uit. En ik ben via een kennis Giopio eh uit Bangladesh tegengekomen. Ehm hij voert voor mij de volledige SEA en SEO uit. Hij heeft ook de website voor mij volledig eh geüpdatet en geïntegreerd voor een aantal offerteaanvragen. Nou eh zijn services en voordelen vanuit eh Bangladesh van Giopio ehm zijn vooral liggend in snelle communicatie eh kostenefficiënt. Dus het is ook nog eens voordeliger ten opzichte van de de Nederlandse markt. Eh het is weliswaar in het Engels, maar eh dat maakt voor mij niet zoveel uit. Ehm hij geeft meteen feedback. Je kunt binnen tien minuten weer zien als je een aanpassing in de website eh laat maken, ehm voert ie deze vrijwel meteen uit. Eh je kunt ook videobellen, dus eh ja, eigenlijk eh is het zo aan de keukentafel, aan de kantoortafel kun je rechtstreeks met hem in contact komen. Ehm ja en de services, hij biedt heel veel verschillende services aan. Mijn website is ook redelijk uitgebreid dus in al die services eh kan hij providen. Dus ik eh zou zeggen, ga zeker met eh dit bedrijf eh in zee. Ehm nogmaals, het eh hij denkt mee over de kosten. En eh zeer uitgebreide services biedt deze dit bedrijf aan. Eh dus voor mij zeker een aanrader`,
+        reviewTextEN: `Yeah good day, I'm Roy Doelen, the owner of Bouwspecialist. Uh we build throughout the Netherlands, we carry out complete home renovations here. And I came across Giopio uh from Bangladesh via an acquaintance. Uhm he carries out the full SEA and SEO for me. He has also fully uh updated the website for me and integrated it for a number of quote requests. Well uh his services and benefits from uh Bangladesh from Giopio uhm are mainly lying in fast communication uh cost-efficient. So it is also more affordable compared to the the Dutch market. Uh it is admittedly in English, but uh that doesn't matter much to me. Uhm he gives feedback immediately. You can see within ten minutes if you have an adjustment made in the website uh, uhm he executes this almost immediately. Uh you can also video call, so uh yes, actually uh it is like at the kitchen table, at the office table you can get in contact directly with him. Uhm yes and the services, he offers a whole lot of different services. My website is also reasonably extensive so in all those services uh he can provide. So I uh would say, definitely go into business with uh this company. Uhm once again, the uh he thinks along about the costs. And uh very extensive services this company offers. Uh so for me certainly highly recommended`,
+        reviewerName: "Roy Dolan",
+        reviewerRole: "Owner of Bouwspecialist"
+    },
+    {
+        id: 5,
+        youtubeVideoId: "0nfvy6eD3uU",
+        thumbnail: "/assets/images/anthony-pearson.webp",
+        clientLogo: "",
+        reviewTextNL: `Hi uh, my name's Anthony Pearson and I'm an Account Manager at Elite Outsource Corporation based in Leeds. Uh, we have contracted Giopio for several projects now and working with them has been an excellent experience. Um, the professionalism, high-quality work, responsiveness, and ability to deliver on time consistently really did set them apart from... from many others. Um, I would highly recommend Giopio. Um, the team is skilled, detail-oriented—which is very important to us—and exceptional at solving problems with efficiency and expertise. So, all in all, yeah, would highly recommend.`,
+        reviewTextEN: ``,
+        reviewerName: "Anthony Pearson",
+        reviewerRole: "Account Manager at Elite Outsource Corporation"
+    }
+    
+];
+
 // Video Review Card Component with vertical YouTube player
 function VideoReviewCard({
     youtubeVideoId,
@@ -197,77 +253,6 @@ function VideoReviewCard({
     );
 }
 
-// Reviewer icon components
-const FounderIcon = () => (
-    <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#F04438" />
-        <g clipPath="url(#clip0_40000352_959)">
-            <path d="M14.167 29.1475L17.7063 26.4453C19.5867 28.8912 21.5846 30.0186 23.8083 30.0186C26.0202 30.0186 27.9616 28.9046 29.7573 26.4779L33.3471 29.1149C30.7562 32.6142 27.5365 34.4631 23.8083 34.4631C20.0921 34.4631 16.8412 32.6261 14.167 29.1475Z" fill="white" />
-            <path d="M23.3788 17.402L17.079 22.8123L14.167 19.4464L23.3921 11.5234L32.5444 19.4523L29.619 22.8064L23.3788 17.402Z" fill="white" />
-        </g>
-        <defs>
-            <clipPath id="clip0_40000352_959">
-                <rect width="24" height="24" fill="white" transform="translate(11.5 11.5)" />
-            </clipPath>
-        </defs>
-    </svg>
-);
-
-// Video reviews data
-const videoReviews = [
-        {
-        id: 1,
-        youtubeVideoId: "6C4iSyu4Emk",
-        thumbnail: "/assets/images/jeff.webp",
-        clientLogo: "https://www.kitchennmbrs.app/logohor.png",
-        reviewTextNL: `Hoi, ik ben Jeffrey, ik ben eigenaar van Kitchen Numbers. Wij werken momenteel al een jaar samen met eh Jakarea van Giopio.<br />Jakarea is momenteel ehm... volledig commit, los van al zijn side jobs en andere jobs die die heeft, tot Kitchen Numbers. Begrijpt onze visie volledig.<br />Ehm, wij zijn een startup. Ehm, doen dat vanuit ons eigen centen naast onze vaste job. Dus je kan begrijpen dat financiën wellicht soms wel even een struggle kunnen zijn. Ehm, iets waar je geen zorgen om hoeft te maken bij eh Jakarea.<br />Ehm, volledig commit. Ehm, begrijpt snel, begrijpt de visie snel. Wat wonderbaarlijk is, want wat wij eh... wij spreken de horeca aan. Nou ja, Giopio is een eh... Giopio is een bedrijf wat gewoon hè, developed in in websites en apps.<br />Ehm, wat mij dus heel erg aanspreekt is zijn commitment op iets waarvan je zou zeggen van nou ja, eh hier moet je verstand van hebben. Eh hij leert dus snel. <br />Ehm, prijs-kwaliteitverhouding... Geweldig. Ik raad iedereen aan om met Jakarea samen te werken. Kan niet anders dan goedkomen. Succes.`,
-        reviewTextEN: `Hi, I'm Jeffrey, I am the owner of Kitchen Numbers. We have currently been working together with uh Jakarea from Giopio for a year.<br />Jakarea is currently uhm... fully committed, apart from all his side jobs and other jobs he has, to Kitchen Numbers. Understands our vision entirely.<br />Uhm, we are a startup. Uh, doing this from our own pockets next to our regular job. So you can understand that finances might well sometimes be a bit of a struggle. Uhm, something you don't have to worry about with uh Jakarea.<br />Uhm, fully committed. Uh, understands fast, grasps the vision fast. Which is amazing, because what we uh... we target the hospitality industry. Well yes, Giopio is a uh... Giopio is a company that just, right, develops in in websites and apps.<br />Uhm, so what really appeals to me is his commitment to something where you would say like well yeah, uh you need to have understanding of this. Uh so he learns fast.<br />Uhm, price-quality ratio... Amazing. I advise everyone to work together with Jakarea. It's bound to turn out well. Good luck.`,
-        reviewerName: "Jeffrey",
-        reviewerRole: "Kitchen Numbers"
-    },
-        {
-        id: 2,
-        youtubeVideoId: "tkPF4pFiryM",
-        thumbnail: "/assets/images/sem.webp",
-        clientLogo: "https://exclusivecardetailing.nl/storage/logos/f9juM1paHalpsAR5gCgggGqWxm5P6QQVj62xffmo.png",
-        reviewTextNL: `Dames en heren, mijn naam is Sem, eigenaar van Exclusive Car Detailing. Ik heb mijn website laten gemaakt door Zakaria van Giopio. Ik ben er erg tevreden mee. Hij heeft binnen een korte termijn een zeer mooie website opgezet. Prijs-kwaliteitverhouding is het een hele goede aankoop geweest. Hij heeft mooie plugins ingemaakt, mooie animaties. Ik ben zeer tevreden. De communicatie met Zakaria was goed. Hij was eigenlijk altijd online. En als ik dingen wou weten, hoe het proces liep, of hij moest dingen weten, plannen we gewoon een call in en toen konden we gewoon alles goed bespreken. Ik ben zeer tevreden en ik wil Zakaria nogmaals bedanken. Ik eh ben bij hem gekomen via een klant. Een klant heeft hem aangeraden. En het was eh zeker een goede aankoop.`,
-        reviewTextEN: `Ladies and gentlemen, my name is Sem, owner of Exclusive Car Detailing. I had my website built by Zakaria from the agency Giopio. I am very satisfied with it. Within a short time frame, he has set up a very beautiful website. Price-quality ratio wise it has been a really very good purchase. He built in nice plugins, nice animations. I am highly satisfied. The communication with Zakaria was good. He was actually always online. And if I wanted to know things, how the process went, or he had to know things, we just scheduled a call and then we could just discuss everything well. I am very satisfied and I want to thank Zakaria once again. I uh came to him via a client. A client recommended him to me. And it was uh certainly a good purchase.`,
-        reviewerName: "Sem Segers",
-        reviewerRole: " Exclusive Car Detailing"
-    },
-    {
-        id: 3,
-        youtubeVideoId: "ttQ-pMXMC9Y",
-        thumbnail: "/assets/images/renzo.webp",
-        clientLogo: "/assets/images/shopify/renzo-logo.png",
-        reviewTextNL: `Hoi, mijn naam is Renzo, ik ben 21 jaar oud en eh ja ik had een probleem op Shopify met mijn webshop met eh een bundel een bundel sectie. En eh ja het best wel een complex probleem, ik kwam er zelf niet uit. En eh ben via een connectie van mij bij eh Jakarea terechtgekomen. Eh de samenwerking die vond ik erg fijn want hij nam goed de tijd voor je om ehm om bijvoorbeeld te bellen, niet alles over eh de app te doen, want zo kan je veel beter communiceren, dus de communicatie was erg goed. Ook ehm was was de prijs die we af hadden gesproken eh qua wat die moest doen ook erg erg eh erg erg goed, ben ik zeker tevreden mee. Dus eh ja, als je een probleem hebt op Shopify of ergens anders dan kan Jakarea en zijn team denk ik zeker wel helpen. Dus bij deze bedankt voor al jullie hulp en eh nou de samenwerking geef ik wel een eh een acht. Dus eh ja, als je een probleem hebt, je weet ze te vinden.`,
-        reviewTextEN: `Hi, my name is Renzo, I am 21 years old and uh yeah I had a problem on Shopify with my webshop involving uh a bundle... a bundle section. And uh yeah it was quite a complex problem, I couldn't figure it out myself. And uh via a connection of mine I actually ended up with uh Jakarea. Uh the collaboration, I found it really nice because he took good time for you to uhm to for example call, not just do everything via uh the app, because that way you can communicate much better, so the communication was very good. Also uhm was... was the price that we had agreed on uh regarding what he had to do also very very uh very very good, I am certainly satisfied with that. So uh yes, if you have a problem on Shopify or anywhere else really, then Jakarea and his team can I think certainly help you out. So hereby thanks for all your help and uh well the collaboration I give a uh an eight. So uh yeah, if you have a problem, you know where to find them.`,
-        reviewerName: "Renzo",
-        reviewerRole: "Shopify Merchant", 
-    },
-    {
-        id: 4,
-        youtubeVideoId: "581f1uxsIXk",
-        thumbnail: "/assets/images/roy-dolan.webp",
-        clientLogo: "https://bouwspecialist.nl/wp-content/uploads/2024/01/New-Project-min-1024x574.png",
-        reviewTextNL: `Ja goedendag, ik ben Roy Doelen, de eigenaar van Bouwspecialist. Eh wij bouwen door heel Nederland, wij voeren complete woningrenovaties uit. En ik ben via een kennis Giopio eh uit Bangladesh tegengekomen. Ehm hij voert voor mij de volledige SEA en SEO uit. Hij heeft ook de website voor mij volledig eh geüpdatet en geïntegreerd voor een aantal offerteaanvragen. Nou eh zijn services en voordelen vanuit eh Bangladesh van Giopio ehm zijn vooral liggend in snelle communicatie eh kostenefficiënt. Dus het is ook nog eens voordeliger ten opzichte van de de Nederlandse markt. Eh het is weliswaar in het Engels, maar eh dat maakt voor mij niet zoveel uit. Ehm hij geeft meteen feedback. Je kunt binnen tien minuten weer zien als je een aanpassing in de website eh laat maken, ehm voert ie deze vrijwel meteen uit. Eh je kunt ook videobellen, dus eh ja, eigenlijk eh is het zo aan de keukentafel, aan de kantoortafel kun je rechtstreeks met hem in contact komen. Ehm ja en de services, hij biedt heel veel verschillende services aan. Mijn website is ook redelijk uitgebreid dus in al die services eh kan hij providen. Dus ik eh zou zeggen, ga zeker met eh dit bedrijf eh in zee. Ehm nogmaals, het eh hij denkt mee over de kosten. En eh zeer uitgebreide services biedt deze dit bedrijf aan. Eh dus voor mij zeker een aanrader`,
-        reviewTextEN: `Yeah good day, I'm Roy Doelen, the owner of Bouwspecialist. Uh we build throughout the Netherlands, we carry out complete home renovations here. And I came across Giopio uh from Bangladesh via an acquaintance. Uhm he carries out the full SEA and SEO for me. He has also fully uh updated the website for me and integrated it for a number of quote requests. Well uh his services and benefits from uh Bangladesh from Giopio uhm are mainly lying in fast communication uh cost-efficient. So it is also more affordable compared to the the Dutch market. Uh it is admittedly in English, but uh that doesn't matter much to me. Uhm he gives feedback immediately. You can see within ten minutes if you have an adjustment made in the website uh, uhm he executes this almost immediately. Uh you can also video call, so uh yes, actually uh it is like at the kitchen table, at the office table you can get in contact directly with him. Uhm yes and the services, he offers a whole lot of different services. My website is also reasonably extensive so in all those services uh he can provide. So I uh would say, definitely go into business with uh this company. Uhm once again, the uh he thinks along about the costs. And uh very extensive services this company offers. Uh so for me certainly highly recommended`,
-        reviewerName: "Roy Dolan",
-        reviewerRole: "Owner of Bouwspecialist"
-    },
-    {
-        id: 5,
-        youtubeVideoId: "0nfvy6eD3uU",
-        thumbnail: "/assets/images/anthony-pearson.webp",
-        clientLogo: "",
-        reviewTextNL: `Hi uh, my name's Anthony Pearson and I'm an Account Manager at Elite Outsource Corporation based in Leeds. Uh, we have contracted Giopio for several projects now and working with them has been an excellent experience. Um, the professionalism, high-quality work, responsiveness, and ability to deliver on time consistently really did set them apart from... from many others. Um, I would highly recommend Giopio. Um, the team is skilled, detail-oriented—which is very important to us—and exceptional at solving problems with efficiency and expertise. So, all in all, yeah, would highly recommend.`,
-        reviewTextEN: ``,
-        reviewerName: "Anthony Pearson",
-        reviewerRole: "Account Manager at Elite Outsource Corporation"
-    }
-    
-];
-
 export default function Review() {
     // Track which video is currently playing (null means none)
     const [activeVideoId, setActiveVideoId] = useState(null);
@@ -300,9 +285,9 @@ export default function Review() {
                         </p>
                     </div>
                 </div>
-            </section>
+            </section> 
 
-            {/* Video Reviews Section */}
+                        {/* Video Reviews Section */}
             <section className="w-full relative">
                 <div className="container">
                     <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-4 lg:gap-7">
@@ -337,7 +322,8 @@ export default function Review() {
 
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 lg:gap-y-0 lg:gap-x-7'>
                         {/* card */}
-                        <div
+
+                        <a href="https://www.google.com/search?q=giopio&oq=giopio#mpd=~15756563332092379205/customers/reviews&lrd=0x39fc55b632905503:0x7993a64868a37c0f,1,,,," target="_blank"
                             className="w-full rounded-[4px] border border-[#252B37] p-3 xl:p-6 relative group anim bg-[#101828] anim flex flex-col justify-between lg:min-h-[380px]
                              dark:bg-[#101828] dark:border-[#252B37]">
                             <div className="relative z-40 mb-4 lg:mb-0">
@@ -375,20 +361,27 @@ export default function Review() {
                                 </svg>
 
                             </div>
-                        </div>
+                        </a>
+
                         {/* card */}
                         {/* card */}
-                        <div
+                        <a href="https://www.upwork.com/freelancers/jakareaparvez" target="_blank"
                             className="w-full rounded-[4px] border border-[#252B37] p-3 xl:p-6 relative group anim bg-[#101828] anim flex flex-col justify-between lg:min-h-[380px]
                              dark:bg-[#101828] dark:border-[#252B37]">
                             <div className="relative z-40 mb-4 lg:mb-0">
-                                <h4 className="text-xl xl:text-2xl font-onest font-semibold leading-8 text-second group-hover:text-white anim dark:text-white flex items-center gap-x-2">
+                               <div className="flex items-center justify-between">
+                                     <h4 className="text-xl xl:text-2xl font-onest font-semibold leading-8 text-second group-hover:text-white anim dark:text-white flex items-center gap-x-2">
                                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M16.0004 23.0323L10.4671 26.3656C10.2227 26.5212 9.96711 26.5878 9.70044 26.5656C9.43377 26.5434 9.20044 26.4545 9.00044 26.299C8.80044 26.1434 8.64488 25.9492 8.53377 25.7163C8.42266 25.4834 8.40044 25.2221 8.4671 24.9323L9.93377 18.6323L5.03377 14.399C4.81155 14.199 4.67288 13.971 4.61777 13.715C4.56266 13.459 4.57911 13.2092 4.66711 12.9656C4.75511 12.7221 4.88844 12.5221 5.06711 12.3656C5.24577 12.2092 5.49022 12.1092 5.80044 12.0656L12.2671 11.499L14.7671 5.56563C14.8782 5.29896 15.0507 5.09896 15.2844 4.96562C15.5182 4.83229 15.7569 4.76562 16.0004 4.76562C16.244 4.76563 16.4827 4.83229 16.7164 4.96562C16.9502 5.09896 17.1227 5.29896 17.2338 5.56563L19.7338 11.499L26.2004 12.0656C26.5115 12.1101 26.756 12.2101 26.9338 12.3656C27.1115 12.5212 27.2449 12.7212 27.3338 12.9656C27.4227 13.2101 27.4395 13.4603 27.3844 13.7163C27.3293 13.9723 27.1902 14.1998 26.9671 14.399L22.0671 18.6323L23.5338 24.9323C23.6004 25.2212 23.5782 25.4825 23.4671 25.7163C23.356 25.9501 23.2004 26.1443 23.0004 26.299C22.8004 26.4536 22.5671 26.5425 22.3004 26.5656C22.0338 26.5887 21.7782 26.5221 21.5338 26.3656L16.0004 23.0323Z" fill="#F2B823" />
                                     </svg>
                                     5.0/5.0
                                 </h4>
 
+                                {/* <div className="rounded-full bg-first/40 py-0.5 px-2 text-white font-medidum text-sm lg:text-base">
+                                    123
+                                </div> */}
+                                
+                               </div> 
                                 <p
                                     className={`mt-3.5 lg:mt-5 font-manrope text-sm xl:text-base font-normal leading-7 tracking-[-1%] text-third group-hover:text-white anim  dark:text-d-fifth`}>
                                     10+ Enterprise Projects "The best Laravel/React developers we've hired. Perfect execution, clear communication, and on-time delivery.
@@ -412,10 +405,10 @@ export default function Review() {
                                     </defs>
                                 </svg>  
                             </div>
-                        </div>
+                        </a>
                         {/* card */}
                         {/* card */}
-                        <div
+                        <a href="https://www.fiverr.com/sellers/jakarea98" target="_blank"
                             className="w-full rounded-[4px] border border-[#252B37] p-3 xl:p-6 relative group anim bg-[#101828] anim flex flex-col justify-between lg:min-h-[380px]
                              dark:bg-[#101828] dark:border-[#252B37]">
                             <div className="relative z-40 mb-4 lg:mb-0">
@@ -442,7 +435,7 @@ export default function Review() {
                                     <path d="M33.004 25.5881C33.1347 25.5882 33.2641 25.5626 33.3848 25.5128C33.5056 25.4629 33.6154 25.3897 33.7079 25.2974C33.8004 25.2051 33.8738 25.0955 33.9239 24.9748C33.974 24.8541 33.9999 24.7248 34 24.5941C34.0001 24.4634 33.9745 24.334 33.9246 24.2133C33.8748 24.0925 33.8016 23.9827 33.7093 23.8902C33.617 23.7978 33.5074 23.7244 33.3867 23.6742C33.266 23.6241 33.1367 23.5982 33.006 23.5981C32.7421 23.5978 32.4889 23.7024 32.3021 23.8888C32.1153 24.0752 32.0103 24.3282 32.01 24.5921C32.0097 24.856 32.1143 25.1092 32.3007 25.296C32.4871 25.4828 32.7401 25.5878 33.004 25.5881ZM32.008 21.8831H31.158C30.612 21.8831 30.318 22.2931 30.318 22.9751V25.4411H28.708V21.8831H28.024C27.477 21.8831 27.184 22.2931 27.184 22.9751V25.4411H25.574V20.5671H27.184V21.3071C27.448 20.7331 27.81 20.5671 28.347 20.5671H30.319V21.3071C30.583 20.7331 30.944 20.5671 31.481 20.5671H32.008V21.8831ZM25.222 23.3841H21.863C21.951 23.9301 22.293 24.2421 22.869 24.2421C23.299 24.2421 23.601 24.0671 23.699 23.7551L25.124 24.1551C24.773 25.0031 23.904 25.5191 22.869 25.5191C21.121 25.5191 20.32 24.1641 20.32 23.0041C20.32 21.8641 21.023 20.4991 22.77 20.4991C24.626 20.4991 25.241 21.8831 25.241 22.9071C25.241 23.1311 25.231 23.2771 25.221 23.3841H25.222ZM23.66 22.4391C23.62 22.0191 23.318 21.6291 22.771 21.6291C22.263 21.6291 21.961 21.8541 21.863 22.4391H23.66ZM17.508 25.4401H18.924L20.691 20.5661H19.071L18.211 23.4031L17.333 20.5661H15.72L17.508 25.4401ZM10.908 25.4401H12.51V21.8821H14.034V25.4401H15.625V20.5661H12.51V20.2641C12.51 19.9321 12.745 19.7281 13.116 19.7281H14.034V18.4121H12.85C11.688 18.4121 10.907 19.1241 10.907 20.1671V20.5671H10V21.8831H10.908V25.4411V25.4401Z" fill="white" />
                                 </svg>
                             </div>
-                        </div>
+                        </a>
                         {/* card */}
                     </div>
                 </div>
