@@ -110,23 +110,25 @@ function VideoReviewCard({
             <div className='text-center bg-black rounded-[4px] p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-y-0 lg:gap-x-7 items-start border border-[#252B37]'>
             <div className='w-full lg:col-span-6 text-start flex  flex-col h-full'>
                 {/* Language toggle button */}
-                <div className="flex justify-end mb-2">
-                    <button
-                        onClick={() => setShowEnglish(!showEnglish)}
-                        className="bg-[#101828] rounded-[4px] py-1 px-2.5 text-xs font-medium text-white border border-[#414651] hover:border-first transition-colors whitespace-nowrap flex items-center gap-x-1.5"
-                        title={showEnglish ? 'Switch to Dutch' : 'Switch to English'}
-                    >
-                        {showEnglish ? (
-                            <>
-                                Original
-                            </>
-                        ) : (
-                            <>
-                                English
-                            </>
-                        )}
-                    </button>
-                </div>
+                {reviewTextEN && (
+                    <div className="flex justify-end mb-2">
+                        <button
+                            onClick={() => setShowEnglish(!showEnglish)}
+                            className="bg-[#101828] rounded-[4px] py-1 px-2.5 text-xs font-medium text-white border border-[#414651] hover:border-first transition-colors whitespace-nowrap flex items-center gap-x-1.5"
+                            title={showEnglish ? 'Switch to Dutch' : 'Switch to English'}
+                        >
+                            {showEnglish ? (
+                                <>
+                                    Original
+                                </>
+                            ) : (
+                                <>
+                                    English
+                                </>
+                            )}
+                        </button>
+                    </div>
+                )}
 
                 <div>
                     <div className="max-h-[120px] min-h-[400px] lg:max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
@@ -162,7 +164,7 @@ function VideoReviewCard({
                         <>
                             <Image
                                 src={thumbnail}
-                                alt="Video Thumbnail"
+                                alt={reviewerRole}
                                 fill
                                 className='object-cover rounded-lg'
                                 sizes="(max-width: 280px) 100vw, 280px"
@@ -237,7 +239,7 @@ const videoReviews = [
         id: 3,
         youtubeVideoId: "ttQ-pMXMC9Y",
         thumbnail: "/assets/images/renzo.webp",
-        clientLogo: "",
+        clientLogo: "/assets/images/shopify/renzo-logo.png",
         reviewTextNL: `Hoi, mijn naam is Renzo, ik ben 21 jaar oud en eh ja ik had een probleem op Shopify met mijn webshop met eh een bundel een bundel sectie. En eh ja het best wel een complex probleem, ik kwam er zelf niet uit. En eh ben via een connectie van mij bij eh Jakarea terechtgekomen. Eh de samenwerking die vond ik erg fijn want hij nam goed de tijd voor je om ehm om bijvoorbeeld te bellen, niet alles over eh de app te doen, want zo kan je veel beter communiceren, dus de communicatie was erg goed. Ook ehm was was de prijs die we af hadden gesproken eh qua wat die moest doen ook erg erg eh erg erg goed, ben ik zeker tevreden mee. Dus eh ja, als je een probleem hebt op Shopify of ergens anders dan kan Jakarea en zijn team denk ik zeker wel helpen. Dus bij deze bedankt voor al jullie hulp en eh nou de samenwerking geef ik wel een eh een acht. Dus eh ja, als je een probleem hebt, je weet ze te vinden.`,
         reviewTextEN: `Hi, my name is Renzo, I am 21 years old and uh yeah I had a problem on Shopify with my webshop involving uh a bundle... a bundle section. And uh yeah it was quite a complex problem, I couldn't figure it out myself. And uh via a connection of mine I actually ended up with uh Jakarea. Uh the collaboration, I found it really nice because he took good time for you to uhm to for example call, not just do everything via uh the app, because that way you can communicate much better, so the communication was very good. Also uhm was... was the price that we had agreed on uh regarding what he had to do also very very uh very very good, I am certainly satisfied with that. So uh yes, if you have a problem on Shopify or anywhere else really, then Jakarea and his team can I think certainly help you out. So hereby thanks for all your help and uh well the collaboration I give a uh an eight. So uh yeah, if you have a problem, you know where to find them.`,
         reviewerName: "Renzo",
@@ -245,24 +247,25 @@ const videoReviews = [
     },
     {
         id: 4,
+        youtubeVideoId: "581f1uxsIXk",
+        thumbnail: "/assets/images/roy-dolan.webp",
+        clientLogo: "https://bouwspecialist.nl/wp-content/uploads/2024/01/New-Project-min-1024x574.png",
+        reviewTextNL: `Ja goedendag, ik ben Roy Doelen, de eigenaar van Bouwspecialist. Eh wij bouwen door heel Nederland, wij voeren complete woningrenovaties uit. En ik ben via een kennis Giopio eh uit Bangladesh tegengekomen. Ehm hij voert voor mij de volledige SEA en SEO uit. Hij heeft ook de website voor mij volledig eh geüpdatet en geïntegreerd voor een aantal offerteaanvragen. Nou eh zijn services en voordelen vanuit eh Bangladesh van Giopio ehm zijn vooral liggend in snelle communicatie eh kostenefficiënt. Dus het is ook nog eens voordeliger ten opzichte van de de Nederlandse markt. Eh het is weliswaar in het Engels, maar eh dat maakt voor mij niet zoveel uit. Ehm hij geeft meteen feedback. Je kunt binnen tien minuten weer zien als je een aanpassing in de website eh laat maken, ehm voert ie deze vrijwel meteen uit. Eh je kunt ook videobellen, dus eh ja, eigenlijk eh is het zo aan de keukentafel, aan de kantoortafel kun je rechtstreeks met hem in contact komen. Ehm ja en de services, hij biedt heel veel verschillende services aan. Mijn website is ook redelijk uitgebreid dus in al die services eh kan hij providen. Dus ik eh zou zeggen, ga zeker met eh dit bedrijf eh in zee. Ehm nogmaals, het eh hij denkt mee over de kosten. En eh zeer uitgebreide services biedt deze dit bedrijf aan. Eh dus voor mij zeker een aanrader`,
+        reviewTextEN: `Yeah good day, I'm Roy Doelen, the owner of Bouwspecialist. Uh we build throughout the Netherlands, we carry out complete home renovations here. And I came across Giopio uh from Bangladesh via an acquaintance. Uhm he carries out the full SEA and SEO for me. He has also fully uh updated the website for me and integrated it for a number of quote requests. Well uh his services and benefits from uh Bangladesh from Giopio uhm are mainly lying in fast communication uh cost-efficient. So it is also more affordable compared to the the Dutch market. Uh it is admittedly in English, but uh that doesn't matter much to me. Uhm he gives feedback immediately. You can see within ten minutes if you have an adjustment made in the website uh, uhm he executes this almost immediately. Uh you can also video call, so uh yes, actually uh it is like at the kitchen table, at the office table you can get in contact directly with him. Uhm yes and the services, he offers a whole lot of different services. My website is also reasonably extensive so in all those services uh he can provide. So I uh would say, definitely go into business with uh this company. Uhm once again, the uh he thinks along about the costs. And uh very extensive services this company offers. Uh so for me certainly highly recommended`,
+        reviewerName: "Roy Dolan",
+        reviewerRole: "Owner of Bouwspecialist"
+    },
+    {
+        id: 5,
         youtubeVideoId: "0nfvy6eD3uU",
         thumbnail: "/assets/images/anthony-pearson.webp",
         clientLogo: "",
         reviewTextNL: `Hi uh, my name's Anthony Pearson and I'm an Account Manager at Elite Outsource Corporation based in Leeds. Uh, we have contracted Giopio for several projects now and working with them has been an excellent experience. Um, the professionalism, high-quality work, responsiveness, and ability to deliver on time consistently really did set them apart from... from many others. Um, I would highly recommend Giopio. Um, the team is skilled, detail-oriented—which is very important to us—and exceptional at solving problems with efficiency and expertise. So, all in all, yeah, would highly recommend.`,
-        reviewTextEN: `Hi uh, my name's Anthony Pearson and I'm an Account Manager at Elite Outsource Corporation based in Leeds. Uh, we have contracted Giopio for several projects now and working with them has been an excellent experience. Um, the professionalism, high-quality work, responsiveness, and ability to deliver on time consistently really did set them apart from... from many others. Um, I would highly recommend Giopio. Um, the team is skilled, detail-oriented—which is very important to us—and exceptional at solving problems with efficiency and expertise. So, all in all, yeah, would highly recommend.`,
+        reviewTextEN: ``,
         reviewerName: "Anthony Pearson",
         reviewerRole: "Account Manager at Elite Outsource Corporation"
-    },
-        {
-        id: 5,
-        youtubeVideoId: "DEMO_ID_VIDEO",
-        thumbnail: "/assets/images/anthony-pearson.webp",
-        clientLogo: "",
-        reviewTextNL: `Ja goedendag, ik ben Roy Doelen, de eigenaar van Bouwspecialist. Eh wij bouwen door heel Nederland, wij voeren complete woningrenovaties uit. En ik ben via een kennis Giopio eh uit Bangladesh tegengekomen. Ehm hij voert voor mij de volledige SEA en SEO uit. Hij heeft ook de website voor mij volledig eh geüpdatet en geïntegreerd voor een aantal offerteaanvragen. Nou eh zijn services en voordelen vanuit eh Bangladesh van Giopio ehm zijn vooral liggend in snelle communicatie eh kostenefficiënt. Dus het is ook nog eens voordeliger ten opzichte van de de Nederlandse markt. Eh het is weliswaar in het Engels, maar eh dat maakt voor mij niet zoveel uit. Ehm hij geeft meteen feedback. Je kunt binnen tien minuten weer zien als je een aanpassing in de website eh laat maken, ehm voert ie deze vrijwel meteen uit. Eh je kunt ook videobellen, dus eh ja, eigenlijk eh is het zo aan de keukentafel, aan de kantoortafel kun je rechtstreeks met hem in contact komen. Ehm ja en de services, hij biedt heel veel verschillende services aan. Mijn website is ook redelijk uitgebreid dus in al die services eh kan hij providen. Dus ik eh zou zeggen, ga zeker met eh dit bedrijf eh in zee. Ehm nogmaals, het eh hij denkt mee over de kosten. En eh zeer uitgebreide services biedt deze dit bedrijf aan. Eh dus voor mij zeker een aanrader`,
-        reviewTextEN: `Yeah good day, I'm Roy Doelen, the owner of Bouwspecialist. Uh we build throughout the Netherlands, we carry out complete home renovations here. And I came across Giopio uh from Bangladesh via an acquaintance. Uhm he carries out the full SEA and SEO for me. He has also fully uh updated the website for me and integrated it for a number of quote requests. Well uh his services and benefits from uh Bangladesh from Giopio uhm are mainly lying in fast communication uh cost-efficient. So it is also more affordable compared to the the Dutch market. Uh it is admittedly in English, but uh that doesn't matter much to me. Uhm he gives feedback immediately. You can see within ten minutes if you have an adjustment made in the website uh, uhm he executes this almost immediately. Uh you can also video call, so uh yes, actually uh it is like at the kitchen table, at the office table you can get in contact directly with him. Uhm yes and the services, he offers a whole lot of different services. My website is also reasonably extensive so in all those services uh he can provide. So I uh would say, definitely go into business with uh this company. Uhm once again, the uh he thinks along about the costs. And uh very extensive services this company offers. Uh so for me certainly highly recommended`,
-        reviewerName: "DEMO NAME",
-        reviewerRole: "Role"
     }
+    
 ];
 
 export default function Review() {
