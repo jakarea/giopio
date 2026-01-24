@@ -128,7 +128,7 @@ export default function RootLayout({ children }) {
         <Header />
 
         {/* whatsapp icon */}
-        <WhatsAppButton />
+        {/* <WhatsAppButton /> */}
 
         <Suspense>
           {children}

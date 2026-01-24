@@ -146,9 +146,9 @@ const Navbar = () => {
                             Get Free Audit
                         </Link>
                     </li>
-                    <li className='hidden lg:block'>
+                    {/* <li className='hidden lg:block'>
                         <DarkModeToggle />
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </div>
