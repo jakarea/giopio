@@ -142,10 +142,6 @@ export default function RootLayout({ children }) {
         {/* whatsapp icon */}
         {/* <WhatsAppButton /> */}
 
-        <Suspense>
-          {children}
-        </Suspense>
-
         {/* <CtaFooterJoin /> */}
 
         {/* cta start */}
