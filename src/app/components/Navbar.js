@@ -144,6 +144,9 @@ const Navbar = () => {
                             Find My Revenue Leaks
                         </Link>
                     </li>
+                    {/* <li className='hidden lg:block'>
+                        <DarkModeToggle />
+                    </li> */}
                 </ul>
             </div>
         </div>

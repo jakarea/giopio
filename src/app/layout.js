@@ -138,6 +138,17 @@ export default function RootLayout({ children }) {
         />
 
         <Header />
+
+        {/* whatsapp icon */}
+        {/* <WhatsAppButton /> */}
+
+        <Suspense>
+          {children}
+        </Suspense>
+
+        {/* <CtaFooterJoin /> */}
+
+        {/* cta start */}
         <main id="main-content">
           <Suspense fallback={null}>
             {children}

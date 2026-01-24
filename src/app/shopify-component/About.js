@@ -1,17 +1,30 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image' 
 
 // YouTube video ID for the review video
 const YOUTUBE_VIDEO_ID = "6C4iSyu4Emk";
+
+const para = ` Hoi, ik ben Jeffrey, ik ben eigenaar van Kitchen Numbers. Wij werken momenteel al een jaar samen met eh Jakarea van Giopio.<br />
+    Jakarea is momenteel ehm... volledig commit, los van al zijn side jobs en andere jobs die die heeft, tot Kitchen Numbers. Begrijpt onze visie volledig.<br />
+    Ehm, wij zijn een startup. Ehm, doen dat vanuit ons eigen centen naast onze vaste job. Dus je kan begrijpen dat financiën wellicht soms wel even een struggle kunnen zijn. Ehm, iets waar je geen zorgen om hoeft te maken bij eh Jakarea.<br />
+    Ehm, volledig commit. Ehm, begrijpt snel, begrijpt de visie snel. Wat wonderbaarlijk is, want wat wij eh... wij spreken de horeca aan. Nou ja, Giopio is een eh... Giopio is een bedrijf wat gewoon hè, developed in in websites en apps.<br />
+    Ehm, wat mij dus heel erg aanspreekt is zijn commitment op iets waarvan je zou zeggen van nou ja, eh hier moet je verstand van hebben. Eh hij leert dus snel. <br />
+    Ehm, prijs-kwaliteitverhouding... Geweldig. Ik raad iedereen aan om met Jakarea samen te werken. Kan niet anders dan goedkomen. Succes.`
+const paraEn = `Hi, I'm Jeffrey, I am the owner of Kitchen Numbers. We have currently been working together with uh Jakarea from Giopio for a year.<br />
+    Jakarea is currently uhm... fully committed, apart from all his side jobs and other jobs he has, to Kitchen Numbers. Understands our vision entirely.<br />
+    Uhm, we are a startup. Uh, doing this from our own pockets next to our regular job. So you can understand that finances might well sometimes be a bit of a struggle. Uhm, something you don't have to worry about with uh Jakarea.<br />
+    Uhm, fully committed. Uh, understands fast, grasps the vision fast. Which is amazing, because what we uh... we target the hospitality industry. Well yes, Giopio is a uh... Giopio is a company that just, right, develops in in websites and apps.<br />
+    Uhm, so what really appeals to me is his commitment to something where you would say like well yeah, uh you need to have understanding of this. Uh so he learns fast.<br />
+    Uhm, price-quality ratio... Amazing. I advise everyone to work together with Jakarea. It's bound to turn out well. Good luck.`
 
 const About = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [showEnglish, setShowEnglish] = useState(false);
     const playerRef = useRef(null);
     const containerRef = useRef(null);
+    const [defaultReviewParagraph, setDefaultReviewParagraph] = useState(para);
 
     const handleVideoEnd = useCallback(() => {
         setIsPlaying(false);
@@ -26,6 +39,11 @@ const About = () => {
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         }
     }, [isPlaying]);
+
+    // show english review
+    useEffect(() => {
+        setDefaultReviewParagraph(prev => showEnglish ? paraEn : para);
+    }, [showEnglish])
 
     useEffect(() => {
         if (isPlaying && containerRef.current) {
@@ -91,15 +109,14 @@ const About = () => {
         <>
             <section className="w-full pt-20 relative md:pt-[86px] xl:pt-[130px]" id="aboutSection">
                 <div className="container">
-                    <div className='text-center bg-black rounded-[4px] p-8 lg:p-10 xl:p-[42px] grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-y-0 lg:gap-x-6 items-end border border-[#252B37] xl:gap-x-20'>
-                        <div className='w-full relative lg:col-span-5 flex items-center justify-center'>
+                    <div className='text-center bg-black rounded-[4px] p-5 lg:p-7 xl:p-8 grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-y-0 lg:gap-x-4 items-start border border-[#252B37] xl:gap-x-12'>
+                        <div className='w-full relative lg:col-span-5 flex items-start justify-center'>
                             {/* Video container with 9:16 aspect ratio (vertical TikTok style) */}
-                            <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] mx-auto" style={{ aspectRatio: '9/16' }}>
+                            <div className="relative w-full mx-auto aspect-[9/11.5]">
                                 {isPlaying ? (
                                     <div
                                         ref={containerRef}
-                                        className="absolute inset-0 w-full h-full rounded-lg overflow-hidden"
-                                        style={{ backgroundColor: '#000' }}
+                                        className="absolute inset-0 w-full h-full rounded-lg overflow-hidden bg-black" 
                                     />
                                 ) : (
                                     <>
@@ -123,7 +140,7 @@ const About = () => {
                             </div>
                         </div>
                         <div className='w-full lg:col-span-7 text-start font-onest'>
-                            <div className="flex items-center justify-between">
+                            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3">
                                 <h2 className='font-semibold text-2xl md:text-[34px] lg:text-[42px] text-white leading-[140%]'>
                                     Trusted in the {" "}  Netherlands
                                 </h2>
@@ -131,60 +148,36 @@ const About = () => {
                                 {/* Toggle Button */}
                                 <button
                                     onClick={() => setShowEnglish(!showEnglish)}
-                                    className="relative group anim overflow-hidden anim bg-[#101828] rounded-[4px] py-1.5 px-3 text-xs font-medium text-white border border-[#414651] hover:border-first transition-colors whitespace-nowrap"
+                                    className="relative group anim mr-auto lg:mx-auto overflow-hidden anim bg-[#101828] rounded-[4px] py-1.5 px-3 text-xs font-medium text-white border border-[#414651] hover:border-first transition-colors whitespace-nowrap"
                                 >
                                     {showEnglish ? 'Original' : 'English'}
                                 </button>
                             </div>
 
                             {/* Testimonial Content Container with fixed height */}
-                            <div className="min-h-[280px] lg:min-h-[320px]">
-                                {/* Dutch Original Text */}
-                                {!showEnglish && (
-                                    <p className='text-sm lg:text-lg text-[#D5D7DA] font-normal mt-3 lg:mt-5'>
-                                        Hoi, ik ben Jeffrey, ik ben eigenaar van Kitchen Numbers. Wij werken momenteel al een jaar samen met eh Jakarea van Giopio.<br />
-                                        Jakarea is momenteel ehm... volledig commit, los van al zijn side jobs en andere jobs die die heeft, tot Kitchen Numbers. Begrijpt onze visie volledig.<br />
-
-                                        Ehm, wij zijn een startup. Ehm, doen dat vanuit ons eigen centen naast onze vaste job. Dus je kan begrijpen dat financiën wellicht soms wel even een struggle kunnen zijn. Ehm, iets waar je geen zorgen om hoeft te maken bij eh Jakarea.<br />
-
-                                        Ehm, volledig commit. Ehm, begrijpt snel, begrijpt de visie snel. Wat wonderbaarlijk is, want wat wij eh... wij spreken de horeca aan. Nou ja, Giopio is een eh... Giopio is een bedrijf wat gewoon hè, developed in in websites en apps.<br />
-
-                                        Ehm, wat mij dus heel erg aanspreekt is zijn commitment op iets waarvan je zou zeggen van nou ja, eh hier moet je verstand van hebben. Eh hij leert dus snel.<br />
-
-                                        Ehm, prijs-kwaliteitverhouding... Geweldig. Ik raad iedereen aan om met Jakarea samen te werken. Kan niet anders dan goedkomen. Succes.
-                                    </p>
-                                )}
-
-                                {/* English Translation */}
-                                {showEnglish && (
-                                    <p className='text-sm lg:text-lg text-[#D5D7DA] font-normal mt-3 lg:mt-5'>
-                                        Hi, I'm Jeffrey, I am the owner of Kitchen Numbers. We have currently been working together with uh Jakarea from Giopio for a year.<br />
-                                        Jakarea is currently uhm... fully committed, apart from all his side jobs and other jobs he has, to Kitchen Numbers. Understands our vision entirely.<br />
-
-                                        Uhm, we are a startup. Uh, doing this from our own pockets next to our regular job. So you can understand that finances might well sometimes be a bit of a struggle. Uhm, something you don't have to worry about with uh Jakarea.<br />
-
-                                        Uhm, fully committed. Uh, understands fast, grasps the vision fast. Which is amazing, because what we uh... we target the hospitality industry. Well yes, Giopio is a uh... Giopio is a company that just, right, develops in in websites and apps.<br />
-
-                                        Uhm, so what really appeals to me is his commitment to something where you would say like well yeah, uh you need to have understanding of this. Uh so he learns fast.<br />
-
-                                        Uhm, price-quality ratio... Amazing. I advise everyone to work together with Jakarea. It's bound to turn out well. Good luck.
-                                    </p>
-                                )}
+                            <div className="min-h-[280px] lg:min-h-[360px] mt-3 lg:mt-5">
+                                {/* Testimonial Text - renders HTML properly */}
+                                <p
+                                    className='text-sm lg:text-base text-[#D5D7DA] font-normal text-justify lg:text-start'
+                                    dangerouslySetInnerHTML={{ __html: defaultReviewParagraph }}
+                                />
                             </div>
 
-                            <h5 className='mt-12 lg:mt-[72px] text-first font-medium text-xl lg:text-2xl'>
+                            <div className='flex flex-col items-start lg:items-center lg:flex-row gap-4 justify-between mt-12 lg:mt-[72px]'>
+                                <div>
+                                     <h5 className=' text-first font-medium text-xl lg:text-2xl'>
                                 Jeffrey
                             </h5>
                             <h6 className='text-sm lg:text-lg text-[#D5D7DA] font-normal mt-1'>
                                 Eigenaar van Kitchen Numbers
-                            </h6>
-                            <Image
+                            </h6> 
+                                </div>
+                                <img
                                 src="https://kitchennmbrs.app/static-assets/images/logo-xl.svg"
-                                alt="Kitchen Numbers Logo"
-                                width={120}
-                                height={40}
-                                className="mt-4"
+                                alt="Kitchen Numbers Logo" 
+                                className="w-40 lg:w-52"
                             />
+                            </div>
                         </div>
                     </div>
                 </div>
