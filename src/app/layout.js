@@ -138,9 +138,11 @@ export default function RootLayout({ children }) {
         />
 
         <Header />
-        <Suspense fallback={null}>
-          {children}
-        </Suspense>
+        <main id="main-content">
+          <Suspense fallback={null}>
+            {children}
+          </Suspense>
+        </main>
         <Cta />
         <Footer />
         <WhatsAppButton />

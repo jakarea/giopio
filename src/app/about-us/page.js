@@ -155,18 +155,18 @@ export default function AboutUs() {
                     <div className='text-center bg-black rounded-[4px] p-8 lg:p-10 xl:p-[42px] grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-y-0 lg:gap-x-6 items-start border border-[#252B37] xl:gap-x-20'>
 
                         <div className='w-full lg:col-span-8 text-start font-onest flex flex-col justify-between h-full '>
-                           <div>
-                             <h2 className='font-semibold text-xl md:text-[24px] lg:text-[32px] text-white leading-[140%]'>
-                                A Note From The Lead Architech
-                            </h2>
-                            <p className='text-sm lg:text-xl text-[#D5D7DA] font-normal mt-3 lg:mt-5 font-manrope'>
-                                I realized early on that e-commerce founders don't need more 'marketing fluff'. They need technical stability. When your checkout loads in 1.2 seconds, you don't need to shout to make a sale. The experience sells itself.
-                            </p>
-                            <p className='text-sm lg:text-xl text-[#D5D7DA] font-normal mt-3 lg:mt-5 font-manrope'>
-                                Let us look under the hood of your store. I promise you, we will find revenue you didn't know you were losing.
-                            </p>
+                            <div>
+                                <h2 className='font-semibold text-xl md:text-[24px] lg:text-[32px] text-white leading-[140%]'>
+                                    A Note From The Lead Architech
+                                </h2>
+                                <p className='text-sm lg:text-xl text-[#D5D7DA] font-normal mt-3 lg:mt-5 font-manrope'>
+                                    I realized early on that e-commerce founders don't need more 'marketing fluff'. They need technical stability. When your checkout loads in 1.2 seconds, you don't need to shout to make a sale. The experience sells itself.
+                                </p>
+                                <p className='text-sm lg:text-xl text-[#D5D7DA] font-normal mt-3 lg:mt-5 font-manrope'>
+                                    Let us look under the hood of your store. I promise you, we will find revenue you didn't know you were losing.
+                                </p>
 
-                           </div>
+                            </div>
                             <div className="flex items-center gap-x-4 mt-4 lg:mt-0">
                                 <div>
                                     <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -184,7 +184,7 @@ export default function AboutUs() {
                                 </div>
                                 <div>
                                     <h5 className='text-white font-medium text-base lg:text-lg font-onest'>
-                                        Bram D.
+                                        Jakarea p.
                                     </h5>
                                     <h6 className='text-sm lg:text-base text-[#D5D7DA] font-medium font-manrope mt-0.5'>
                                         ✅ Lead Engineer & Founder
@@ -194,7 +194,7 @@ export default function AboutUs() {
 
                         </div>
                         <div className='w-full relative lg:col-span-4 flex items-center justify-center'>
-                            <img src="/assets/images/shopify/person.png" alt="Person" className='w-full h-full' />
+                            <img src="/assets/images/shopify/jakarea-parvez.jpeg" alt="Jakarea Parvez" className='w-full h-full' />
                         </div>
                     </div>
                 </div>

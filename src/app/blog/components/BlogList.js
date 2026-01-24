@@ -141,8 +141,8 @@ const BlogList = ({ searchTerm = '' }) => {
                 <Image
                   src={blog.feature_thumbnail}
                   alt={blog.title}
-                  width="600"
-                  height="400"
+                  width={600}
+                  height={400}
                   className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
                   loading='lazy'
                 />

@@ -11,6 +11,11 @@ const nextConfig = {
         hostname: 'cdn.pixabay.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'kitchennmbrs.app',
+        pathname: '/**',
+      },
     ],
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -18,14 +23,8 @@ const nextConfig = {
     minimumCacheTTL: 60,
   },
 
-  // Script optimization
-  scriptLoader: {
-    // Defer non-critical scripts
-  },
-
   // Experimental features for performance
   experimental: {
-    optimizeCss: true,
     optimizeServerReact: true,
   },
 
