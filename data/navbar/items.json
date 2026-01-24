@@ -2,25 +2,25 @@
     {
         "id": 1,
         "name": "About Us",
-        "url": "/shopify/about-us",
+        "url": "/about-us",
         "has_dropdown": 0
     },
     {
         "id": 2,
         "name": "The Method",
-        "url": "/shopify/revenue",
+        "url": "/revenue",
         "has_dropdown": 0
     },
     {
         "id": 3,
         "name": "Results",
-        "url": "/shopify/result",
+        "url": "/result",
         "has_dropdown": 0
-    }, 
+    },
     {
         "id": 4,
         "name": "Reviews",
-        "url": "/shopify/review",
+        "url": "/review",
         "has_dropdown": 0
     }
 ]

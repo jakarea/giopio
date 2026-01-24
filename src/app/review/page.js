@@ -1,11 +1,215 @@
-import meta from "../../../../data/meta/home.json"
-import Image from "next/image"
+"use client";
 
-export const metadata = {
-    ...meta
-};
+import { useState, useCallback, useEffect, useRef } from "react";
+import Image from "next/image";
+
+// Video Review Card Component with vertical YouTube player
+function VideoReviewCard({
+    youtubeVideoId,
+    thumbnail,
+    reviewText,
+    reviewerName,
+    reviewerRole,
+    reviewerIcon,
+    isPlaying,
+    onPlay,
+    onVideoEnd
+}) {
+    const playerRef = useRef(null);
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        // Load YouTube IFrame API if not already loaded
+        if (isPlaying && !window.YT) {
+            const tag = document.createElement('script');
+            tag.src = "https://www.youtube.com/iframe_api";
+            const firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
+    }, [isPlaying]);
+
+    useEffect(() => {
+        if (isPlaying && containerRef.current) {
+            const initPlayer = () => {
+                if (window.YT && window.YT.Player) {
+                    const playerDiv = document.createElement('div');
+                    playerDiv.id = `player-${youtubeVideoId}-${Date.now()}`;
+                    playerDiv.style.width = '100%';
+                    playerDiv.style.height = '100%';
+                    containerRef.current.innerHTML = '';
+                    containerRef.current.appendChild(playerDiv);
+
+                    playerRef.current = new window.YT.Player(playerDiv.id, {
+                        width: '100%',
+                        height: '100%',
+                        videoId: youtubeVideoId,
+                        playerVars: {
+                            autoplay: 1,
+                            rel: 0,
+                            modestbranding: 1,
+                            playsinline: 1
+                        },
+                        events: {
+                            onReady: (event) => {
+                                // Ensure iframe fills container
+                                const iframe = event.target.getIframe();
+                                if (iframe) {
+                                    iframe.style.width = '100%';
+                                    iframe.style.height = '100%';
+                                    iframe.style.position = 'absolute';
+                                    iframe.style.top = '0';
+                                    iframe.style.left = '0';
+                                }
+                            },
+                            onStateChange: (event) => {
+                                if (event.data === 0) {
+                                    onVideoEnd();
+                                }
+                            }
+                        }
+                    });
+                } else {
+                    setTimeout(initPlayer, 100);
+                }
+            };
+            initPlayer();
+        }
+
+        return () => {
+            if (playerRef.current && playerRef.current.destroy) {
+                playerRef.current.destroy();
+                playerRef.current = null;
+            }
+        };
+    }, [isPlaying, youtubeVideoId, onVideoEnd]);
+
+    return (
+        <div className='text-center bg-black rounded-[4px] p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-y-0 lg:gap-x-7 items-start border border-[#252B37]'>
+            <div className='w-full lg:col-span-6 text-start flex justify-between flex-col h-full'>
+                <p className='text-sm lg:text-base text-[#D5D7DA] font-normal font-manrope'>
+                    {reviewText}
+                </p>
+
+                <div className="flex items-center gap-x-4 mt-4 lg:mt-0">
+                    <div>
+                        {reviewerIcon}
+                    </div>
+                    <div>
+                        <h5 className='text-white font-medium text-base lg:text-lg font-onest'>
+                            {reviewerName}
+                        </h5>
+                        <h6 className='text-sm lg:text-base text-[#D5D7DA] font-medium font-manrope mt-0.5'>
+                            ✅ {reviewerRole}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div className='w-full relative lg:col-span-6 flex items-center justify-center'>
+                {/* Vertical aspect ratio container (9:16) */}
+                <div className="relative w-full max-w-[280px] mx-auto" style={{ aspectRatio: '9/16' }}>
+                    {isPlaying ? (
+                        <div
+                            ref={containerRef}
+                            className="absolute inset-0 w-full h-full rounded-lg overflow-hidden"
+                            style={{ backgroundColor: '#000' }}
+                        />
+                    ) : (
+                        <>
+                            <Image
+                                src={thumbnail}
+                                alt="Video Thumbnail"
+                                fill
+                                className='object-cover rounded-lg'
+                                sizes="(max-width: 280px) 100vw, 280px"
+                            />
+                            <div
+                                onClick={onPlay}
+                                className='absolute inset-0 flex items-center justify-center cursor-pointer'
+                            >
+                                <div className='flex items-center justify-center w-12 h-12 lg:w-20 lg:h-20 bg-first rounded-full play-icon hover:scale-110 transition-transform duration-300'>
+                                    <Image src="/assets/images/shopify/play-icon.svg" alt="Play" width={25} height={25} />
+                                </div>
+                            </div>
+                        </>
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// Reviewer icon components
+const FounderIcon = () => (
+    <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#F04438" />
+        <g clipPath="url(#clip0_40000352_959)">
+            <path d="M14.167 29.1475L17.7063 26.4453C19.5867 28.8912 21.5846 30.0186 23.8083 30.0186C26.0202 30.0186 27.9616 28.9046 29.7573 26.4779L33.3471 29.1149C30.7562 32.6142 27.5365 34.4631 23.8083 34.4631C20.0921 34.4631 16.8412 32.6261 14.167 29.1475Z" fill="white" />
+            <path d="M23.3788 17.402L17.079 22.8123L14.167 19.4464L23.3921 11.5234L32.5444 19.4523L29.619 22.8064L23.3788 17.402Z" fill="white" />
+        </g>
+        <defs>
+            <clipPath id="clip0_40000352_959">
+                <rect width="24" height="24" fill="white" transform="translate(11.5 11.5)" />
+            </clipPath>
+        </defs>
+    </svg>
+);
+
+const AudioIcon = () => (
+    <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#365563" />
+        <path d="M20.5 14.5V32.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M17.5 18.5V28.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M23.5 17.5V29.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M26.5 20.5V26.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M29.5 18.5V28.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M32.5 22.5V24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M14.5 22.5V24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+);
+
+// Video reviews data
+const videoReviews = [
+    {
+        id: 1,
+        youtubeVideoId: "ttQ-pMXMC9Y",
+        thumbnail: "/assets/images/shopify/person.png",
+        reviewText: "Finally a developer who thinks like a business owner. They didn't just patch the code; they re-engineered our checkout flow. Our mobile conversion rate went up by 25% in two weeks. Genuine experts.",
+        reviewerName: "Mark Janssen",
+        reviewerRole: "Founder",
+        reviewerIcon: <FounderIcon />
+    },
+    {
+        id: 2,
+        youtubeVideoId: "6C4iSyu4Emk",
+        thumbnail: "/assets/images/shopify/person.png",
+        reviewText: "Finally a developer who thinks like a business owner. They didn't just patch the code; they re-engineered our checkout flow. Our mobile conversion rate went up by 25% in two weeks. Genuine experts.",
+        reviewerName: "Mark Janssen",
+        reviewerRole: "Founder",
+        reviewerIcon: <FounderIcon />
+    },
+    {
+        id: 3,
+        youtubeVideoId: "tkPF4pFiryM",
+        thumbnail: "/assets/images/shopify/person.png",
+        reviewText: "Finally a developer who thinks like a business owner. They didn't just patch the code; they re-engineered our checkout flow. Our mobile conversion rate went up by 25% in two weeks. Genuine experts.",
+        reviewerName: "Mark Janssen",
+        reviewerRole: "Founder",
+        reviewerIcon: <FounderIcon />
+    }
+];
 
 export default function Review() {
+    // Track which video is currently playing (null means none)
+    const [activeVideoId, setActiveVideoId] = useState(null);
+
+    const handlePlayVideo = useCallback((videoId) => {
+        setActiveVideoId(videoId);
+    }, []);
+
+    const handleVideoEnd = useCallback(() => {
+        setActiveVideoId(null);
+    }, []);
+
     return (
         <>
             <section className="w-full py-16 relative md:pt-20 xl:pt-32 xl:pb-[102px]">
@@ -28,54 +232,24 @@ export default function Review() {
                 </div>
             </section>
 
-            {/* review section start */}
+            {/* Video Reviews Section */}
             <section className="w-full relative">
                 <div className="container">
                     <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-4 lg:gap-7">
-                        {/* card */}
-                        <div className='text-center bg-black rounded-[4px] p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-y-0 lg:gap-x-7 items-start border border-[#252B37]'>
-                            <div className='w-full lg:col-span-6 text-start flex justify-between flex-col h-full'>
+                        {/* Video Review Card 1 */}
+                        <VideoReviewCard
+                            youtubeVideoId={videoReviews[0].youtubeVideoId}
+                            thumbnail={videoReviews[0].thumbnail}
+                            reviewText={videoReviews[0].reviewText}
+                            reviewerName={videoReviews[0].reviewerName}
+                            reviewerRole={videoReviews[0].reviewerRole}
+                            reviewerIcon={videoReviews[0].reviewerIcon}
+                            isPlaying={activeVideoId === videoReviews[0].id}
+                            onPlay={() => handlePlayVideo(videoReviews[0].id)}
+                            onVideoEnd={handleVideoEnd}
+                        />
 
-                                <p className='text-sm lg:text-base text-[#D5D7DA] font-normal font-manrope'>
-                                    Finally a developer who thinks like a business owner. They didn't just patch the code; they re-engineered our checkout flow. Our mobile conversion rate went up by 25% in two weeks. Genuine experts.
-                                </p>
-
-                                <div className="flex items-center gap-x-4 mt-4 lg:mt-0">
-                                    <div>
-                                        <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#F04438" />
-                                            <g clipPath="url(#clip0_40000352_959)">
-                                                <path d="M14.167 29.1475L17.7063 26.4453C19.5867 28.8912 21.5846 30.0186 23.8083 30.0186C26.0202 30.0186 27.9616 28.9046 29.7573 26.4779L33.3471 29.1149C30.7562 32.6142 27.5365 34.4631 23.8083 34.4631C20.0921 34.4631 16.8412 32.6261 14.167 29.1475Z" fill="white" />
-                                                <path d="M23.3788 17.402L17.079 22.8123L14.167 19.4464L23.3921 11.5234L32.5444 19.4523L29.619 22.8064L23.3788 17.402Z" fill="white" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_40000352_959">
-                                                    <rect width="24" height="24" fill="white" transform="translate(11.5 11.5)" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h5 className='text-white font-medium text-base lg:text-lg font-onest'>
-                                            Mark Janssen
-                                        </h5>
-                                        <h6 className='text-sm lg:text-base text-[#D5D7DA] font-medium font-manrope mt-0.5'>
-                                            ✅ Founder
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='w-full relative lg:col-span-6 flex items-center justify-center'>
-                                <img src="/assets/images/shopify/person.png" alt="Person" className='w-full h-full' />
-
-                                <div className='absolute cursor-pointer flex items-center justify-center w-12 h-12 lg:w-20 lg:h-20 bg-first rounded-full play-icon hover:scale-110 transition-transform duration-300'>
-                                    <Image src="/assets/images/shopify/play-icon.svg" alt="quote icon" width={25} height={25} />
-                                </div>
-                            </div>
-                        </div>
-                        {/* card */}
-
-                        {/* card */}
+                        {/* Text + Stats Row */}
                         <div className='w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-x-7'>
                             <div className='w-full text-start flex justify-between flex-col h-full bg-black border border-[#252B37] rounded-[4px] p-5 lg:p-6'>
                                 <p className='text-sm lg:text-base text-[#D5D7DA] font-normal font-manrope'>
@@ -84,16 +258,7 @@ export default function Review() {
 
                                 <div className="flex items-center justify-between gap-x-4 mt-4 lg:mt-0">
                                     <div className="order-2">
-                                        <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#365563" />
-                                            <path d="M20.5 14.5V32.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M17.5 18.5V28.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M23.5 17.5V29.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M26.5 20.5V26.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M29.5 18.5V28.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M32.5 22.5V24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M14.5 22.5V24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
+                                        <AudioIcon />
                                     </div>
                                     <div>
                                         <h5 className='text-white font-medium text-base lg:text-lg font-onest'>
@@ -107,7 +272,16 @@ export default function Review() {
                             </div>
                             <div className='w-full text-start bg-black border border-[#252B37] rounded-[4px]'>
 
-                                <Image src="/assets/images/shopify/review-1.png" alt="review" width={100} height={100} className="w-full h-[225px]" />
+                                <div className="relative w-full h-[225px]">
+                                    <Image
+                                        src="/assets/images/shopify/review-1.png"
+                                        alt="review"
+                                        fill
+                                        sizes="100vw"
+                                        className="object-cover"
+                                        priority
+                                    />
+                                </div>
 
                                 <div className="p-5 lg:p-6">
                                     <h4 className="text-white font-semibold text-xl lg:text-[42px] my-2 lg:my-3 font-onest">6.2 hours</h4>
@@ -118,9 +292,8 @@ export default function Review() {
 
                             </div>
                         </div>
-                        {/* card */}
 
-                        {/* card */}
+                        {/* Text + Stats Row 2 */}
                         <div className='w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-x-7'>
                             <div className='w-full text-start flex justify-between flex-col h-full bg-black border border-[#252B37] rounded-[4px] p-5 lg:p-6'>
                                 <p className='text-sm lg:text-base text-[#D5D7DA] font-normal font-manrope'>
@@ -129,16 +302,7 @@ export default function Review() {
 
                                 <div className="flex items-center justify-between gap-x-4 mt-4 lg:mt-0">
                                     <div className="order-2">
-                                        <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#365563" />
-                                            <path d="M20.5 14.5V32.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M17.5 18.5V28.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M23.5 17.5V29.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M26.5 20.5V26.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M29.5 18.5V28.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M32.5 22.5V24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                            <path d="M14.5 22.5V24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
+                                        <AudioIcon />
                                     </div>
                                     <div>
                                         <h5 className='text-white font-medium text-base lg:text-lg font-onest'>
@@ -152,7 +316,16 @@ export default function Review() {
                             </div>
                             <div className='w-full text-start bg-black border border-[#252B37] rounded-[4px]'>
 
-                                <Image src="/assets/images/shopify/review-1.png" alt="review" width={100} height={100} className="w-full h-[225px]" />
+                                <div className="relative w-full h-[225px]">
+                                    <Image
+                                        src="/assets/images/shopify/review-1.png"
+                                        alt="review"
+                                        fill
+                                        sizes="100vw"
+                                        className="object-cover"
+                                        priority
+                                    />
+                                </div>
 
                                 <div className="p-5 lg:p-6">
                                     <h4 className="text-white font-semibold text-xl lg:text-[38px] my-2 lg:my-3 font-onest">Top Rated</h4>
@@ -163,50 +336,32 @@ export default function Review() {
 
                             </div>
                         </div>
-                        {/* card */}
 
-                        {/* card */}
-                        <div className='text-center bg-black rounded-[4px] p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-y-0 lg:gap-x-7 items-start border border-[#252B37]'>
-                            <div className='w-full lg:col-span-6 text-start flex justify-between flex-col h-full'>
+                        {/* Video Review Card 2 */}
+                        <VideoReviewCard
+                            youtubeVideoId={videoReviews[1].youtubeVideoId}
+                            thumbnail={videoReviews[1].thumbnail}
+                            reviewText={videoReviews[1].reviewText}
+                            reviewerName={videoReviews[1].reviewerName}
+                            reviewerRole={videoReviews[1].reviewerRole}
+                            reviewerIcon={videoReviews[1].reviewerIcon}
+                            isPlaying={activeVideoId === videoReviews[1].id}
+                            onPlay={() => handlePlayVideo(videoReviews[1].id)}
+                            onVideoEnd={handleVideoEnd}
+                        />
 
-                                <p className='text-sm lg:text-base text-[#D5D7DA] font-normal font-manrope'>
-                                    Finally a developer who thinks like a business owner. They didn't just patch the code; they re-engineered our checkout flow. Our mobile conversion rate went up by 25% in two weeks. Genuine experts.
-                                </p>
-
-                                <div className="flex items-center gap-x-4 mt-4 lg:mt-0">
-                                    <div>
-                                        <svg className="w-8 h-8 lg:w-12 lg:h-12" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 23.5C0 10.5213 10.5213 0 23.5 0C36.4787 0 47 10.5213 47 23.5C47 36.4787 36.4787 47 23.5 47C10.5213 47 0 36.4787 0 23.5Z" fill="#F04438" />
-                                            <g clipPath="url(#clip0_40000352_959)">
-                                                <path d="M14.167 29.1475L17.7063 26.4453C19.5867 28.8912 21.5846 30.0186 23.8083 30.0186C26.0202 30.0186 27.9616 28.9046 29.7573 26.4779L33.3471 29.1149C30.7562 32.6142 27.5365 34.4631 23.8083 34.4631C20.0921 34.4631 16.8412 32.6261 14.167 29.1475Z" fill="white" />
-                                                <path d="M23.3788 17.402L17.079 22.8123L14.167 19.4464L23.3921 11.5234L32.5444 19.4523L29.619 22.8064L23.3788 17.402Z" fill="white" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_40000352_959">
-                                                    <rect width="24" height="24" fill="white" transform="translate(11.5 11.5)" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h5 className='text-white font-medium text-base lg:text-lg font-onest'>
-                                            Mark Janssen
-                                        </h5>
-                                        <h6 className='text-sm lg:text-base text-[#D5D7DA] font-medium font-manrope mt-0.5'>
-                                            ✅ Founder
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='w-full relative lg:col-span-6 flex items-center justify-center'>
-                                <img src="/assets/images/shopify/person.png" alt="Person" className='w-full h-full' />
-
-                                <div className='absolute cursor-pointer flex items-center justify-center w-12 h-12 lg:w-20 lg:h-20 bg-first rounded-full play-icon hover:scale-110 transition-transform duration-300'>
-                                    <Image src="/assets/images/shopify/play-icon.svg" alt="quote icon" width={25} height={25} />
-                                </div>
-                            </div>
-                        </div>
-                        {/* card */}
+                        {/* Video Review Card 3 */}
+                        <VideoReviewCard
+                            youtubeVideoId={videoReviews[2].youtubeVideoId}
+                            thumbnail={videoReviews[2].thumbnail}
+                            reviewText={videoReviews[2].reviewText}
+                            reviewerName={videoReviews[2].reviewerName}
+                            reviewerRole={videoReviews[2].reviewerRole}
+                            reviewerIcon={videoReviews[2].reviewerIcon}
+                            isPlaying={activeVideoId === videoReviews[2].id}
+                            onPlay={() => handlePlayVideo(videoReviews[2].id)}
+                            onVideoEnd={handleVideoEnd}
+                        />
                     </div>
                 </div>
             </section>
@@ -326,7 +481,7 @@ export default function Review() {
                                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0 22C0 9.84974 9.84974 0 22 0C34.1503 0 44 9.84974 44 22C44 34.1503 34.1503 44 22 44C9.84974 44 0 34.1503 0 22Z" fill="#32D583" />
                                     <path d="M33.004 25.5881C33.1347 25.5882 33.2641 25.5626 33.3848 25.5128C33.5056 25.4629 33.6154 25.3897 33.7079 25.2974C33.8004 25.2051 33.8738 25.0955 33.9239 24.9748C33.974 24.8541 33.9999 24.7248 34 24.5941C34.0001 24.4634 33.9745 24.334 33.9246 24.2133C33.8748 24.0925 33.8016 23.9827 33.7093 23.8902C33.617 23.7978 33.5074 23.7244 33.3867 23.6742C33.266 23.6241 33.1367 23.5982 33.006 23.5981C32.7421 23.5978 32.4889 23.7024 32.3021 23.8888C32.1153 24.0752 32.0103 24.3282 32.01 24.5921C32.0097 24.856 32.1143 25.1092 32.3007 25.296C32.4871 25.4828 32.7401 25.5878 33.004 25.5881ZM32.008 21.8831H31.158C30.612 21.8831 30.318 22.2931 30.318 22.9751V25.4411H28.708V21.8831H28.024C27.477 21.8831 27.184 22.2931 27.184 22.9751V25.4411H25.574V20.5671H27.184V21.3071C27.448 20.7331 27.81 20.5671 28.347 20.5671H30.319V21.3071C30.583 20.7331 30.944 20.5671 31.481 20.5671H32.008V21.8831ZM25.222 23.3841H21.863C21.951 23.9301 22.293 24.2421 22.869 24.2421C23.299 24.2421 23.601 24.0671 23.699 23.7551L25.124 24.1551C24.773 25.0031 23.904 25.5191 22.869 25.5191C21.121 25.5191 20.32 24.1641 20.32 23.0041C20.32 21.8641 21.023 20.4991 22.77 20.4991C24.626 20.4991 25.241 21.8831 25.241 22.9071C25.241 23.1311 25.231 23.2771 25.221 23.3841H25.222ZM23.66 22.4391C23.62 22.0191 23.318 21.6291 22.771 21.6291C22.263 21.6291 21.961 21.8541 21.863 22.4391H23.66ZM17.508 25.4401H18.924L20.691 20.5661H19.071L18.211 23.4031L17.333 20.5661H15.72L17.508 25.4401ZM10.908 25.4401H12.51V21.8821H14.034V25.4401H15.625V20.5661H12.51V20.2641C12.51 19.9321 12.745 19.7281 13.116 19.7281H14.034V18.4121H12.85C11.688 18.4121 10.907 19.1241 10.907 20.1671V20.5671H10V21.8831H10.908V25.4411V25.4401Z" fill="white" />
-                                </svg> 
+                                </svg>
                             </div>
                         </div>
                         {/* card */}

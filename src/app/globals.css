@@ -137,12 +137,12 @@ Theme Secondary Font Family: 'Poppins', sans-serif;
         background-image: none!important;
     }
 
-    /* light to dark */
+    /* light to dark - ALWAYS DARK MODE */
     .ltd{
-        @apply anim flex dark:hidden;
+        @apply anim hidden;
     }
     .dtl{
-        @apply anim hidden dark:flex;
+        @apply anim flex;
     }
 
     .dark .text-font-blue{
@@ -490,4 +490,32 @@ background: #f1f1f1;
 .btnz-2 span:nth-child(2),
 .btnz-2 span:nth-child(4){
     background: linear-gradient(to right, #fff, #FF9040)!important;
+}
+/* Cookie Consent Animations */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
 }

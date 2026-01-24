@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
-import DarkModeToggle from './DarkModeToggle ';
 import { usePathname } from 'next/navigation'
 import CaseStudyMegaMenu from './CaseStudyMegaMenu';
 import menus from '../../../data/navbar/items';
@@ -81,8 +80,7 @@ const Navbar = () => {
                     />
                 </Link>
             </div>
-            <div className="flex justify-end lg:hidden gap-x-4">
-                <DarkModeToggle />
+            <div className="flex justify-end lg:hidden">
                 <button
                     ref={hamburgerRef}
                     type="button"
@@ -143,7 +141,7 @@ const Navbar = () => {
                             <span></span>
                             <span></span>
                             <span></span>
-                            Get Free Audit
+                            Find My Revenue Leaks
                         </Link>
                     </li>
                     {/* <li className='hidden lg:block'>

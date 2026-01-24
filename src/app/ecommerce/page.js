@@ -15,7 +15,7 @@ export default function EcommercePage() {
             {/* hero part start */}
             <div className="w-full py-8 md:pt-12 md:pb-20 xl:pb-40 relative">
                 {/* <!-- shape --> */}
-                <img src="/assets/images/ecommerce/shape-right.webp" alt="shape one" className="hidden xl:block absolute right-0 top-0 z-20" />
+                <img src="/assets/images/ecommerce/shape-right.webp" alt="" className="hidden xl:block absolute right-0 top-0 z-20" />
                 {/* <!-- shape --> */}
                 <div className="container">
                     <div className="text-center">
@@ -29,7 +29,7 @@ export default function EcommercePage() {
 
                             <Image
                                 src={"/assets/images/ecommerce/hero-img.webp"}
-                                alt="hero"
+                                alt="E-commerce hero illustration showing business growth"
                                 width={0}
                                 height={0}
                                 sizes="100vw"
@@ -42,7 +42,7 @@ export default function EcommercePage() {
                             ব্যাবসা করুন রকেট গতিতে</h5>
                         <br />
 
-                        <a target="_blank" href="https://api.whatsapp.com/send/?phone=8801728247398&text&type=phone_number&app_absent=0"
+                        <a target="_blank" href="https://api.whatsapp.com/send/?phone=880 1728 247 398&text&type=phone_number&app_absent=0"
                             className="inline-flex rounded-full px-4 py-2 xl:px-6 xl:pt-5 xl:pb-4 bg-orange text-new text-lg font-semibold xl:text-4xl items-center gap-x-2 anim hover:bg-deep hover:text-white">
                             <svg className="size-5 lg:size-6 xl:size-8" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_144_903)">
@@ -62,7 +62,7 @@ export default function EcommercePage() {
                     </div>
                 </div>
                 {/* <!-- shape --> */}
-                <img src="/assets/images/ecommerce/shape-join.webp" alt="shape" className="hidden xl:block absolute -bottom-[18%] left-0 z-20" />
+                <img src="/assets/images/ecommerce/shape-join.webp" alt="" className="hidden xl:block absolute -bottom-[18%] left-0 z-20" />
                 {/* <!-- shape --> */}
             </div>
             {/* hero part end */}
@@ -82,12 +82,12 @@ export default function EcommercePage() {
                             <span className="text-sonali animate__animated animate__headShake animate__infinite">
                                 যা আপনার সেল বাড়িয়ে দিবে কয়েক গুন
                             </span>
-                            <img src="/assets/images/ecommerce/tir-icon.svg" alt="a" className="inline-block absolute right-[10rem] -bottom-[8rem] max-w-12 xl:max-w-max" />
+                            <img src="/assets/images/ecommerce/tir-icon.svg" alt="" className="inline-block absolute right-[10rem] -bottom-[8rem] max-w-12 xl:max-w-max" />
                         </h2>
 
 
-                        {/* <!-- <img src="/assets/images/ecommerce/analysis.svg" alt="analysis" className="mx-auto xl:w-[270px]" data-aos="zoom-in"> --> */}
-                        <img src="/assets/images/ecommerce/new_sequence_animation.gif" alt="analysis" className="mx-auto w-24 xl:w-[270px]"
+                        {/* <!-- <img src="/assets/images/ecommerce/analysis.svg" alt="E-commerce analysis animation" className="mx-auto xl:w-[270px]" data-aos="zoom-in"> --> */}
+                        <img src="/assets/images/ecommerce/new_sequence_animation.gif" alt="E-commerce analysis animation" className="mx-auto w-24 xl:w-[270px]"
                             data-aos="zoom-in" />
                     </div>
                 </div>
@@ -97,7 +97,7 @@ export default function EcommercePage() {
             {/* <!-- ecommerce expertise section start --> */}
             <div className="w-full py-10 xl:py-[196px] bg-main relative anim dark:bg-[#0A0F24] md:py-28" id="expert-section">
                 {/* <!-- shape top --> */}
-                <img src="/assets/images/ecommerce/shape-join.webp" alt="join shape" className="hidden xl:block absolute -top-[22%] right-0 z-20" />
+                <img src="/assets/images/ecommerce/shape-join.webp" alt="" className="hidden xl:block absolute -top-[22%] right-0 z-20" />
                 {/* <!-- shape top --> */}
                 <div className="container">
                     <div className="text-center">
@@ -112,7 +112,7 @@ export default function EcommercePage() {
                     <div
                         className="grid mt-7 md:mt-9 lg:mt-14 xl:mt-[100px] grid-cols-3 gap-x-4 xl:gap-x-[58px] xl:flex xl:justify-between xl:items-center">
                         <div className="w-full relative z-30">
-                            <img src="/assets/images/ecommerce/expert-shape-01.svg" alt="shape"
+                            <img src="/assets/images/ecommerce/expert-shape-01.svg" alt=""
                                 className="lg:w-[125px] absolute -top-7 xl:top-[-70px] lg:top-[-50px] xl:left-0 -left-1 -z-10 custom-anim -rotate-[62deg] transition-transform origin-bottom-right"
                                 id="rotateImage" />
                             <div
@@ -126,7 +126,7 @@ export default function EcommercePage() {
                             </div>
                         </div>
                         <div className="w-full relative z-30 ">
-                            <img src="/assets/images/ecommerce/expert-shape-02.svg" alt="shape"
+                            <img src="/assets/images/ecommerce/expert-shape-02.svg" alt=""
                                 className="lg:w-[125px] xl:w-[250px] absolute -bottom-5 xl:-bottom-[4px] lg:-bottom-[40px] left-[50%] -translate-x-1/2 -z-10 anim !duration-1000"
                                 id="rotateImage2" />
                             <div
@@ -139,7 +139,7 @@ export default function EcommercePage() {
                             </div>
                         </div>
                         <div className="w-full relative z-30">
-                            <img src="/assets/images/ecommerce/expert-shape-03.svg" alt="shape"
+                            <img src="/assets/images/ecommerce/expert-shape-03.svg" alt=""
                                 className="lg:w-[125px] absolute -top-7 lg:top-[-70px] -right-1 rotate-[66deg] -z-10 custom-anim transition-transform origin-bottom-left"
                                 id="rotateImage3" />
                             <div
@@ -155,7 +155,7 @@ export default function EcommercePage() {
 
                 </div>
                 {/* <!-- shape bttm --> */}
-                <img src="/assets/images/ecommerce/shape-join.webp" alt="join shape"
+                <img src="/assets/images/ecommerce/shape-join.webp" alt=""
                     className="hidden xl:block absolute -bottom-[22%] left-0 z-20 max-w-[265px]" />
                 {/* <!-- shape bttm --> */}
             </div>
@@ -191,7 +191,7 @@ export default function EcommercePage() {
                         <div data-aos="fade-right" data-aos-duration="2000"
                             className="w-full flex border-8 border-[#FF433A66] rounded-2xl py-4 px-4 lg:py-[40px] lg:px-[40px] text-center flex-col bg-white xl:border-[12px] anim dark:bg-[#232323]">
                             <div className="flex items-center justify-center lg:justify-start mb-7 lg:mb-10 gap-x-5">
-                                <img src="/assets/images/ecommerce/process-icon-01.svg" alt="a" className="xl:w-[100px]" />
+                                <img src="/assets/images/ecommerce/process-icon-01.svg" alt="" className="xl:w-[100px]" />
                                 <h4 className="font-semibold text-base lg:text-xl xl:text-[28px]  text-[#434445] anim dark:text-white">অর্ডার
                                     প্রসেসিং এ ঝামেলা?</h4>
                             </div>
@@ -208,7 +208,7 @@ export default function EcommercePage() {
                         <div data-aos="fade-left" data-aos-duration="2000"
                             className="w-full flex border-8 border-[#FFCB3C] rounded-2xl py-4 px-4 lg:py-[40px] lg:px-[40px] text-center flex-col bg-white xl:border-[12px] anim dark:bg-[#232323] dark:border-[#CDBD91]">
                             <div className="flex items-center justify-center lg:justify-start mb-7 lg:mb-10 gap-x-5">
-                                <img src="/assets/images/ecommerce/process-icon-02.svg" alt="a" className="xl:w-[100px]" />
+                                <img src="/assets/images/ecommerce/process-icon-02.svg" alt="" className="xl:w-[100px]" />
                                 <h4 className="font-semibold text-base lg:text-xl xl:text-[28px]  text-[#434445]  anim dark:text-white">লোডিং
                                     টাইম কমান</h4>
                             </div>
@@ -224,7 +224,7 @@ export default function EcommercePage() {
                     </div>
                 </div>
                 {/* <!-- shape bttm --> */}
-                <img src="/assets/images/ecommerce/shape-join.webp" alt="join shape"
+                <img src="/assets/images/ecommerce/shape-join.webp" alt=""
                     className="hidden xl:block absolute -top-[30%] right-0 z-20 max-w-[265px]" />
                 {/* <!-- shape bttm --> */}
             </div>
@@ -236,7 +236,7 @@ export default function EcommercePage() {
                 <div className="absolute left-0 top-0 bg-white bg-opacity-80 w-full h-full dark:bg-[#1C1C1E] dark:opacity-70"></div>
                 <div className="container relative z-40">
                     <div className="text-center relative">
-                        <img src="/assets/images/ecommerce/bg-img-shape.svg" alt="a" className="absolute left-1/2 -translate-x-1/2 -z-20 max-w-16 xl:max-w-max" />
+                        <img src="/assets/images/ecommerce/bg-img-shape.svg" alt="" className="absolute left-1/2 -translate-x-1/2 -z-20 max-w-16 xl:max-w-max" />
                         <img src="/assets/images/ecommerce/small-task-icon.svg" alt="product page" className="mx-auto xl:w-[120px]" />
                         <h2 className="common-title-2 mb-4 mt-4 xl:mt-10 xl:mb-[54px] anim dark:text-white">খুব ছোট কাজ তাতে কি ?</h2>
 
@@ -250,7 +250,7 @@ export default function EcommercePage() {
                     </div>
                 </div>
                 {/* <!-- shape bttm --> */}
-                <img src="/assets/images/ecommerce/shape-join.webp" alt="join shape"
+                <img src="/assets/images/ecommerce/shape-join.webp" alt=""
                     className="hidden xl:block absolute -bottom-[25%] left-0 z-20 max-w-[265px]" />
                 {/* <!-- shape bttm --> */}
             </div>
@@ -310,7 +310,7 @@ export default function EcommercePage() {
             {/* <!-- work step section start --> */}
             <section className="w-full py-8 xl:py-[200px] relative ">
                 {/* <!-- shape top --> */}
-                <img src="/assets/images/ecommerce/shape-join.webp" alt="join shape"
+                <img src="/assets/images/ecommerce/shape-join.webp" alt=""
                     className="hidden xl:block absolute -top-[18.5%] right-0 z-20 max-w-[265px]" />
                 {/* <!-- shape top --> */}
                 <div className="container">
@@ -319,7 +319,7 @@ export default function EcommercePage() {
                             className="w-full flex border-8 border-[#FF433A66] rounded-2xl p-5 text-start flex-col bg-white xl:p-9 anim dark:bg-[#413F3E]">
                             <div
                                 className="flex items-start justify-center mb-7 gap-x-5 xl:items-center xl:mb-12 xl:justify-start xl:gap-x-[32px]">
-                                <img src="/assets/images/ecommerce/alert-icon.svg" alt="a" className="xl:w-[90px]" />
+                                <img src="/assets/images/ecommerce/alert-icon.svg" alt="" className="xl:w-[90px]" />
                                 <h4 className="font-semibold text-lg text-[#434445] xl:text-[28px] xl:leading-10 anim dark:text-white">টেকনিক্যাল ঝামেলায় সময়
                                     নষ্ট করবেন না</h4>
                             </div>
@@ -335,7 +335,7 @@ export default function EcommercePage() {
                             className="w-full flex border-8 border-[#FFCB3C66] rounded-2xl p-5 text-start flex-col bg-white xl:p-9 anim dark:bg-[#413F3E]">
                             <div
                                 className="flex items-start justify-center mb-7 gap-x-5 xl:items-center xl:mb-12 xl:justify-start xl:gap-x-[32px]">
-                                <img src="/assets/images/ecommerce/growth-icon.svg" alt="a" className="xl:w-[90px]" />
+                                <img src="/assets/images/ecommerce/growth-icon.svg" alt="" className="xl:w-[90px]" />
                                 <h4 className="font-semibold text-lg text-[#434445] xl:text-[28px] xl:leading-10 anim dark:text-white">আপনার ই-কমার্স ব্যবসাকে এক
                                     ধাপ এগিয়ে নিন</h4>
                             </div>
@@ -351,7 +351,7 @@ export default function EcommercePage() {
                             className="w-full flex border-8 border-[#4DD78A66] rounded-2xl p-5 text-start flex-col bg-white xl:p-9 anim dark:bg-[#413F3E]">
                             <div
                                 className="flex items-start justify-center mb-7 gap-x-5 xl:items-center xl:mb-12 xl:justify-start xl:gap-x-[28px]">
-                                <img src="/assets/images/ecommerce/work-secret-icon.svg" alt="a" className="xl:w-[90px]" />
+                                <img src="/assets/images/ecommerce/work-secret-icon.svg" alt="" className="xl:w-[90px]" />
                                 <h4 className="font-semibold text-lg text-[#434445] xl:text-[28px] anim dark:text-white">আমরা কিভাবে কাজ করবো  ?
                                 </h4>
                             </div>
@@ -367,7 +367,7 @@ export default function EcommercePage() {
                             className="w-full flex border-8 border-[#1E89FF66] rounded-2xl p-5 text-start flex-col bg-white xl:p-9 anim dark:bg-[#413F3E]">
                             <div
                                 className="flex items-start justify-center mb-7 gap-x-5 xl:items-center xl:mb-12 xl:justify-start xl:gap-x-[32px]">
-                                <img src="/assets/images/ecommerce/call-picup.svg" alt="a" className="xl:w-[90px]" />
+                                <img src="/assets/images/ecommerce/call-picup.svg" alt="" className="xl:w-[90px]" />
                                 <h4 className="font-semibold text-lg text-[#434445] xl:text-[28px] xl:leading-9 anim dark:text-white">ফ্রিল্যান্সার ফোন না ধরলে
                                     ?</h4>
                             </div>
@@ -383,7 +383,7 @@ export default function EcommercePage() {
                     </div>
                 </div>
                 {/* <!-- shape top --> */}
-                <img src="/assets/images/ecommerce/shape-join.webp" alt="join shape"
+                <img src="/assets/images/ecommerce/shape-join.webp" alt=""
                     className="hidden xl:block absolute -bottom-[17%] left-0 z-20 max-w-[265px]" />
                 {/* <!-- shape top --> */}
             </section>
@@ -424,7 +424,7 @@ export default function EcommercePage() {
             {/* <!-- customer review section start --> */}
             <div className="w-full py-8 xl:py-[150px] relative">
                 {/* <!-- shape top --> */}
-                <img src="/assets/images/ecommerce/shape-join.webp" alt="join shape" className="hidden xl:block absolute -top-[29%] right-0 z-20" />
+                <img src="/assets/images/ecommerce/shape-join.webp" alt="" className="hidden xl:block absolute -top-[29%] right-0 z-20" />
                 {/* <!-- shape top --> */}
                 <div className="container">
                     <div className="text-center">
@@ -461,7 +461,7 @@ export default function EcommercePage() {
                     </div>
                 </div>
                 {/* <!-- shape bttm --> */}
-                <img src="/assets/images/ecommerce/shape-join.webp" alt="join shape"
+                <img src="/assets/images/ecommerce/shape-join.webp" alt=""
                     className="hidden xl:block absolute -bottom-[29%] left-0 z-20 max-w-[265px]" />
                 {/* <!-- shape bttm --> */}
             </div>
@@ -516,7 +516,7 @@ export default function EcommercePage() {
             {/* <!-- contact section start --> */}
             <section className="w-full xl:py-[150px] relative">
                 {/* <!-- shape top --> */}
-                <img src="/assets/images/ecommerce/shape-join.webp" alt="join shape"
+                <img src="/assets/images/ecommerce/shape-join.webp" alt=""
                     className="hidden xl:block absolute -top-[20.4%] right-0 z-20" />
                 {/* <!-- shape top --> */}
                 <div className="container">
@@ -532,7 +532,7 @@ export default function EcommercePage() {
                     </div>
                     <div className="my-5 text-center xl:my-10">
                         <h4 className="text-[#26404C] font-bold text-2xl xl:text-[48px] mb-5 xl:mb-7 anim dark:text-white">অথবা</h4>
-                        <a target="_blank" href="https://api.whatsapp.com/send/?phone=8801728247398&text&type=phone_number&app_absent=0"
+                        <a target="_blank" href="https://api.whatsapp.com/send/?phone=880 1728 247 398&text&type=phone_number&app_absent=0"
                             className="animate__animated animate__headShake animate__infinite animate__slower inline-flex rounded-full px-4 py-2 xl:px-6 xl:pt-[14px] bg-orange text-white text-lg font-semibold xl:text-4xl items-center gap-x-2 anim hover:bg-deep">
 
                             সরাসরি <svg className="  size-5 lg:size-6 xl:size-8" viewBox="0 0 21 21" fill="none"
@@ -552,7 +552,7 @@ export default function EcommercePage() {
                     </div>
                 </div>
                 {/* <!-- shape bttm --> */}
-                <img src="/assets/images/ecommerce/shape-right.webp" alt="join shape"
+                <img src="/assets/images/ecommerce/shape-right.webp" alt=""
                     className="hidden xl:block absolute -bottom-[80px] left-0 -z-20 max-w-[265px] rotate-180 " />
                 {/* <!-- shape bttm --> */}
             </section>

@@ -1,16 +1,38 @@
 'use client'
 import Link from 'next/link';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const RecentPost = ({ blogData }) => {
-  // Slice the blogData array to get the last 3 items
-  const recentBlogData = blogData.slice(-3);
+const RecentPost = () => {
+  const [recentBlogData, setRecentBlogData] = useState([]);
+
+  useEffect(() => {
+    // Fetch recent posts from API
+    const fetchRecentPosts = async () => {
+      try {
+        const response = await fetch('/api/blogs');
+        const data = await response.json();
+
+        // Get first 3 posts (newest, since API sorts by date descending)
+        const recentPosts = data.slice(0, 3);
+        setRecentBlogData(recentPosts);
+      } catch (error) {
+        console.error('Error fetching recent posts:', error);
+      }
+    };
+
+    fetchRecentPosts();
+  }, []);
+
+  // Don't render if data hasn't loaded yet
+  if (recentBlogData.length === 0) {
+    return null;
+  }
 
   return (
     <>
       <section className="w-full pt-24 pb-20 relative md:pt-28 lg:pt-32 xl:pt-[210px] xl:pb-[188px]">
-        <div className="container xl:max-w-[1728px]">
+        <div className="container">
           <div className="text-center mb-10 xl:mb-20 relative">
             <h3 className="text-[80px] font-extrabold text-[#F4F4F4] uppercase absolute left-[50%] translate-x-[-50%] top-[-150%] -z-30 sm:text-[100px] sm:top-[-180%] md:text-[130px] md:top-[-190%] lg:text-[150px] lg:top-[-230%] xl:text-[360px] anim dark:text-[#202135]">
               BLOG
@@ -20,94 +42,54 @@ const RecentPost = ({ blogData }) => {
             </h2>
           </div>
           {/* <!-- recent post area start --> */}
-          <div className="w-full grid gap-y-[42px] md:gap-y-[60px] lg:gap-y-[80px] xl:gap-y-[100px] lg:grid-cols-2 xl:grid-cols-3 xl:pt-20 xl:gap-x-[100px]">
+
+          <div className="w-full grid gap-x-8 gap-y-10 md:gap-y-12 md:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
             {recentBlogData.map((blog) => (
-              <div key={blog.id} className="w-full grid grid-cols-1 xl:grid-cols-12 gap-y-6 xl:gap-y-0">
-                <div className="w-full xl:col-span-2 sm:justify-center flex">
-                  <ul className="flex xl:flex-col gap-x-8 items-center lg:gap-y-[50px] xl:gap-y-[66px]">
-                    <li>
-                      <Link href="#" className="block">
-                        <img
-                          src="/assets/images/heart-icon.svg"
-                          alt="heart"
-                          className="w-[14px] lg:w-6 ltd anim h-5"
-                        />
-                        <img
-                          src="/assets/images/heart-icon-w.svg"
-                          alt="heart white"
-                          className="w-[14px] lg:w-6 anim dtl h-5"
-                        />
-                      </Link>
-                      <span className="font-poppins text-[12px] font-normal text-third lg:text-base block lg:mt-4 anim dark:text-d-sixth">
-                        {blog.likes}
-                      </span>
-                    </li>
-                    <li>
-                      <Link href="#" className="block">
-                        <img
-                          src="/assets/images/comment-icon.svg"
-                          alt="comment"
-                          width={"100%"} height={"100%"}
-                          className="w-[14px] lg:w-[21px] anim ltd"
-                        />
-                        <img
-                          src="/assets/images/comment-icon-w.svg"
-                          alt="comment"
-                          width={"100%"} height={"100%"}
-                          className="w-[14px] lg:w-[21px] anim dtl"
-                        />
-                      </Link>
-                      <span className="font-poppins text-[12px] font-normal text-third lg:text-base block lg:mt-4 anim dark:text-d-sixth">
-                        {blog.comments}
-                      </span>
-                    </li>
-                    <li>
-                      <Link href="#" className="block">
-                        <img
-                          src="/assets/images/share-icon.svg"
-                          alt="share"
-                          className="w-[14px] lg:w-[18px] anim ltd h-5"
-                          loading="lazy"
-                        />
-                        <img
-                          src="/assets/images/share-icon-w.svg"
-                          alt="share"
-                          className="w-[14px] lg:w-[18px] anim dtl h-5"
-                          loading="lazy"
-                        />
-                      </Link>
-                      <span className="font-poppins text-[12px] font-normal text-third lg:text-base block lg:mt-4 anim dark:text-d-sixth">
-                        {blog.shares}
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="w-full xl:col-span-10 group">
-                  <span className="inline-flex py-3 px-4 bg-first font-medium text-new text-sm h-[34px] items-center justify-center lg:h-[41px] lg:text-lg lg:px-[26px]">
-                    {blog.category}
-                  </span> 
-                  <Image src={blog.feature_thumbnail} alt="blog" width="600" height="400" className="w-full mt-6 anim" loading='lazy' />
-                    <Link href={`/blogs/${blog.slug}`} className="block group-hover:text-first my-6 text-xl xl:text-2xl font-semibold text-second xl:text-[32px] xl:font-semibold xl:leading-10 xl:mt-12 xl:mb-10 anim dark:text-white">
+              <article className="w-full group bg-white dark:bg-transparent rounded-2xl border border-third/10 dark:border-d-fifth/30 overflow-hidden transition-all duration-300 hover:border-first/30 dark:hover:border-first/30" key={blog.slug}>
+                <Link href={`/blog/${blog.slug}`} className="block">
+                  <div className="relative overflow-hidden">
+                    <Image
+                      src={blog.feature_thumbnail}
+                      alt={blog.title}
+                      width="600"
+                      height="400"
+                      className="w-full h-[220px] object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading='lazy'
+                    />
+                    <span className="absolute top-3 left-3 inline-block py-1.5 px-3 bg-first text-white text-xs font-semibold rounded-md">
+                      {blog.category}
+                    </span>
+                  </div>
+                </Link>
+
+                <div className="p-5 space-y-3">
+                  <div className="flex items-center gap-4 text-sm text-third dark:text-d-fifth">
+                    <span>{blog.date}</span>
+                    <span className="w-1 h-1 rounded-full bg-third/50 dark:bg-d-fifth/50"></span>
+                    <span>{blog.readTime}</span>
+                  </div>
+
+                  <h3 className="leading-snug relative z-10">
+                    <Link
+                      href={`/blog/${blog.slug}`}
+                      className="block text-xl font-bold text-second group-hover:text-first transition-colors cursor-pointer anim dark:text-white"
+                    >
                       {blog.title}
-                    </Link> 
-                  <p className="common-para anim dark:text-d-fifth">
+                    </Link>
+                  </h3>
+
+                  <p className="text-third leading-relaxed line-clamp-4 dark:text-d-fifth">
                     {blog.excerpt}
                   </p>
-                  <p className="common-para mt-6 flex items-center anim dark:text-d-fifth">
-                    <img
-                      src="/assets/images/clock-icon.svg"
-                      alt="clock"
-                      className="mr-3 anim ltd  w-4 h-4"
-                    />
-                    <img
-                      src="/assets/images/clock-icon-w.svg"
-                      alt="clock" 
-                      className="mr-3 anim dtl w-4 h-4"
-                    />
-                    {blog.readTime}
-                  </p>
+
+                  <div className="flex items-center gap-3 pt-2">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-first to-first/70 flex items-center justify-center text-white text-xs font-bold">
+                      {blog.author?.charAt(0) || 'A'}
+                    </div>
+                    <span className="text-sm font-medium text-second dark:text-white">{blog.author}</span>
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

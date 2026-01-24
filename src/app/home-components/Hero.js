@@ -1,16 +1,16 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 const Hero = () => {
     return (
         <>
-            <section className="w-full pt-16 relative md:pt-20 xl:pt-32 2xl:pt-48 ">
+            <section aria-label="Hero section" className="w-full pt-16 relative md:pt-20 xl:pt-32 2xl:pt-48 ">
                 <div className="container">
                     <div className="text-start">
                         <div className="block xl:relative">
                             <div className='text-start flex flex-col lg:flex-row gap-y-4 lg:gap-y-0 lg:items-center gap-x-3 lg:gap-x-4 mb-2 lg:mb-2.5'>
-                                <img src="/assets/images/trusted-badge.svg" alt="tusted badge" className="w-16 lg:w-[90px]" />
+                                <Image src="/assets/images/trusted-badge.svg" alt="Trusted badge" width={90} height={90} className="w-16 lg:w-[90px]" />
                                 <p className='bg-white/5 border-white/10 border rounded-full py-2.5 text-white font-normal text-xs md:text-sm lg:text-base text-center w-fit px-8'>★★★★★ Rated 5/5 Dutch Founders
                                 </p>
                             </div>
