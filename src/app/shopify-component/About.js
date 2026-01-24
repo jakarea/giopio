@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // YouTube video ID for the review video
-const YOUTUBE_VIDEO_ID = "ttQ-pMXMC9Y";
+const YOUTUBE_VIDEO_ID = "6C4iSyu4Emk";
 
 const About = () => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -104,8 +104,8 @@ const About = () => {
                                 ) : (
                                     <>
                                         <Image
-                                            src="/assets/images/shopify/person.png"
-                                            alt="Jawad Doroe, founder of laminaatspecialist.nl"
+                                            src="/assets/images/jeff.webp"
+                                            alt="Jeffrey, the owner of Kitchen Numbers"
                                             fill
                                             className='object-cover rounded-lg'
                                             sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, (max-width: 1024px) 360px, 400px"
