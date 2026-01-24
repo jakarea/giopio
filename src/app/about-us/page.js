@@ -38,7 +38,7 @@ export default function AboutUs() {
                                 The ‘Anti-Agency’ Approach
                             </h2>
                             <p className='text-sm lg:text-lg text-[#D5D7DA] font-normal mt-3 lg:mt-5 font-manrope'>
-                                n 2025, the e-commerce industry is broken. Brands are paying premium fees for 'drag-and-drop' websites built by interns. The result? Bloated code, slow mobile speeds, and lost sales.
+                                In 2026, the e-commerce industry is broken. Brands are paying premium fees for 'drag-and-drop' websites built by interns. The result? Bloated code, slow mobile speeds, and lost sales.
                                 We started Giopio to fix this. We believe that Performance is the best Marketing.
                             </p>
 

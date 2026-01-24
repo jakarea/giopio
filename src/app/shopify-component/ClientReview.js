@@ -22,21 +22,25 @@ const ClientReview = () => {
                             <div className='flex items-center gap-x-3 lg:gap-x-5 mt-12 lg:mt-[72px]'>
                                 <ul className='flex items-center'>
                                     <li>
-                                        <img src="/assets/images/shopify/avatar-1.png" className='w-10 h-10 lg:w-[52px] lg:h-[52px] border-2 border-white rounded-full object-fill' />
+                                        <img src="/assets/images/jeff.webp" className='w-10 h-10 lg:w-[52px] lg:h-[52px] border-2 border-white rounded-full object-cover' />
                                     </li>
                                     <li className='-ml-5'>
-                                        <img src="/assets/images/shopify/avatar-1.png" className='w-10 h-10 lg:w-[52px] lg:h-[52px] border-2 border-white rounded-full object-fill' />
+                                        <img src="/assets/images/sem.webp" className='w-10 h-10 lg:w-[52px] lg:h-[52px] border-2 border-white rounded-full object-cover' />
                                     </li>
                                     <li className='-ml-5'>
-                                        <img src="/assets/images/shopify/avatar-1.png" className='w-10 h-10 lg:w-[52px] lg:h-[52px] border-2 border-white rounded-full object-fill' />
+                                        <img src="/assets/images/renzo.webp" className='w-10 h-10 lg:w-[52px] lg:h-[52px] border-2 border-white rounded-full object-cover' />
                                     </li>
                                     <li className='-ml-5'>
-                                        <img src="/assets/images/shopify/avatar-1.png" className='w-10 h-10 lg:w-[52px] lg:h-[52px] border-2 border-white rounded-full object-fill' />
+                                        <img src="/assets/images/roy-dolan.webp" className='w-10 h-10 lg:w-[52px] lg:h-[52px] border-2 border-white rounded-full object-cover' />
                                     </li>
+                                     <li className='-ml-5'>
+                                        <img src=" /assets/images/anthony-pearson.webp" className='w-10 h-10 lg:w-[52px] lg:h-[52px] border-2 border-white rounded-full object-cover' />
+                                    </li>
+                                   
                                 </ul>
                                 <div>
                                      <h5 className='text-white font-medium text-xl lg:text-2xl'> 
-                               500+
+                               100+
                                 </h5>
                                 <h6 className='text-sm  text-[#A4A7AE] font-normal'>
                                     Trusted Customers
@@ -45,7 +49,7 @@ const ClientReview = () => {
                             </div> 
                         </div>
                          <div className='w-full relative lg:col-span-5 flex items-center justify-center'>
-                            <img src="/assets/images/shopify/jakarea.png" alt="Person" className='w-full h-full' /> 
+                            <img src="/assets/images/shopify/jakarea-parvez.jpeg" alt="Person" className='w-full h-[450px] object-cover' /> 
                         </div>
                     </div>
                 </div>
