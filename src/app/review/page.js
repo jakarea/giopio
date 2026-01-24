@@ -19,17 +19,9 @@ function VideoReviewCard({
     const playerRef = useRef(null);
     const containerRef = useRef(null);
     const [showEnglish, setShowEnglish] = useState(false);
-    const [isExpanded, setIsExpanded] = useState(false);
 
     // Determine current review text based on language state
     const currentReviewText = showEnglish ? reviewTextEN : reviewTextNL;
-
-    // Character limit for "show more"
-    const CHAR_LIMIT = 500;
-    const shouldShowMore = currentReviewText.length > CHAR_LIMIT;
-    const displayText = isExpanded || !shouldShowMore
-        ? currentReviewText
-        : currentReviewText.slice(0, CHAR_LIMIT) + '...';
 
     useEffect(() => {
         // Load YouTube IFrame API if not already loaded
@@ -97,7 +89,24 @@ function VideoReviewCard({
     }, [isPlaying, youtubeVideoId, onVideoEnd]);
 
     return (
-        <div className='text-center bg-black rounded-[4px] p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-y-0 lg:gap-x-7 items-start border border-[#252B37]'>
+        <>
+            <style jsx>{`
+                .custom-scrollbar::-webkit-scrollbar {
+                    width: 5px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-track {
+                    background: #1a1a1a;
+                    border-radius: 10px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb {
+                    background: #333;
+                    border-radius: 10px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                    background: #444;
+                }
+            `}</style>
+            <div className='text-center bg-black rounded-[4px] p-5 lg:p-6 grid grid-cols-1 lg:grid-cols-12 gap-y-5 lg:gap-y-0 lg:gap-x-7 items-start border border-[#252B37]'>
             <div className='w-full lg:col-span-6 text-start flex  flex-col h-full'>
                 {/* Language toggle button */}
                 <div className="flex justify-end mb-2">
@@ -108,45 +117,33 @@ function VideoReviewCard({
                     >
                         {showEnglish ? (
                             <>
-                                <span>🇳🇱</span>
-                                <span>NL</span>
+                                Original
                             </>
                         ) : (
                             <>
-                                <span>🇬🇧</span>
-                                <span>EN</span>
+                                English
                             </>
                         )}
                     </button>
                 </div>
 
                 <div>
-                    <div className="max-h-[120px] min-h-[400px] lg:max-h-[400px] overflow-y-auto">
+                    <div className="max-h-[120px] min-h-[400px] lg:max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                         <p
                         className='text-sm lg:text-base text-[#D5D7DA] font-normal font-manrope mb-4'
-                        dangerouslySetInnerHTML={{ __html: displayText }}
+                        dangerouslySetInnerHTML={{ __html: currentReviewText }}
                     />
                     </div>
-                    {shouldShowMore && (
-                        <button
-                            onClick={() => setIsExpanded(!isExpanded)}
-                            className='text-first text-sm font-medium hover:underline cursor-pointer'
-                        >
-                            {isExpanded ? 'Show less' : 'Show more'}
-                        </button>
-                    )}
                 </div>
 
-                <div className="flex items-center gap-x-4 mt-4">
+                <div className="flex items-center gap-x-4 mt-4 lg:mt-6">
+                     
                     <div>
-                        {reviewerIcon}
-                    </div>
-                    <div>
-                        <h5 className='text-white font-medium text-base lg:text-lg font-onest'>
+                        <h5 className='text-first font-medium text-base lg:text-lg font-onest'>
                             {reviewerName}
                         </h5>
-                        <h6 className='text-sm lg:text-base text-[#D5D7DA] font-medium font-manrope mt-0.5'>
-                            ✅ {reviewerRole}
+                        <h6 className='text-sm text-[#D5D7DA] font-medium font-manrope mt-0.5'>
+                            {reviewerRole}
                         </h6>
                     </div>
                 </div>
@@ -182,6 +179,60 @@ function VideoReviewCard({
                 </div>
             </div>
         </div>
+        </>
+    );
+}
+
+// Audio Review Card Component for text-based reviews
+function AudioReviewCard({
+    reviewText,
+    reviewerName,
+    reviewerRole,
+    reviewerIcon
+}) {
+    return (
+        <>
+            <style jsx>{`
+                .custom-scrollbar::-webkit-scrollbar {
+                    width: 5px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-track {
+                    background: #1a1a1a;
+                    border-radius: 10px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb {
+                    background: #333;
+                    border-radius: 10px;
+                }
+                .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                    background: #444;
+                }
+            `}</style>
+            <div className='w-full text-start flex justify-between flex-col h-full bg-black border border-[#252B37] rounded-[4px] p-5 lg:p-6'>
+                <div>
+                    <div className="max-h-[120px] min-h-[400px] lg:max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                        <p
+                            className='text-sm lg:text-base text-[#D5D7DA] font-normal font-manrope mb-4'
+                            dangerouslySetInnerHTML={{ __html: reviewText }}
+                        />
+                    </div>
+                </div>
+
+                <div className="flex items-center gap-x-4 mt-4">
+                    {/* <div>
+                        {reviewerIcon}
+                    </div> */}
+                    <div>
+                        <h5 className='text-first font-medium text-base lg:text-lg font-onest'>
+                            {reviewerName}
+                        </h5>
+                        <h6 className='text-sm text-[#D5D7DA] font-medium font-manrope mt-0.5'>
+                            {reviewerRole}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }
 
@@ -214,6 +265,17 @@ const AudioIcon = () => (
     </svg>
 );
 
+// Audio/Text reviews data
+const audioReviews = [
+    {
+        id: 6,
+        reviewText: `Hi uh, my name's Anthony Pearson and I'm an Account Manager at Elite Outsource Corporation based in Leeds. Uh, we have contracted Giopio for several projects now and working with them has been an excellent experience. Um, the professionalism, high-quality work, responsiveness, and ability to deliver on time consistently really did set them apart from... from many others. Um, I would highly recommend Giopio. Um, the team is skilled, detail-oriented—which is very important to us—and exceptional at solving problems with efficiency and expertise. So, all in all, yeah, would highly recommend.`,
+        reviewerName: "Anthony Pearson",
+        reviewerRole: "Account Manager at Elite Outsource Corporation",
+        reviewerIcon: <AudioIcon />
+    }
+];
+
 // Video reviews data
 const videoReviews = [
     {
@@ -239,7 +301,7 @@ const videoReviews = [
     {
         id: 3,
         youtubeVideoId: "tkPF4pFiryM",
-        thumbnail: "/assets/images/shopify/sem.webp",
+        thumbnail: "/assets/images/sem.webp",
         reviewTextNL: `Dames en heren, mijn naam is Sem, eigenaar van Exclusive Car Detailing. Ik heb mijn website laten maken door Zakaria van Giopio. Ik ben er erg tevreden mee. Hij heeft binnen een korte termijn een zeer mooie website opgezet. Prijs-kwaliteitverhouding is het een hele goede aankoop geweest. Hij heeft mooie plugins ingemaakt, mooie animaties. Ik ben zeer tevreden. De communicatie met Zakaria was goed. Hij was eigenlijk altijd online. En als ik dingen wou weten, hoe het proces liep, of hij moest dingen weten, plannen we gewoon een call in en toen konden we gewoon alles goed bespreken. Ik ben zeer tevreden en ik wil Zakaria nogmaals bedanken. Ik eh ben bij hem gekomen via een klant. Een klant heeft hem aangeraden. En het was eh zeker een goede aankoop.`,
         reviewTextEN: `Ladies and gentlemen, my name is Sem, owner of Exclusive Car Detailing. I had my website built by Zakaria from the agency Giopio. I am very satisfied with it. Within a short time frame, he has set up a very beautiful website. Price-quality ratio wise it has been a really very good purchase. He built in nice plugins, nice animations. I am highly satisfied. The communication with Zakaria was good. He was actually always online. And if I wanted to know things, how the process went, or he had to know things, we just scheduled a call and then we could just discuss everything well. I am very satisfied and I want to thank Zakaria once again. I uh came to him via a client. A client recommended him to me. And it was uh certainly a good purchase.`,
         reviewerName: "Sem Segers",
@@ -302,7 +364,7 @@ export default function Review() {
                                     reviewTextEN={review.reviewTextEN}
                                     reviewerName={review.reviewerName}
                                     reviewerRole={review.reviewerRole}
-                                    reviewerIcon={review.reviewerIcon}
+                                    // reviewerIcon={review.reviewerIcon}
                                     isPlaying={activeVideoId === review.id}
                                     onPlay={() => handlePlayVideo(review.id)}
                                     onVideoEnd={handleVideoEnd}
@@ -311,25 +373,12 @@ export default function Review() {
 
                         {/* Text + Stats Row */}
                         <div className='w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-x-7'>
-                            <div className='w-full text-start flex justify-between flex-col h-full bg-black border border-[#252B37] rounded-[4px] p-5 lg:p-6'>
-                                <p className='text-sm lg:text-base text-[#D5D7DA] font-normal font-manrope'>
-                                    We were terrified of the new GDPR rules. Giopio set up Server-Side tracking and Consent Mode V2 flawlessly. We recovered about 40% of our ad data that was being blocked. The peace of mind is worth every cent.
-                                </p>
-
-                                <div className="flex items-center justify-between gap-x-4 mt-4 lg:mt-0">
-                                    <div className="order-2">
-                                        <AudioIcon />
-                                    </div>
-                                    <div>
-                                        <h5 className='text-white font-medium text-base lg:text-lg font-onest'>
-                                            Sarah Williams
-                                        </h5>
-                                        <h6 className='text-sm lg:text-base text-[#D5D7DA] font-medium font-manrope mt-0.5'>
-                                            ✅ Marketing Director
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
+                            <AudioReviewCard
+                                reviewText={audioReviews[0].reviewText}
+                                reviewerName={audioReviews[0].reviewerName}
+                                reviewerRole={audioReviews[0].reviewerRole}
+                                reviewerIcon={audioReviews[0].reviewerIcon}
+                            />
                             <div className='w-full text-start bg-black border border-[#252B37] rounded-[4px]'>
 
                                 <div className="relative w-full h-[225px]">
@@ -355,25 +404,6 @@ export default function Review() {
 
                         {/* Text + Stats Row 2 */}
                         <div className='w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-x-7'>
-                            <div className='w-full text-start flex justify-between flex-col h-full bg-black border border-[#252B37] rounded-[4px] p-5 lg:p-6'>
-                                <p className='text-sm lg:text-base text-[#D5D7DA] font-normal font-manrope'>
-                                    We were terrified of the new GDPR rules. Giopio set up Server-Side tracking and Consent Mode V2 flawlessly. We recovered about 40% of our ad data that was being blocked. The peace of mind is worth every cent.
-                                </p>
-
-                                <div className="flex items-center justify-between gap-x-4 mt-4 lg:mt-0">
-                                    <div className="order-2">
-                                        <AudioIcon />
-                                    </div>
-                                    <div>
-                                        <h5 className='text-white font-medium text-base lg:text-lg font-onest'>
-                                            Sarah Williams
-                                        </h5>
-                                        <h6 className='text-sm lg:text-base text-[#D5D7DA] font-medium font-manrope mt-0.5'>
-                                            ✅ Marketing Director
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
                             <div className='w-full text-start bg-black border border-[#252B37] rounded-[4px]'>
 
                                 <div className="relative w-full h-[225px]">
