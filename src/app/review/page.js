@@ -236,6 +236,32 @@ export default function Review() {
             <section className="w-full relative">
                 <div className="container">
                     <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-y-4 lg:gap-7">
+                        {/* Video Review Card 2 */}
+                        <VideoReviewCard
+                            youtubeVideoId={videoReviews[1].youtubeVideoId}
+                            thumbnail={videoReviews[1].thumbnail}
+                            reviewText={videoReviews[1].reviewText}
+                            reviewerName={videoReviews[1].reviewerName}
+                            reviewerRole={videoReviews[1].reviewerRole}
+                            reviewerIcon={videoReviews[1].reviewerIcon}
+                            isPlaying={activeVideoId === videoReviews[1].id}
+                            onPlay={() => handlePlayVideo(videoReviews[1].id)}
+                            onVideoEnd={handleVideoEnd}
+                        />
+
+                        {/* Video Review Card 3 */}
+                        <VideoReviewCard
+                            youtubeVideoId={videoReviews[2].youtubeVideoId}
+                            thumbnail={videoReviews[2].thumbnail}
+                            reviewText={videoReviews[2].reviewText}
+                            reviewerName={videoReviews[2].reviewerName}
+                            reviewerRole={videoReviews[2].reviewerRole}
+                            reviewerIcon={videoReviews[2].reviewerIcon}
+                            isPlaying={activeVideoId === videoReviews[2].id}
+                            onPlay={() => handlePlayVideo(videoReviews[2].id)}
+                            onVideoEnd={handleVideoEnd}
+                        />
+
                         {/* Video Review Card 1 */}
                         <VideoReviewCard
                             youtubeVideoId={videoReviews[0].youtubeVideoId}
@@ -247,7 +273,7 @@ export default function Review() {
                             isPlaying={activeVideoId === videoReviews[0].id}
                             onPlay={() => handlePlayVideo(videoReviews[0].id)}
                             onVideoEnd={handleVideoEnd}
-                        />
+                        /> 
 
                         {/* Text + Stats Row */}
                         <div className='w-full grid grid-cols-1 lg:grid-cols-2 lg:gap-x-7'>
@@ -337,31 +363,7 @@ export default function Review() {
                             </div>
                         </div>
 
-                        {/* Video Review Card 2 */}
-                        <VideoReviewCard
-                            youtubeVideoId={videoReviews[1].youtubeVideoId}
-                            thumbnail={videoReviews[1].thumbnail}
-                            reviewText={videoReviews[1].reviewText}
-                            reviewerName={videoReviews[1].reviewerName}
-                            reviewerRole={videoReviews[1].reviewerRole}
-                            reviewerIcon={videoReviews[1].reviewerIcon}
-                            isPlaying={activeVideoId === videoReviews[1].id}
-                            onPlay={() => handlePlayVideo(videoReviews[1].id)}
-                            onVideoEnd={handleVideoEnd}
-                        />
-
-                        {/* Video Review Card 3 */}
-                        <VideoReviewCard
-                            youtubeVideoId={videoReviews[2].youtubeVideoId}
-                            thumbnail={videoReviews[2].thumbnail}
-                            reviewText={videoReviews[2].reviewText}
-                            reviewerName={videoReviews[2].reviewerName}
-                            reviewerRole={videoReviews[2].reviewerRole}
-                            reviewerIcon={videoReviews[2].reviewerIcon}
-                            isPlaying={activeVideoId === videoReviews[2].id}
-                            onPlay={() => handlePlayVideo(videoReviews[2].id)}
-                            onVideoEnd={handleVideoEnd}
-                        />
+                        
                     </div>
                 </div>
             </section>
