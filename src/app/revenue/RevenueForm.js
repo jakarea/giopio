@@ -18,10 +18,62 @@ export default function RevenueForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null); // null, 'success', 'error'
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
+
+    // Form validation
+    if (!formData.url || !formData.month || !formData.primary || !formData.email) {
+      setSubmitStatus('error');
+      setErrorMessage('Please fill in all fields');
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setSubmitStatus('error');
+      setErrorMessage('Please enter a valid email address');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/revenue', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ url: '', month: '', primary: '', email: '' });
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(data.message || 'Failed to submit application. Please try again.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setErrorMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const resetForm = () => {
+    setSubmitStatus(null);
+    setErrorMessage('');
   };
 
   const monthlyRevenueOptions = [
@@ -83,56 +135,115 @@ export default function RevenueForm() {
                 The Application Form
               </h2>
               <form className="w-full mt-6 md:mt-8 lg:mt-10 flex flex-col gap-y-6 lg:gap-y-8" onSubmit={handleSubmit}>
-                <div className="group">
-                  <input
-                    type="text"
-                    name="url"
-                    id="url"
-                    placeholder="Store URL"
-                    value={formData.url}
-                    onChange={handleInputChange}
-                    className="border-b-2 border-white/20 bg-transparent block w-full pb-2 lg:pb-6 font-normal text-white text-base lg:text-xl placeholder:text-white/40 focus-visible:outline-none focus:border-[#FF9040] transition-all duration-300"
-                  />
-                </div>
 
-                <CustomSelect
-                  label="Monthly Revenue:"
-                  name="month"
-                  options={monthlyRevenueOptions}
-                  placeholder="Select revenue range"
-                  value={formData.month}
-                  onChange={handleInputChange}
-                />
+                {/* Error Message */}
+                {submitStatus === 'error' && (
+                  <div className="bg-red-500/10 border border-red-500 text-red-400 px-4 py-3 rounded-lg flex items-start gap-3">
+                    <svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                    <span className="text-sm">{errorMessage}</span>
+                  </div>
+                )}
 
-                <CustomSelect
-                  label="Primary Technical Blocker:"
-                  name="primary"
-                  options={technicalBlockerOptions}
-                  placeholder="Select your main challenge"
-                  value={formData.primary}
-                  onChange={handleInputChange}
-                />
+                {/* Success Message */}
+                {submitStatus === 'success' && (
+                  <div className="bg-green-500/10 border border-green-500 text-green-400 px-6 py-5 rounded-lg">
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0">
+                        <svg className="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-lg mb-1">Application Received!</h4>
+                        <p className="text-sm text-green-300/80">
+                          Thank you for your interest. Our team will review your application and get back to you within 24-48 hours.
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={resetForm}
+                        className="text-green-400 hover:text-green-300 transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                )}
 
-                <div className="group">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Work Email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="border-b-2 border-white/20 bg-transparent block w-full pb-2 lg:pb-6 font-normal text-white text-base lg:text-xl placeholder:text-white/40 focus-visible:outline-none focus:border-[#FF9040] transition-all duration-300"
-                  />
-                </div>
+                {/* Form Fields - Hide when success */}
+                {submitStatus !== 'success' && (
+                  <>
+                    <div className="group">
+                      <input
+                        type="text"
+                        name="url"
+                        id="url"
+                        placeholder="Store URL"
+                        value={formData.url}
+                        onChange={handleInputChange}
+                        disabled={isSubmitting}
+                        className="border-b-2 border-white/20 bg-transparent block w-full pb-2 lg:pb-6 font-normal text-white text-base lg:text-xl placeholder:text-white/40 focus-visible:outline-none focus:border-[#FF9040] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      />
+                    </div>
 
-                <div className="pt-4">
-                  <button
-                    type="submit"
-                    className="w-full block bg-[#FF9040] text-[#101828] font-semibold text-base lg:text-lg xl:text-xl py-3 lg:py-4 rounded-[4px] anim hover:bg-first/70 transition-all duration-300 hover:shadow-lg hover:shadow-first/30"
-                  >
-                    Get My Revenue Roadmap
-                  </button>
-                </div>
+                    <CustomSelect
+                      label="Monthly Revenue:"
+                      name="month"
+                      options={monthlyRevenueOptions}
+                      placeholder="Select revenue range"
+                      value={formData.month}
+                      onChange={handleInputChange}
+                      disabled={isSubmitting}
+                    />
+
+                    <CustomSelect
+                      label="Primary Technical Blocker:"
+                      name="primary"
+                      options={technicalBlockerOptions}
+                      placeholder="Select your main challenge"
+                      value={formData.primary}
+                      onChange={handleInputChange}
+                      disabled={isSubmitting}
+                    />
+
+                    <div className="group">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Work Email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        disabled={isSubmitting}
+                        className="border-b-2 border-white/20 bg-transparent block w-full pb-2 lg:pb-6 font-normal text-white text-base lg:text-xl placeholder:text-white/40 focus-visible:outline-none focus:border-[#FF9040] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      />
+                    </div>
+
+                    <div className="pt-4">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full block bg-[#FF9040] text-[#101828] font-semibold text-base lg:text-lg xl:text-xl py-3 lg:py-4 rounded-[4px] anim hover:bg-first/70 transition-all duration-300 hover:shadow-lg hover:shadow-first/30 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <svg className="animate-spin h-5 w-5 text-[#101828]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span>Sending...</span>
+                          </>
+                        ) : (
+                          'Get My Revenue Roadmap'
+                        )}
+                      </button>
+                    </div>
+                  </>
+                )}
               </form>
             </div>
           </div>
