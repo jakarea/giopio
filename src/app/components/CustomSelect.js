@@ -1,7 +1,7 @@
 'use client'
 import { useState, useRef, useEffect } from 'react';
 
-const CustomSelect = ({ label, name, options, placeholder = "Select", value, onChange, className = "" }) => {
+const CustomSelect = ({ label, name, options, placeholder = "Select", value, onChange, className = "", disabled = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef(null);
 
@@ -23,8 +23,15 @@ const CustomSelect = ({ label, name, options, placeholder = "Select", value, onC
   }, [isOpen]);
 
   const handleSelect = (optionValue) => {
+    if (disabled) return;
     onChange({ target: { name, value: optionValue } });
     setIsOpen(false);
+  };
+
+  const toggleDropdown = () => {
+    if (!disabled) {
+      setIsOpen(!isOpen);
+    }
   };
 
   const selectedOption = options.find(opt => opt.value === value);
@@ -39,7 +46,8 @@ const CustomSelect = ({ label, name, options, placeholder = "Select", value, onC
         {/* Custom Select Button */}
         <button
           type="button"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={toggleDropdown}
+          disabled={disabled}
           className={`
             w-full text-left px-0 py-2 lg:py-5
             border-b-2 bg-transparent border-white/20
@@ -49,6 +57,7 @@ const CustomSelect = ({ label, name, options, placeholder = "Select", value, onC
             flex items-center justify-between
             transition-all duration-300
             ${isOpen ? 'border-[#FF9040]' : ''}
+            ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
           `}
         >
           <span className={selectedOption ? '' : 'text-white/40'}>
@@ -72,7 +81,7 @@ const CustomSelect = ({ label, name, options, placeholder = "Select", value, onC
         </button>
 
         {/* Dropdown Options */}
-        {isOpen && (
+        {isOpen && !disabled && (
           <div className="
             absolute z-50 w-full mt-2
             bg-[#1B1C31] border border-[#414651] rounded
